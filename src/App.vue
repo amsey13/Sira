@@ -1,0 +1,22 @@
+<template>
+  <main>
+    <FriseMecquoise />
+  </main>
+</template>
+
+<script setup>
+import FriseMecquoise from './components/FriseMecquoise.vue'
+</script>
+
+<style>
+/* Réinitialisation de base pour une page propre */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f8fafc;
+  font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+</style>
