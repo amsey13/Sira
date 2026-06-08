@@ -28,7 +28,7 @@
   <!-- Texte arabe central - محمد (Muhammad) en calligraphie -->
   <text
     x="100"
-    y="110"
+    y="100"
     font-family="Arial, sans-serif"
     font-size="65"
     font-weight="bold"
@@ -39,16 +39,15 @@
     محمد
   </text>
 
-  <!-- Symbole de salutation - ﷺ (Salla Allahu Alayhi Wa Sallam) - PLUS VISIBLE -->
+  <!-- Symbole de salutation - ﷺ (Salla Allahu Alayhi Wa Sallam) - TRÈS GROS EN BAS -->
   <text
-    x="138"
-    y="68"
+    x="100"
+    y="145"
     font-family="Arial, sans-serif"
-    font-size="38"
+    font-size="60"
     font-weight="bold"
     text-anchor="middle"
-    fill="#1a1a1a"
-    style="text-shadow: 0 0 2px rgba(212, 175, 55, 0.8);">
+    fill="#1a1a1a">
     ﷺ
   </text>
 
@@ -64,6 +63,7 @@
   <circle cx="35" cy="165" r="3" fill="#1a1a1a" opacity="0.5"/>
   <circle cx="165" cy="165" r="3" fill="#1a1a1a" opacity="0.5"/>
 </svg>
+
 
 
 
