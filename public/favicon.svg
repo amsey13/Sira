@@ -28,9 +28,9 @@
   <!-- Texte arabe central - محمد (Muhammad) en calligraphie -->
   <text
     x="100"
-    y="115"
+    y="110"
     font-family="Arial, sans-serif"
-    font-size="70"
+    font-size="65"
     font-weight="bold"
     text-anchor="middle"
     fill="#1a1a1a"
@@ -39,11 +39,23 @@
     محمد
   </text>
 
+  <!-- Symbole de salutation - ﷺ (Salla Allahu Alayhi Wa Sallam) -->
+  <text
+    x="145"
+    y="75"
+    font-family="Arial, sans-serif"
+    font-size="22"
+    font-weight="bold"
+    text-anchor="middle"
+    fill="#1a1a1a">
+    ﷺ
+  </text>
+
   <!-- Ligne décorative au-dessus -->
-  <line x1="60" y1="50" x2="140" y2="50" stroke="#1a1a1a" stroke-width="2" opacity="0.6"/>
+  <line x1="50" y1="45" x2="140" y2="45" stroke="#1a1a1a" stroke-width="2" opacity="0.6"/>
 
   <!-- Ligne décorative au-dessous -->
-  <line x1="60" y1="150" x2="140" y2="150" stroke="#1a1a1a" stroke-width="2" opacity="0.6"/>
+  <line x1="50" y1="155" x2="140" y2="155" stroke="#1a1a1a" stroke-width="2" opacity="0.6"/>
 
   <!-- Petits ornements aux coins -->
   <circle cx="35" cy="35" r="3" fill="#1a1a1a" opacity="0.5"/>
@@ -51,4 +63,5 @@
   <circle cx="35" cy="165" r="3" fill="#1a1a1a" opacity="0.5"/>
   <circle cx="165" cy="165" r="3" fill="#1a1a1a" opacity="0.5"/>
 </svg>
+
 
