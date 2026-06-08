@@ -39,15 +39,16 @@
     محمد
   </text>
 
-  <!-- Symbole de salutation - ﷺ (Salla Allahu Alayhi Wa Sallam) -->
+  <!-- Symbole de salutation - ﷺ (Salla Allahu Alayhi Wa Sallam) - PLUS VISIBLE -->
   <text
-    x="145"
-    y="75"
+    x="138"
+    y="68"
     font-family="Arial, sans-serif"
-    font-size="22"
+    font-size="38"
     font-weight="bold"
     text-anchor="middle"
-    fill="#1a1a1a">
+    fill="#1a1a1a"
+    style="text-shadow: 0 0 2px rgba(212, 175, 55, 0.8);">
     ﷺ
   </text>
 
@@ -63,5 +64,6 @@
   <circle cx="35" cy="165" r="3" fill="#1a1a1a" opacity="0.5"/>
   <circle cx="165" cy="165" r="3" fill="#1a1a1a" opacity="0.5"/>
 </svg>
+
 
 
