@@ -1374,4 +1374,239 @@ const getBackgroundStyle = (bgValue) => {
   opacity: 1;
   transform: translateY(0);
 }
+
+/* =================== RESPONSIVE DESIGN =================== */
+
+/* TABLET (640px - 1024px) */
+@media (max-width: 1024px) {
+  .top-hud {
+    padding: 20px 40px;
+  }
+
+  .mode-title h2 {
+    font-size: 1rem;
+    letter-spacing: 2px;
+  }
+
+  .hud-right {
+    gap: 15px;
+  }
+
+  .progress-counter {
+    font-size: 1rem;
+  }
+
+  .codex-btn {
+    padding: 8px 15px;
+    font-size: 0.9rem;
+  }
+
+  .codex-overlay {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .info-panel {
+    padding: 15px 40px;
+    max-width: 100%;
+  }
+
+  .chapter-title {
+    font-size: 2.5rem;
+  }
+
+  .chapter-tabs button {
+    font-size: 0.8rem;
+    padding: 8px 10px;
+  }
+
+  .tab-pane p {
+    font-size: 1rem;
+  }
+
+  .persos-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+
+  .perso-avatar {
+    width: 60px;
+    height: 60px;
+    font-size: 1.5rem;
+  }
+}
+
+/* MOBILE (< 640px) */
+@media (max-width: 640px) {
+  .top-hud {
+    padding: 15px 20px;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  .mode-title {
+    gap: 10px;
+    width: 100%;
+  }
+
+  .mode-icon {
+    width: 35px;
+    height: 35px;
+    font-size: 1rem;
+  }
+
+  .mode-title h2 {
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+  }
+
+  .hud-right {
+    width: 100%;
+    gap: 10px;
+    justify-content: space-between;
+  }
+
+  .progress-counter {
+    font-size: 0.85rem;
+  }
+
+  .codex-btn {
+    padding: 6px 12px;
+    font-size: 0.75rem;
+  }
+
+  .codex-overlay {
+    width: 100%;
+    height: auto;
+    bottom: 0;
+    right: 0;
+    top: auto;
+    border-left: none;
+    border-top: 2px solid #d97706;
+    border-radius: 15px 15px 0 0;
+    padding: 20px;
+    max-height: 70vh;
+    overflow-y: auto;
+  }
+
+  .codex-overlay h2 {
+    font-size: 1.2rem;
+  }
+
+  .info-panel {
+    padding: 15px 20px;
+    max-width: 100%;
+  }
+
+  .chapter-meta {
+    flex-wrap: wrap;
+    gap: 8px;
+    font-size: 0.7rem;
+  }
+
+  .chapter-title {
+    font-size: 1.8rem;
+    margin: 0 0 15px 0;
+  }
+
+  .chapter-tabs {
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+
+  .chapter-tabs button {
+    font-size: 0.65rem;
+    padding: 6px 8px;
+  }
+
+  .tab-content-area {
+    max-height: 40vh;
+    overflow-y: auto;
+  }
+
+  .tab-pane p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  .tab-pane li {
+    font-size: 0.85rem;
+    padding: 10px;
+  }
+
+  .persos-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .perso-avatar {
+    width: 50px;
+    height: 50px;
+    min-width: 50px;
+    font-size: 1.3rem;
+  }
+
+  .perso-info h3 {
+    font-size: 0.9rem;
+  }
+
+  .perso-info p {
+    font-size: 0.8rem;
+  }
+
+  .chapter-selector-area {
+    padding: 15px 20px 30px 20px;
+  }
+
+  .nav-controls {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .nav-btn {
+    width: 100%;
+    padding: 10px 15px;
+    font-size: 0.75rem;
+  }
+
+  .nav-hint {
+    font-size: 0.7rem;
+    text-align: center;
+    width: 100%;
+  }
+
+  .track-container {
+    height: 50px;
+  }
+
+  .node-label {
+    top: -30px;
+    font-size: 0.6rem;
+  }
+
+  .node-point {
+    width: 12px;
+    height: 12px;
+    border-width: 1px;
+  }
+}
+
+/* TRÈS PETIT MOBILE (< 400px) */
+@media (max-width: 400px) {
+  .mode-title h2 {
+    font-size: 0.75rem;
+  }
+
+  .chapter-title {
+    font-size: 1.5rem;
+  }
+
+  .chapter-tabs button {
+    font-size: 0.6rem;
+    padding: 5px 6px;
+  }
+
+  .tab-pane p {
+    font-size: 0.85rem;
+  }
+}
 </style>
