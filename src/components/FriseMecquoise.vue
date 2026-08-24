@@ -1,827 +1,220 @@
 <template>
-  <div class="game-ui-container" tabindex="0" @keyup="handleKeydown" ref="gameContainer">
-    <transition-group name="bg-fade" tag="div" class="background-layer">
-      <div
-        v-for="(evt, index) in evenements"
-        :key="evt.id"
-        v-show="activeIndex === index"
-        class="bg-image"
-        :style="getBackgroundStyle(evt.bgImage)"
-      ></div>
-    </transition-group>
-
-    <div class="vignette-overlay"></div>
-
-    <div class="ui-layer">
-      <div class="top-hud">
-        <div class="mode-title">
-          <span class="mode-icon"><i class="pi pi-book"></i></span>
-          <h2>COURS SIRA : PÉRIODE MÉCQUOISE FRISE CHRONOLOGIQUE</h2>
+  <div v-if="loadState === 'ready' && activeEvent" class="ui-layer">
+    <div class="game-ui-container" tabindex="0" @keyup="handleKeydown" ref="gameContainer">
+      <transition name="bg-fade" mode="out-in">
+        <div :key="activeEvent.id" class="background-layer">
+          <div class="bg-image" :style="getBackgroundStyle(activeEvent.bgImage)"></div>
         </div>
+      </transition>
 
-        <div class="hud-right">
-          <div class="progress-counter">
-            CHAPITRE {{ activeIndex + 1 }} / {{ evenements.length }}
+      <div class="vignette-overlay"></div>
+
+      <!-- ON UTILISE UN FLEX COLUMN SUR TOUTE LA HAUTEUR -->
+      <div class="ui-layer main-layout">
+
+        <!-- HEADER EN HAUT -->
+        <div class="top-hud shrink-0">
+          <div class="mode-title">
+            <span class="mode-icon"><i class="pi pi-book"></i></span>
+            <div>
+              <h2>COURS SIRA : PÉRIODE MÉCQUOISE</h2>
+              <p class="teacher-label">{{ teacherLabel }}</p>
+            </div>
           </div>
-          <button class="codex-btn" @click="showCodex = true">
-            <i class="pi pi-compass"></i> CODEX TRIBAL
-          </button>
+
+          <div class="hud-right">
+            <div class="progress-counter">
+              CHAPITRE {{ activeIndex + 1 }} / {{ evenements.length }}
+            </div>
+            <button class="codex-btn" @click="showCodex = true">
+              <i class="pi pi-compass"></i> CODEX
+            </button>
+          </div>
         </div>
-      </div>
 
-      <div class="info-panel">
-        <transition name="slide-up" mode="out-in">
-          <div :key="activeEvent.id" class="chapter-content">
-            <div class="chapter-meta">
-              <span class="age-tag"><i class="pi pi-user"></i> Âge : {{ activeEvent.age }}</span>
-              <span class="date-tag"><i class="pi pi-calendar"></i> {{ activeEvent.date }}</span>
-              <span class="hijri-tag"><i class="pi pi-moon"></i> {{ activeEvent.dateH }}</span>
-            </div>
-
-            <h1 class="chapter-title">{{ activeEvent.titre }}</h1>
-
-            <div class="chapter-tabs">
-              <button :class="{ active: activeTab === 'recit' }" @click="activeTab = 'recit'">
-                RÉCIT HISTORIQUE
-              </button>
-              <button :class="{ active: activeTab === 'persos' }" @click="activeTab = 'persos'">
-                PERSONNAGES
-              </button>
-              <button :class="{ active: activeTab === 'lecons' }" @click="activeTab = 'lecons'">
-                LEÇONS & SAGESSES
-              </button>
-              <button
-                v-if="activeEvent.versets"
-                :class="{ active: activeTab === 'versets' }"
-                @click="activeTab = 'versets'"
-              >
-                VERSETS
-              </button>
-            </div>
-
-            <div class="tab-content-area">
-              <transition name="fade" mode="out-in">
-                <div v-if="activeTab === 'recit'" class="tab-pane recit-pane" key="recit">
-                  <p v-html="activeEvent.recit"></p>
+        <!-- ZONE CENTRALE FLUIDE QUI PREND TOUT L'ESPACE RESTANT -->
+        <div class="info-panel flex-1">
+          <transition name="slide-up" mode="out-in">
+            <div :key="activeEvent.id" class="chapter-content h-full">
+              <!-- En-tête du chapitre toujours visible -->
+              <div class="chapter-header-fixed shrink-0">
+                <div class="chapter-meta">
+                  <span class="age-tag"><i class="pi pi-user"></i> Âge : {{ activeEvent.age }}</span>
+                  <span class="date-tag"><i class="pi pi-calendar"></i> {{ activeEvent.date }}</span>
+                  <span class="hijri-tag"><i class="pi pi-moon"></i> {{ activeEvent.dateH }}</span>
                 </div>
 
-                <div v-else-if="activeTab === 'persos'" class="tab-pane persos-pane" key="persos">
-                  <div class="persos-grid">
-                    <div v-for="(perso, i) in activeEvent.personnages" :key="i" class="perso-card">
-                      <div class="perso-avatar" :style="{ backgroundColor: perso.couleur || '#d97706' }">
-                        <span>{{ perso.initiales || perso.nom.charAt(0) }}</span>
-                      </div>
-                      <div class="perso-info">
-                        <h3>{{ perso.nom }}</h3>
-                        <p>{{ perso.role }}</p>
-                      </div>
+                <h1 class="chapter-title">{{ activeEvent.titre }}</h1>
+
+                <div class="chapter-tabs">
+                  <button :class="{ active: activeTab === 'recit' }" @click="activeTab = 'recit'">
+                    RÉCIT HISTORIQUE
+                  </button>
+                  <button :class="{ active: activeTab === 'persos' }" @click="activeTab = 'persos'">
+                    PERSONNAGES
+                  </button>
+                  <button :class="{ active: activeTab === 'lecons' }" @click="activeTab = 'lecons'">
+                    LEÇONS
+                  </button>
+                  <button
+                    v-if="activeEvent.versets"
+                    :class="{ active: activeTab === 'versets' }"
+                    @click="activeTab = 'versets'"
+                  >
+                    VERSETS
+                  </button>
+                </div>
+              </div>
+
+              <!-- Zone de texte scrollable qui remplit le reste de l'Info-panel -->
+              <div class="tab-content-area flex-1">
+                <transition name="fade" mode="out-in">
+                  <div v-if="activeTab === 'recit'" class="tab-pane recit-pane" key="recit">
+                    <div class="text-content" v-html="activeEvent.recit"></div>
+                  </div>
+
+                  <div v-else-if="activeTab === 'persos'" class="tab-pane persos-pane" key="persos">
+                    <div class="persos-grid">
+                      <CharacterCard
+                        v-for="(perso, i) in activeEvent.personnages"
+                        :key="i"
+                        :perso="perso"
+                      />
                     </div>
                   </div>
-                </div>
 
-                <div v-else-if="activeTab === 'lecons'" class="tab-pane lecons-pane" key="lecons">
-                  <ul>
-                    <li v-for="(lecon, i) in activeEvent.lecons" :key="i">
-                      <i
-                        class="pi pi-star-fill"
-                        style="color: #d97706; margin-right: 10px; font-size: 0.8rem"
-                      ></i>
-                      {{ lecon }}
-                    </li>
-                  </ul>
-                </div>
-
-                <div
-                  v-else-if="activeTab === 'versets'"
-                  class="tab-pane versets-pane"
-                  key="versets"
-                >
-                  <div class="verset-box">
-                    <i
-                      class="pi pi-book"
-                      style="font-size: 2rem; color: #d97706; margin-bottom: 15px"
-                    ></i>
-                    <p>{{ activeEvent.versets }}</p>
+                  <div v-else-if="activeTab === 'lecons'" class="tab-pane lecons-pane" key="lecons">
+                    <ul class="lecons-list">
+                      <li v-for="(lecon, i) in activeEvent.lecons" :key="i">
+                        <i class="pi pi-star-fill lecon-icon"></i>
+                        <span>{{ lecon }}</span>
+                      </li>
+                    </ul>
                   </div>
-                </div>
-              </transition>
+
+                  <div
+                    v-else-if="activeTab === 'versets'"
+                    class="tab-pane versets-pane"
+                    key="versets"
+                  >
+                    <div class="verset-box">
+                      <i class="pi pi-book verset-icon"></i>
+                      <p>{{ activeEvent.versets }}</p>
+                    </div>
+                  </div>
+                </transition>
+              </div>
             </div>
-          </div>
-        </transition>
+          </transition>
+        </div>
+
+        <!-- TIMELINE EN BAS -->
+        <TimelineNav
+          class="shrink-0"
+          :evenements="evenements"
+          :activeIndex="activeIndex"
+          :progressPercentage="progressPercentage"
+          @prev="prevChapter"
+          @next="nextChapter"
+          @set-chapter="setChapter"
+        />
       </div>
 
-      <div class="chapter-selector-area">
-        <div class="nav-controls">
-          <button class="nav-btn prev-btn" @click="prevChapter" :disabled="activeIndex === 0">
-            <i class="pi pi-angle-left"></i> Précédent
+      <transition name="slide-left">
+        <div v-if="showCodex" class="codex-overlay">
+          <button class="close-codex" @click="showCodex = false">
+            <i class="pi pi-times"></i> FERMER
           </button>
-          <div class="nav-hint">Flèches ◄ / ► pour naviguer</div>
-          <button
-            class="nav-btn next-btn"
-            @click="nextChapter"
-            :disabled="activeIndex === evenements.length - 1"
-          >
-            Suivant <i class="pi pi-angle-right"></i>
-          </button>
-        </div>
-        <div class="track-container">
-          <div class="track-line-bg"></div>
-          <div class="track-line-fill" :style="{ width: progressPercentage }"></div>
-          <div class="nodes-container">
-            <div
-              v-for="(evt, index) in evenements"
-              :key="evt.id"
-              class="node-wrapper"
-              @click="setChapter(index)"
-            >
-              <div
-                class="node-point"
-                :class="{ active: activeIndex === index, completed: index < activeIndex }"
-              >
-                <div class="node-core"></div>
-              </div>
-              <div class="node-label" :class="{ 'active-label': activeIndex === index }">
-                {{ evt.titreCourt }}
-              </div>
+          <h2><i class="pi pi-compass"></i> CODEX : CONTEXTE PRÉ-ISLAMIQUE</h2>
+          <div class="codex-content">
+            <div class="codex-section">
+              <h3>Les Empires Rivaux</h3>
+              <p>
+                La péninsule est coincée entre l'<strong>Empire Byzantin</strong> (Chrétien, au
+                Nord-Ouest) et l'<strong>Empire Sassanide</strong> (Perse Zoroastrien, au Nord-Est).
+                Au sud, le Yémen subit l'influence de l'Empire d'Abyssinie.
+              </p>
+            </div>
+            <div class="codex-section">
+              <h3>La Dégénérescence Religieuse</h3>
+              <p>
+                Le monothéisme pur d'Ibrahim et Ismaël a été corrompu par
+                <strong>'Âmir b. Luhayy</strong> qui ramena l'idole <strong>Hubal</strong> de Syrie.
+                Parmi les grandes déesses vénérées : Al-Lât (à Ta'if), Al-'Uzza et Manât.
+              </p>
+            </div>
+            <div class="codex-section">
+              <h3>Le Système Tribal Mecquois (Quraysh)</h3>
+              <p>
+                La Mecque n'a pas de roi. Elle est gérée par la tribu de Quraysh à travers
+                <strong>19 fonctions honorifiques</strong> réparties entre les clans. Exemples : la
+                <em>Siqâya</em> (gestion de l'eau) et la <em>Hijaba</em> (garde des clés de la
+                Ka'ba).
+              </p>
             </div>
           </div>
         </div>
-      </div>
+      </transition>
     </div>
-
-    <transition name="slide-left">
-      <div v-if="showCodex" class="codex-overlay">
-        <button class="close-codex" @click="showCodex = false">
-          <i class="pi pi-times"></i> FERMER
-        </button>
-        <h2><i class="pi pi-compass"></i> CODEX : CONTEXTE PRÉ-ISLAMIQUE</h2>
-        <div class="codex-content">
-          <div class="codex-section">
-            <h3>Les Empires Rivaux</h3>
-            <p>
-              La péninsule est coincée entre l'<strong>Empire Byzantin</strong> (Chrétien, au
-              Nord-Ouest) et l'<strong>Empire Sassanide</strong> (Perse Zoroastrien, au Nord-Est).
-              Au sud, le Yémen subit l'influence de l'Empire d'Abyssinie.
-            </p>
-          </div>
-          <div class="codex-section">
-            <h3>La Dégénérescence Religieuse</h3>
-            <p>
-              Le monothéisme pur d'Ibrahim et Ismaël a été corrompu par
-              <strong>'Âmir b. Luhayy</strong> qui ramena l'idole <strong>Hubal</strong> de Syrie.
-              Parmi les grandes déesses vénérées : Al-Lât (à Ta'if), Al-'Uzza et Manât.
-            </p>
-          </div>
-          <div class="codex-section">
-            <h3>Le Système Tribal Mecquois (Quraysh)</h3>
-            <p>
-              La Mecque n'a pas de roi. Elle est gérée par la tribu de Quraysh à travers
-              <strong>19 fonctions honorifiques</strong> réparties entre les clans. Exemples : la
-              <em>Siqâya</em> (gestion de l'eau) et la <em>Hijaba</em> (garde des clés de la Ka'ba).
-            </p>
-          </div>
-        </div>
-      </div>
-    </transition>
+  </div>
+  <div v-else-if="loadState === 'loading'" class="ui-layer">
+    <!-- Skeleton loader omis par simplicité ... -->
+    <div class="state-screen">
+       <i class="pi pi-spin pi-spinner" style="font-size: 3rem; color: #d97706"></i>
+    </div>
+  </div>
+  <div v-else class="ui-layer state-screen">
+    <div class="state-card">
+      <span class="state-icon">
+        <i :class="loadState === 'error' ? 'pi pi-exclamation-triangle' : 'pi pi-lock'"></i>
+      </span>
+      <h2>{{ loadState === 'error' ? 'Backend indisponible' : 'Aucun chapitre autorisé' }}</h2>
+      <p>{{ errorMessage || 'Ce professeur ne dispose d’aucun chapitre publié pour le moment.' }}</p>
+      <button class="codex-btn" @click="fetchEvents">
+        <i class="pi pi-refresh"></i> RÉESSAYER
+      </button>
+    </div>
   </div>
 </template>
 
 <script setup>
-import { ref, computed, onMounted, watch } from 'vue'
+import { ref, computed, onMounted } from 'vue'
+import Skeleton from 'primevue/skeleton'
+import TimelineNav from './TimelineNav.vue'
+import CharacterCard from './CharacterCard.vue'
+import { getTeacherTimeline, resolveTeacherSlugFromLocation } from '../services/siraEventsService.js'
 
 const showCodex = ref(false)
 const activeTab = ref('recit') // 'recit', 'persos', 'lecons', 'versets'
 
-// Base de données : J'ai enrichi les 3 premiers pour te montrer le concept (Étape 1).
-const evenements = ref([
-   {
-     id: 1,
-     age: '50 jours avant la naissance',
-     date: '570 apr. J.-C.',
-     dateH: "53 av. l'Hégire",
-     titreCourt: "L'Éléphant",
-     titre: "L'Année de l'Éléphant",
-     recit:
-       "Abraha, gouverneur du Yémen, marche sur La Mecque avec une armée d'éléphants pour détruire la Ka'ba. Aux abords de la ville, il confisque les troupeaux des Mecquois. 'Abd al-Muttalib, le grand-père du Prophète et chef de La Mecque, vient à sa rencontre.<br><br>Abraha s'attend à ce qu'il le supplie d'épargner la Ka'ba, mais 'Abd al-Muttalib réclame seulement ses 200 chameaux confisqués. Étonné, Abraha le méprise, ce à quoi 'Abd al-Muttalib répond par cette phrase historique : <em>« Je suis le Maître de mes chameaux. Quant à cette Maison, elle a un Maître qui la protègera. »</em><br><br>Dieu envoie des oiseaux (Ababil) jetant des pierres , anéantissant l'armée.",
-     personnages: [
-       {
-         nom: 'Abraha Al-Ashram',
-         role: 'Gouverneur tyran voulant forcer les Arabes à pèleriner dans sa cathédrale à Sanaa.',
-         initiales: 'AA',
-         couleur: '#8b5a3c'
-       },
-       {
-         nom: "'Abd al-Muttalib",
-         role: 'Grand-père du Prophète. Son attitude montre une confiance aveugle en la protection divine du sanctuaire.',
-         initiales: 'AM',
-         couleur: '#c9a961'
-       },
-     ],
-     lecons: [
-       "La protection de la Ka'ba est garantie par Allah, préparant le terrain religieux pour la naissance imminente du Prophète de l'Islam.",
-     ],
-     versets:
-       "Sourate Al-Fîl (L'Éléphant - 105) : « N'as-tu pas vu comment ton Seigneur a agi envers les gens de l'Éléphant ? »",
-      bgImage:
-        'linear-gradient(135deg, #8b4513 0%, #d2691e 50%, #cd853f 100%)',
-   },
-   {
-     id: 2,
-     age: '0 an',
-     date: '571 apr. J.-C.',
-     dateH: "53 av. l'Hégire",
-     titreCourt: 'Naissance',
-     titre: "La Naissance de l'Élu",
-     recit:
-       "Le Prophète Muhammad (PBSL) naît à La Mecque un lundi, le 9 ou le 12 du mois de Rabi' Al-Awwal. Son père, Abdullah, est décédé lors d'un voyage commercial à Yathrib (Médine) alors que sa mère Amina était encore enceinte de deux mois.<br><br>Selon la coutume, il est confié à une nourrice bédouine du désert pour le fortifier physiquement et lui faire acquérir la pureté de la langue arabe.",
-     personnages: [
-       { nom: 'Amina bint Wahb', role: 'Mère du Prophète, du clan Banu Zuhrah.', initiales: 'AW', couleur: '#d4a574' },
-       {
-         nom: "Halîma as-Sa'diyya",
-         role: "Sa nourrice bédouine de la tribu des Bani Sa'd. Dès qu'elle l'allaite, une immense bénédiction (Baraka) touche son foyer affamé.",
-         initiales: 'HS',
-         couleur: '#a67c52'
-       },
-     ],
-     lecons: [
-       "Le statut d'orphelin dès la naissance prépare le Prophète à ne dépendre que d'Allah.",
-       "L'immersion dans le désert forge sa robustesse et son éloquence légendaire.",
-     ],
-     versets:
-       "Sourate Ad-Duha (Le Jour Montant - 93:6) : « Ne t'a-t-Il pas trouvé orphelin ? Alors Il t'a accueilli ! »",
-     bgImage:
-       'linear-gradient(135deg, #1a1a1a 0%, #2d1810 50%, #3d2817 100%)',
-   },
-   {
-     id: 3,
-     age: '4 ans',
-     date: 'Vers 575 apr. J.-C.',
-     dateH: "49 av. l'Hégire",
-     titreCourt: 'Purification',
-     titre: "L'Ouverture de la Poitrine",
-     recit:
-       "Alors qu'il a environ 4 ans et joue avec ses frères de lait dans le désert, l'ange Jibril descend, l'allonge et lui ouvre la poitrine. L'ange extrait son cœur, en retire un caillot noir en disant : <em>« Ceci est la part de Satan en toi »</em>.<br><br>Il lave ensuite son cœur avec de l'eau de Zamzam dans une coupe en or avant de le remettre à sa place.",
-     personnages: [
-       {
-         nom: 'Jibril (Gabriel)',
-         role: "L'Archange chargé de cette purification spirituelle et physique.",
-         initiales: 'JG',
-         couleur: '#4f46e5'
-       },
-       {
-         nom: "Halîma as-Sa'diyya",
-         role: 'Effrayée par cet événement raconté par les autres enfants, elle décide de rendre Muhammad à sa mère pour le protéger.',
-         initiales: 'HS',
-         couleur: '#a67c52'
-       },
-     ],
-     lecons: [
-       "Préparation à l'infaillibilité prophétique (Al-'Isma) face aux futures tentations polythéistes.",
-     ],
-     versets:
-       "Sourate Ash-Sharh (L'Ouverture - 94:1) : « N'avons-Nous pas ouvert pour toi ta poitrine ? »",
-      bgImage:
-        'linear-gradient(135deg, #6b4226 0%, #a0522d 50%, #cd9b7d 100%)',
-   },
-   {
-     id: 4,
-     age: '6 ans',
-     date: '577 apr. J.-C.',
-     dateH: "47 av. l'Hégire",
-     titreCourt: 'Orphelin',
-     titre: "Le Décès d'Amina",
-     recit:
-       "Sa mère l'emmène à Yathrib (Médine) pour se recueillir sur la tombe de son mari Abdullah. Sur le chemin du retour, Amina tombe gravement malade et meurt à Al-Abwa, sous les yeux de l'enfant.<br><br>La servante Oum Ayman ramène le jeune Muhammad à La Mecque. Il devient doublement orphelin et est recueilli par son grand-père bien-aimé.",
-     personnages: [
-       {
-         nom: 'Oum Ayman (Barakah)',
-         role: "Servante abyssinienne fidèle. Le Prophète dira : 'Elle est ma mère après ma mère'.",
-         initiales: 'OA',
-         couleur: '#7c6b5d'
-       },
-       {
-         nom: "'Abd al-Muttalib",
-         role: "Le grand-père qui entoure l'orphelin d'une immense affection, le plaçant à ses côtés sur son tapis sacré.",
-         initiales: 'AM',
-         couleur: '#c9a961'
-       },
-     ],
-     lecons: [
-       'La perte successive de ses parents développe en lui une empathie et une miséricorde uniques envers les faibles et les orphelins.',
-     ],
-     versets: null,
-     bgImage:
-       'linear-gradient(135deg, #1c1c1c 0%, #2a1810 50%, #3d2817 100%)',
-   },
-   {
-     id: 5,
-     age: '8 ans',
-     date: '579 apr. J.-C.',
-     dateH: "45 av. l'Hégire",
-     titreCourt: 'Abu Talib',
-     titre: "La Tutelle d'Abu Talib",
-     recit:
-       "Le patriarche 'Abd al-Muttalib décède. Avant de mourir, il confie la garde de l'enfant à Abu Talib, oncle paternel du Prophète. Bien que pauvre et père de nombreux enfants, Abu Talib le traitera mieux que sa propre chair.",
-     personnages: [
-       {
-         nom: 'Abu Talib',
-         role: "Nouveau chef des Banu Hashim. Il protégera Muhammad contre l'oligarchie mecquoise pendant 40 ans.",
-         initiales: 'AT',
-         couleur: '#9b7b5e'
-       },
-     ],
-     lecons: [
-       "Dieu choisit un homme influent et intègre pour assurer la sécurité tribale de son futur Prophète, malgré la pauvreté matérielle d'Abu Talib.",
-     ],
-     versets: null,
-     bgImage:
-       'linear-gradient(135deg, #4a3728 0%, #7d5a3a 50%, #a0826d 100%)',
-   },
-   {
-     id: 6,
-     age: '12 ans',
-     date: '583 apr. J.-C.',
-     dateH: "41 av. l'Hégire",
-     titreCourt: 'Bahira',
-     titre: 'Le Moine de Syrie',
-     recit:
-       "Lors d'un voyage marchand vers la Syrie, la caravane s'arrête à Busra. Le moine chrétien Bahira, reclus dans son monastère, remarque qu'un nuage protège un jeune garçon et que les arbres s'inclinent sur son passage.<br><br>Il invite la tribu, examine le dos du jeune Muhammad et y trouve le Sceau de la Prophétie. Il avertit solennellement Abu Talib : <em>« Retourne avec ton neveu dans son pays et protège-le des Romains et des Juifs, car un destin immense l'attend. »</em>",
-     personnages: [
-       {
-         nom: 'Bahira',
-         role: "Moine savant ayant accès aux manuscrits anciens annonçant l'arrivée du Paraclet/Prophète.",
-         initiales: 'BA',
-         couleur: '#6b8a9b'
-       },
-     ],
-     lecons: [
-       'La venue du Prophète était prophétisée et attendue par les pieux savants parmi les Gens du Livre.',
-     ],
-      versets:
-        "Sourate Al-A'raf (7:157) : « ...le Prophète illettré qu'ils trouvent écrit chez eux dans la Thora et l'Évangile. »",
-      bgImage:
-        'linear-gradient(135deg, #2d3e50 0%, #34495e 50%, #5d6d7b 100%)',
-   },
-   {
-     id: 7,
-     age: '15 ans',
-     date: '586 apr. J.-C.',
-     dateH: "38 av. l'Hégire",
-     titreCourt: 'Fidjar',
-     titre: 'La Guerre de Sacrilège',
-     recit:
-       "Une guerre éclate entre Quraysh et la tribu de Qays 'Aylan durant les mois sacrés (d'où le nom de guerre de Fidjar / Sacrilège). Le jeune Muhammad y participe mais Dieu préserve ses mains du sang : il ne tue personne, se contentant de ramasser les flèches pour ses oncles.",
-     personnages: [
-       {
-         nom: 'Les tribus belligérantes',
-         role: "Mettent en pause les règles sacrées de l'Arabie par fierté tribale.",
-         initiales: 'TB',
-         couleur: '#8b6f47'
-       },
-     ],
-     lecons: [
-       "Dieu l'expose aux dures réalités politiques et militaires de son époque, tout en préservant son innocence spirituelle et physique.",
-     ],
-      versets: null,
-      bgImage:
-        'linear-gradient(135deg, #5a3b2d 0%, #8b5a2b 50%, #cd853f 100%)',
-   },
-   {
-     id: 8,
-     age: '20 ans',
-     date: '591 apr. J.-C.',
-     dateH: "33 av. l'Hégire",
-     titreCourt: 'Al-Fudul',
-     titre: 'Le Pacte des Vertueux',
-     recit:
-       "Un marchand étranger (yéménite) est escroqué à La Mecque. Face à cette injustice, plusieurs chefs de clans se réunissent chez 'Abdullah ibn Jud'an. Ils jurent de s'allier pour défendre tout opprimé, citoyen ou étranger, contre n'importe quel oppresseur.<br><br>Le Prophète participe à ce pacte d'équité (Al-Fudul) qu'il considèrera, même devenu Prophète, comme supérieur aux chameaux rouges (la plus grande richesse).",
-     personnages: [
-       {
-         nom: "Al-'As ibn Wa'il",
-         role: 'Le notable malhonnête qui avait confisqué la marchandise, déclenchant cette prise de conscience.',
-         initiales: 'AW',
-         couleur: '#a67c52'
-       },
-     ],
-     lecons: [
-       "L'Islam soutient et s'associe à toute initiative juste de la société civile, même si elle émane de non-musulmans.",
-     ],
-      versets: null,
-      bgImage:
-        'linear-gradient(135deg, #6b4226 0%, #a0522d 50%, #d4a76a 100%)',
-   },
-   {
-     id: 9,
-     age: '25 ans',
-     date: '596 apr. J.-C.',
-     dateH: "28 av. l'Hégire",
-     titreCourt: 'Khadija',
-     titre: 'Mariage avec Khadija',
-     recit:
-       "Surnommé Al-Amîn (Le digne de confiance), il est mandaté par Khadija, riche veuve d'affaires, pour diriger sa caravane vers la Syrie. Impressionnée par les immenses profits et par le récit de son serviteur Maysara sur sa noblesse de caractère, elle lui fait proposer le mariage.<br><br>Elle a 40 ans, il en a 25. La dot est de 20 chamelles. Ce mariage profond et monogame durera un quart de siècle.",
-     personnages: [
-       {
-         nom: 'Khadija bint Khuwaylid',
-         role: "Épouse d'exception, elle lui donnera 6 enfants (dont Fatima et Zaynab) et sera son plus grand pilier moral.",
-         initiales: 'KK',
-         couleur: '#d4a574'
-       },
-       {
-         nom: 'Maysara',
-         role: 'Le serviteur qui a témoigné des miracles et de la droiture de Muhammad sur la route.',
-         initiales: 'MY',
-         couleur: '#8b6f47'
-       },
-     ],
-     lecons: [
-       "L'honnêteté dans le travail (Al-Amana) est la clé de la réussite et du respect social avant même la révélation.",
-     ],
-      versets: null,
-      bgImage:
-        'linear-gradient(135deg, #8b6914 0%, #cd9b1d 50%, #ffd700 100%)',
-   },
-   {
-     id: 10,
-     age: '35 ans',
-     date: '606 apr. J.-C.',
-     dateH: "18 av. l'Hégire",
-     titreCourt: "La Ka'ba",
-     titre: "L'Arbitrage de la Pierre Noire",
-     recit:
-       "Des inondations forcent la reconstruction de la Ka'ba. Lorsqu'il faut replacer la Pierre Noire sacrée, les clans de Quraysh sont prêts à s'entretuer pour s'accaparer l'honneur. Un vieillard propose : <em>'Le premier qui franchit cette porte sera notre arbitre'</em>.<br><br>C'est Muhammad. Tous s'écrient : <em>'C'est Al-Amîn, nous sommes satisfaits !'</em>. Avec une diplomatie brillante, il place la pierre au centre de son manteau et demande à chaque chef de clan d'en tenir un bord pour la soulever ensemble.",
-     personnages: [
-       {
-         nom: 'Al-Walid ibn al-Mughira',
-         role: "Le doyen des Quraysh qui eut la sagesse de proposer le tirage au sort de l'arbitre.",
-         initiales: 'AW',
-         couleur: '#9b7b5e'
-       },
-     ],
-     lecons: [
-       "Le leadership par la sagesse et le compromis pacifique, évitant l'effusion de sang arabe.",
-     ],
-      versets: null,
-      bgImage:
-        'linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)',
-   },
-   {
-     id: 11,
-     age: '40 ans',
-     date: '610 apr. J.-C.',
-     dateH: "13 av. l'Hégire",
-     titreCourt: 'Révélation',
-     titre: 'Iqra : La Grotte de Hira',
-     recit:
-       "Fuyant l'idolâtrie et la décadence, il s'isole régulièrement dans la grotte de Hira. Pendant le Ramadan de l'an 610, l'Archange Jibril surgit et lui ordonne : <em>« Iqra (Lis !) »</em>. Le Prophète, illettré, est terrifié.<br><br>Il rentre chez lui tremblant, demandant à Khadija de l'envelopper. Elle le rassure : <em>« Jamais Dieu ne te perdra, car tu maintiens les liens de parenté et tu soutiens les faibles. »</em> Elle l'emmène voir son cousin Waraqa qui confirme la Prophétie.",
-     personnages: [
-       {
-         nom: 'Waraqa ibn Nawfel',
-         role: "Cousin chrétien aveugle. Il lui annonce : 'C'est le Nâmus (Ange) de Moïse. Ton peuple te chassera.'",
-         initiales: 'WN',
-         couleur: '#6b8a9b'
-       },
-     ],
-     lecons: [
-       "La Révélation est une charge lourde et effrayante. L'importance cruciale de l'épouse dans le soutien psychologique.",
-     ],
-      versets: 'Sourate Al-Alaq (96:1-5) : « Lis, au nom de ton Seigneur qui a créé... »',
-      bgImage:
-        'linear-gradient(135deg, #2a2d5f 0%, #4a3f83 50%, #6a5acd 100%)',
-   },
-   {
-     id: 12,
-     age: '40 à 43 ans',
-     date: '610 - 613 apr. J.',
-     dateH: "13 à 10 av. l'Hégire",
-     titreCourt: 'Appel Secret',
-     titre: 'La Maison de Dar Al Arqam',
-     recit:
-       "Pendant trois ans, l'appel à l'Islam se fait secrètement (Da'wa privée). L'objectif est de bâtir un noyau dur et éduqué. Les premiers musulmans (environ 60 personnes) se réunissent clandestinement dans la maison d'Al Arqam, située près du mont Safa, pour prier et apprendre le Coran.",
-     personnages: [
-       {
-         nom: 'Abu Bakr as-Siddiq',
-         role: "Le premier homme adulte à embrasser l'Islam, il convertira la crème des futurs compagnons.",
-         initiales: 'AB',
-         couleur: '#4f7942'
-       },
-       {
-         nom: 'Ali ibn Abi Talib & Zayd ibn Haritha',
-         role: 'Le premier enfant (10 ans) et le premier affranchi à se convertir.',
-         initiales: 'AZ',
-         couleur: '#5a6b7d'
-       },
-     ],
-     lecons: [
-       "La construction d'une Foi solide dans le secret est prioritaire avant la confrontation publique avec une société hostile.",
-     ],
-      versets:
-        "Sourate Al-Muddathir (74:1-2) : « Ô toi, le revêtu d'un manteau ! Lève-toi et avertis ! »",
-      bgImage:
-        'linear-gradient(135deg, #1a1a1a 0%, #2f2f2f 50%, #3d3d3d 100%)',
-   },
-   {
-     id: 13,
-     age: '43 ans',
-     date: '613 apr. J.-C.',
-     dateH: "10 av. l'Hégire",
-     titreCourt: 'Appel Public',
-     titre: 'Le Mont Safa et les Tortures',
-     recit:
-       "L'ordre divin de prêcher publiquement tombe. Le Prophète alerte les clans de Quraysh depuis le Mont Safa. Son oncle, Abu Lahab, l'insulte publiquement. C'est la rupture.<br><br>La guerre psychologique commence, suivie très vite par des tortures atroces ciblées sur les esclaves et les plus faibles, afin d'étouffer le message de l'Unicité (Tawhid) qui menace l'économie des idoles.",
-     personnages: [
-       {
-         nom: 'Bilal & Khabbab',
-         role: "Torturés sur le sable brûlant. Bilal ne cesse de répéter : 'Ahad ! Ahad !' (Il est Unique !).",
-         initiales: 'BK',
-         couleur: '#3d3d2d'
-       },
-       {
-         nom: 'La Famille de Yassir',
-         role: "Torturée par Abu Jahl. Sumayya, la mère, est empalée et devient la première martyre de l'Islam.",
-         initiales: 'FY',
-         couleur: '#8b4545'
-       },
-     ],
-     lecons: [
-       "La patience (Sabr) absolue est ordonnée. Le Prophète promet : 'Patience ô famille de Yassir, votre rendez-vous est le Paradis'.",
-     ],
-      versets: "Sourate Al-Masad (111) : « Que périssent les deux mains d'Abu Lahab... »",
-      bgImage:
-        'linear-gradient(135deg, #4a1a1a 0%, #8b3a3a 50%, #cd5c5c 100%)',
-   },
-   {
-     id: 14,
-     age: '45 ans',
-     date: '615 apr. J.-C.',
-     dateH: "7 av. l'Hégire",
-     titreCourt: 'Abyssinie',
-     titre: "L'Exil vers le Négus",
-     recit:
-       "Pour sauver les croyants des tortures, le Prophète leur ordonne d'émigrer en Abyssinie (Éthiopie), <em>'où règne un roi auprès duquel personne n'est opprimé'</em>. Deux vagues d'émigration s'y rendent (83 hommes, 18 femmes).<br><br>Les Quraysh exigent leur extradition. Ja'far ibn Abi Talib prend la parole devant le Négus chrétien, décrit l'ignorance préislamique et lit le début de la sourate Maryam. Le Négus pleure et jure de ne jamais les livrer.",
-     personnages: [
-       { nom: "Ja'far ibn Abi Talib", role: 'Le porte-parole magistral des musulmans en exil.', initiales: 'JT', couleur: '#7c6b5d' },
-       {
-         nom: 'Le Négus (Ashama)',
-         role: "Roi juste qui reconnaîtra la vérité de l'Islam à travers l'hommage rendu à Marie et Jésus dans le Coran.",
-         initiales: 'NA',
-         couleur: '#8b6914'
-       },
-       {
-         nom: 'Hamza & Omar',
-         role: 'À La Mecque, ces deux colosses se convertissent, changeant le rapport de force.',
-         initiales: 'HO',
-         couleur: '#6b4423'
-       },
-     ],
-     lecons: [
-       "La recherche d'alliances justes au-delà des frontières. La puissance d'un dialogue interreligieux basé sur le respect.",
-     ],
-      versets: 'Sourate Maryam (19), récitée majestueusement devant le clergé chrétien.',
-      bgImage:
-        'linear-gradient(135deg, #3d5a54 0%, #5a8b7d 50%, #7d9b8a 100%)',
-   },
-   {
-     id: 15,
-     age: '47 à 50 ans',
-     date: '617 - 620 apr. J.',
-     dateH: "6 à 3 av. l'Hégire",
-     titreCourt: 'Le Blocus',
-     titre: "L'Embargo du Ravin",
-     recit:
-       "Paniqués par l'expansion de l'Islam, les Mecquois rédigent un pacte d'excommunication totale contre les Banu Hashim : interdiction de mariage, de commerce et d'aide alimentaire. Le pacte est suspendu dans la Ka'ba.<br><br>Pendant 3 ans, le clan du Prophète est confiné dans le ravin d'Abu Talib. La famine est telle qu'on entend les cris des enfants affamés. Les musulmans survivent en mangeant des feuilles et des peaux bouillies.",
-     personnages: [
-       {
-         nom: "Mut'im ibn 'Adi et Hisham ibn 'Amr",
-         role: "Polytéistes dotés de morale qui brisent l'embargo par humanité.",
-         initiales: 'MH',
-         couleur: '#9b7b5e'
-       },
-     ],
-     lecons: [
-       "Le triomphe spirituel sur le blocus matériel. Le pacte injuste est dévoré par les termites, à l'exception de l'en-tête 'Bismika Allahumma' (En Ton nom, Ô Allah).",
-     ],
-      versets: null,
-      bgImage:
-        'linear-gradient(135deg, #3a2a1a 0%, #5a3a2a 50%, #7a5a4a 100%)',
-   },
-   {
-     id: 16,
-     age: '47 ans',
-     date: 'Vers 617 apr. J.-C.',
-     dateH: "5 av. l'Hégire",
-     titreCourt: "Bu'ath",
-     titre: "La Guerre de Bu'ath à Yathrib",
-     recit:
-       "Pendant que les musulmans subissent le blocus à La Mecque, la ville de Yathrib (Médine), située à 400 km de là, s'autodétruit. Une guerre civile d'une violence inouïe (la Bataille de Bu'ath) ravage les tribus Aws et Khazraj.<br><br>Leurs chefs militaires sont décimés, plongeant la ville dans le sang et le désespoir le plus total.",
-     personnages: [
-       {
-         nom: 'Aws et Khazraj',
-         role: 'Les deux grandes tribus arabes de Médine, épuisées par des décennies de conflits fratricides manipulés par les tribus juives environnantes.',
-         initiales: 'AK',
-         couleur: '#6b4423'
-       },
-     ],
-     lecons: [
-       "Aïcha dira plus tard : 'Le jour de Bu'ath est un jour qu'Allah a préparé pour Son Messager'. Cette tragédie a préparé psychologiquement les Médinois à accepter un pacificateur extérieur.",
-     ],
-      versets: null,
-      bgImage:
-        'linear-gradient(135deg, #5a2a1a 0%, #8b4513 50%, #a0522d 100%)',
-   },
-   {
-     id: 17,
-     age: '50 ans',
-     date: '620 apr. J.-C.',
-     dateH: "3 av. l'Hégire",
-     titreCourt: 'Tristesse',
-     titre: "L'Année de la Tristesse",
-     recit:
-       "Le blocus est levé, mais deux catastrophes frappent le Prophète. Son oncle Abu Talib, son protecteur politique intouchable, décède.<br><br>Quelques semaines plus tard, c'est son épouse Khadija qui meurt. Elle était son havre de paix et la financière de l'Islam. Sans la protection tribale d'Abu Talib, le Prophète devient la cible d'agressions physiques dans les rues de La Mecque.",
-     personnages: [
-       {
-         nom: 'Abu Lahab',
-         role: 'Prend la tête du clan Hashim et retire la protection de Muhammad, autorisant son sang à couler.',
-         initiales: 'AL',
-         couleur: '#8b3a3a'
-       },
-     ],
-     lecons: [
-       "En le privant de tout soutien terrestre, Dieu purifie le cœur de Son Messager pour qu'il ne dépende exclusivement que de Lui.",
-     ],
-      versets: null,
-      bgImage:
-        'linear-gradient(135deg, #1a0a0a 0%, #3a1a1a 50%, #5a2a2a 100%)',
-   },
-   {
-     id: 18,
-     age: '50 ans',
-     date: '620 apr. J.-C.',
-     dateH: "3 av. l'Hégire",
-     titreCourt: "Ta'if",
-     titre: "L'Épreuve de Ta'if et le Réconfort",
-     recit:
-       "Le Prophète marche jusqu'à Ta'if (tribu Thaqif) pour y chercher protection. Les chefs le rejettent avec mépris et le font lapider. Ses chaussures se remplissent de sang. Il trouve refuge dans un verger et prononce son invocation déchirante : <em>'Ô Allah, c'est à Toi que je me plains de ma faiblesse...'</em>." +
-       "<br> Sur le chemin du retour, dans la vallée de Nakhla, un groupe de Djinns s'arrête, écoute le Coran récité en prière et se convertit.",
-     personnages: [
-       {
-         nom: "'Addas",
-         role: "Esclave chrétien originaire de Ninive dont la conversion réchauffe le cœur de l'Élu.",
-         initiales: 'AD',
-         couleur: '#6b8a9b'
-       },
-       {
-         nom: 'Zayd ibn Haritha',
-         role: 'Tentait de protéger le Prophète des pierres avec son propre corps.',
-         initiales: 'ZH',
-         couleur: '#7c6b5d'
-       },
-     ],
-     lecons: [
-       "Le Prophète refuse la proposition de l'Ange des montagnes d'écraser la Mecque. C'est l'apogée de sa miséricorde.",
-     ],
-      versets: 'Sourate Al-Ahqaf (46:29) : Révélation sur la conversion des Djinns à Nakhla.',
-      bgImage:
-        'linear-gradient(135deg, #6b4226 0%, #a0522d 50%, #d4a574 100%)',
-   },
-   {
-     id: 19,
-     age: '51 ans',
-     date: '621 apr. J.-C.',
-     dateH: "2 av. l'Hégire",
-     titreCourt: 'Al-Isra',
-     titre: "Le Voyage Nocturne (Isra & Mi'raj)",
-     recit:
-       "L'honneur céleste absolu survient après l'humiliation totale de Ta'if. L'Archange Jibril vient avec la monture ailée Al-Buraq. Le Prophète voyage de nuit (Al-Isra) de La Mecque jusqu'à Jérusalem, où il dirige une prière devant tous les Prophètes.<br><br>Il entame ensuite son Ascension (Al-Mi'raj) à travers les 7 cieux, jusqu'au 'Jujubier de la Limite', là où même les anges ne peuvent accéder.",
-     personnages: [
-       {
-         nom: 'Abu Bakr',
-         role: "Il valide le récit publiquement le lendemain en disant 'S'il l'a dit, c'est la vérité', gagnant le titre de 'As-Siddiq' (Le Véridique).",
-         initiales: 'AB',
-         couleur: '#4f7942'
-       },
-     ],
-     lecons: [
-       "Dieu offre au Prophète le commandement spirituel de l'Humanité. Institution des 5 prières quotidiennes, don direct d'Allah.",
-     ],
-      versets:
-        'Sourate Al-Isra (17:1) : « Gloire à Celui qui de nuit, fit voyager Son serviteur de la Mosquée Sacrée à la Mosquée Al-Aqsa... »',
-      bgImage:
-        'linear-gradient(135deg, #0a0e27 0%, #1a2859 50%, #2d5a8c 100%)',
-   },
-   {
-     id: 20,
-     age: '51 ans',
-     date: '621 apr. J.-C.',
-     dateH: "2 av. l'Hégire",
-     titreCourt: 'Yathrib',
-     titre: 'Les 6 hommes de Khazraj',
-     recit:
-       "Pendant le pèlerinage à La Mecque, le Prophète rencontre six jeunes nobles de la tribu de Khazraj venant de Yathrib. Épuisés par les conséquences de la guerre de Bu'ath, et connaissant les prophéties d'un envoyé imminent par les Juifs de leur ville, ils l'écoutent avec attention.<br><br>Ils se convertissent immédiatement en se disant : <em>'Peut-être que Dieu nous unira à nouveau grâce à lui !'</em>. Ils retournent à Yathrib comme les premiers semeurs de l'Islam.",
-     personnages: [
-       {
-         nom: "As'ad ibn Zurara",
-         role: "L'un des six jeunes hommes qui deviendra le grand leader de la conversion de Médine.",
-         initiales: 'AZ',
-         couleur: '#5a6b7d'
-       },
-     ],
-     lecons: [
-       "L'espoir jaillit souvent d'endroits inattendus. Les cœurs brisés par la guerre civile de Bu'ath étaient les plus réceptifs à la paix de l'Islam.",
-     ],
-      versets: null,
-      bgImage:
-        'linear-gradient(135deg, #3d5a4a 0%, #5a8b7d 50%, #7dab9d 100%)',
-   },
-   {
-     id: 21,
-     age: '52 ans',
-     date: '621 apr. J.-C.',
-     dateH: "1 av. l'Hégire",
-     titreCourt: '1er Serment',
-     titre: "Le Premier Serment d'Aqaba",
-     recit:
-       "Un an plus tard, 12 hommes de Yathrib (Aws et Khazraj réunis) reviennent. Dans la vallée d'Aqaba à La Mecque, ils prêtent allégeance au Prophète sur des bases strictement morales : ne rien associer à Dieu, ne pas voler, ne pas tuer leurs enfants.<br><br>Ce pacte est appelé 'Le Pacte des femmes'. Le Prophète leur envoie Mus'ab ibn 'Umayr comme ambassadeur.",
-     personnages: [
-       {
-         nom: "Mus'ab ibn 'Umayr",
-         role: "Jeune mecquois brillant envoyé à Médine. Il convertira l'élite de la ville par sa douceur et le Coran.",
-         initiales: 'MU',
-         couleur: '#8b5a3c'
-       },
-     ],
-     lecons: [
-       "La foi et l'éducation (Tarbiyya) par l'enseignement du Coran sont les fondations préalables à la construction de tout état.",
-     ],
-      versets:
-        'Sourate Al-Mumtahanah (60:12) : Verset reprenant les mêmes clauses éthiques que ce serment.',
-      bgImage:
-        'linear-gradient(135deg, #6b4226 0%, #a0522d 50%, #d4a574 100%)',
-   },
-   {
-     id: 22,
-     age: '53 ans',
-     date: '622 apr. J.-C.',
-     dateH: "Quelques semaines av. l'Hégire",
-     titreCourt: '2ème Serment',
-     titre: 'Le Second Serment (Pacte de Guerre)',
-     recit:
-       "Grâce au travail de Mus'ab, l'Islam inonde Yathrib. Lors du pèlerinage, 73 hommes et 2 femmes rencontrent secrètement le Prophète de nuit.<br><br>Ils concluent le 'Pacte de la Guerre' : ils jurent de protéger le Prophète , s'il émigrent chez eux, avec autant de ferveur qu'ils protègeraient leurs propres épouses et enfants. L'oncle du Prophète, Al-'Abbas (encore polythéiste), valide l'engagement.",
-     personnages: [
-       {
-         nom: "Al-'Abbas ibn 'Abd al-Muttalib",
-         role: "Il prend la parole pour exiger des Médinois une protection inconditionnelle ou l'abandon du projet.",
-         initiales: 'AA',
-         couleur: '#c9a961'
-       },
-     ],
-     lecons: [
-       "Le transfert du centre de gravité de l'Islam : La Mecque va être vidée de ses croyants au profit d'un état naissant et souverain.",
-     ],
-      versets: null,
-      bgImage:
-        'linear-gradient(135deg, #3a2a1a 0%, #5a3a2a 50%, #7a5a4a 100%)',
-   },
-   {
-     id: 23,
-     age: '53 ans',
-     date: '622 apr. J.-C.',
-     dateH: "An 1 de l'Hégire",
-     titreCourt: "L'Hégire",
-     titre: "Le Grand Exil (L'Hégire)",
-     recit:
-       "Apprenant ces pactes, Quraysh panique. L'assemblée réunie à 'Dar Al-Nadwa' décide de faire tuer le Prophète par un commando composé d'un jeune de chaque clan.<br><br>Allah l'ordonne de partir vers Yathrib. Le Prophète part la nuit. Il se cache 3 jours dans la Grotte de Thawr avec Abu Bakr  avant de faire route vers Médine. C'est la fin de la période mecquoise.",
-     personnages: [
-       {
-         nom: 'Ali ibn Abi Talib',
-         role: 'Dort dans le lit du Prophète avec son manteau pour tromper les assassins.',
-         initiales: 'AT',
-         couleur: '#5a6b7d'
-       },
-       {
-         nom: 'Asma bint Abi Bakr',
-         role: "Elle ravitaille la grotte au péril de sa vie, gagnant le nom de 'Celle aux deux ceintures'.",
-         initiales: 'AB',
-         couleur: '#d4a574'
-       },
-       {
-         nom: 'Suraqah ibn Malik',
-         role: "Le chasseur de primes dont le cheval s'enfonce dans le sol à 3 reprises en tentant de les capturer.",
-         initiales: 'SM',
-         couleur: '#8b6914'
-       },
-     ],
-     lecons: [
-       "Tawakkul (Confiance totale en Dieu : 'Ne t'attriste pas, Allah est avec nous') combinée à une stratégie minutieuse humaine.",
-     ],
-      versets:
-        "Sourate At-Tawbah (9:40) : « Si vous ne lui portez pas secours... Allah l'a déjà secouru... »",
-      bgImage:
-        'linear-gradient(135deg, #0d1b2a 0%, #1b2d3d 50%, #2d4559 100%)',
-   },
-])
+const evenements = ref([])
+const loadState = ref('loading') // loading | ready | empty | error
+const errorMessage = ref('')
+const teacherLabel = ref('Chargement du profil enseignant…')
+const teacherSlug = ref(resolveTeacherSlugFromLocation())
 
+const fetchEvents = async () => {
+  try {
+    loadState.value = 'loading'
+    errorMessage.value = ''
+
+    const payload = await getTeacherTimeline(teacherSlug.value)
+    evenements.value = payload.events ?? []
+    teacherLabel.value = payload.teacher?.name
+      ? `${payload.teacher.name} · ${payload.teacher.school}`
+      : 'Accès enseignant'
+
+    activeIndex.value = 0
+    loadState.value = evenements.value.length > 0 ? 'ready' : 'empty'
+  } catch (error) {
+    console.error('Error fetching events:', error)
+    errorMessage.value = error instanceof Error ? error.message : 'Impossible de charger la timeline.'
+    loadState.value = 'error'
+  }
+}
 const activeIndex = ref(0)
-const activeEvent = computed(() => evenements.value[activeIndex.value])
+const activeEvent = computed(() => evenements.value[activeIndex.value] ?? null)
+const isTimelineReady = computed(() => loadState.value === 'ready' && !!activeEvent.value)
 const progressPercentage = computed(() =>
   evenements.value.length <= 1
     ? '0%'
@@ -845,12 +238,9 @@ const prevChapter = () => {
   }
 }
 
-// Reset l'onglet sur "récit" à chaque changement de chapitre
-watch(activeIndex, () => {
-  activeTab.value = 'recit'
-})
-
 const handleKeydown = (e) => {
+  if (!isTimelineReady.value) return
+
   // Navigation
   if (e.key === 'ArrowRight') nextChapter()
   if (e.key === 'ArrowLeft') prevChapter()
@@ -860,6 +250,7 @@ const handleKeydown = (e) => {
 
 const gameContainer = ref(null)
 onMounted(() => {
+  fetchEvents()
   if (gameContainer.value) gameContainer.value.focus()
 })
 
@@ -875,14 +266,65 @@ const getBackgroundStyle = (bgValue) => {
 <style scoped>
 /* Reset global */
 .game-ui-container {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   overflow: hidden;
   background-color: #050505;
   font-family: 'Inter', sans-serif;
   color: #fff;
   outline: none;
+}
+
+/* Utilitaires Flex pour structurer la page */
+.main-layout {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.shrink-0 {
+  flex-shrink: 0;
+}
+.flex-1 {
+  flex: 1 1 auto;
+  min-height: 0;
+}
+.h-full {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Animations ! */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s ease;
+}
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+.slide-up-enter-active,
+.slide-up-leave-active {
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.slide-up-enter-from {
+  opacity: 0;
+  transform: translateY(20px);
+}
+.slide-up-leave-to {
+  opacity: 0;
+  transform: translateY(-20px);
+}
+.slide-left-enter-active,
+.slide-left-leave-active {
+  transition: transform 0.4s ease;
+}
+.slide-left-enter-from,
+.slide-left-leave-to {
+  transform: translateX(100%);
 }
 
 /* Couches d'images */
@@ -905,20 +347,8 @@ const getBackgroundStyle = (bgValue) => {
   animation: slowPan 30s linear infinite alternate;
 }
 @keyframes slowPan {
-  0% {
-    transform: scale(1) translate(0, 0);
-  }
-  100% {
-    transform: scale(1.1) translate(-1%, -1%);
-  }
-}
-.bg-fade-enter-active,
-.bg-fade-leave-active {
-  transition: opacity 1.2s ease-in-out;
-}
-.bg-fade-enter-from,
-.bg-fade-leave-to {
-  opacity: 0;
+  0% { transform: scale(1) translate(0, 0); }
+  100% { transform: scale(1.1) translate(-1%, -1%); }
 }
 
 .vignette-overlay {
@@ -930,7 +360,7 @@ const getBackgroundStyle = (bgValue) => {
   z-index: 1;
   background:
     linear-gradient(90deg, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.8) 45%, rgba(0, 0, 0, 0) 100%),
-    linear-gradient(0deg, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.4) 30%, rgba(0, 0, 0, 0) 100%);
+    linear-gradient(0deg, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.5) 20%, rgba(0, 0, 0, 0.1) 100%);
 }
 .ui-layer {
   position: absolute;
@@ -939,9 +369,6 @@ const getBackgroundStyle = (bgValue) => {
   width: 100%;
   height: 100%;
   z-index: 2;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
 }
 
 /* Top HUD */
@@ -949,7 +376,7 @@ const getBackgroundStyle = (bgValue) => {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 30px 60px;
+  padding: 20px 60px;
   background: linear-gradient(180deg, rgba(0, 0, 0, 0.8) 0%, transparent 100%);
 }
 .mode-title {
@@ -973,6 +400,13 @@ const getBackgroundStyle = (bgValue) => {
   letter-spacing: 4px;
   color: #e4e4e7;
 }
+.teacher-label {
+  margin: 0;
+  color: #fcd34d;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
 .hud-right {
   display: flex;
   align-items: center;
@@ -985,8 +419,6 @@ const getBackgroundStyle = (bgValue) => {
   color: #d97706;
   letter-spacing: 2px;
 }
-
-/* Bouton Codex */
 .codex-btn {
   background: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.3);
@@ -1003,7 +435,209 @@ const getBackgroundStyle = (bgValue) => {
   border-color: #fcd34d;
 }
 
-/* Overlay Codex */
+/* State screens */
+.state-screen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+.state-card {
+  width: min(560px, 100%);
+  background: rgba(15, 15, 15, 0.9);
+  border: 1px solid rgba(217, 119, 6, 0.35);
+  border-radius: 18px;
+  padding: 32px;
+  text-align: center;
+}
+.state-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  background: rgba(217, 119, 6, 0.15);
+  color: #fcd34d;
+  font-size: 1.5rem;
+  margin-bottom: 16px;
+}
+.state-card h2 {
+  margin: 0 0 12px 0;
+  color: #f8fafc;
+}
+.state-card p {
+  margin: 0 0 24px 0;
+  color: #d4d4d8;
+  line-height: 1.7;
+}
+
+/* Info Panel (Mid section) */
+.info-panel {
+  padding: 10px 60px 0 60px;
+  max-width: 900px;
+}
+
+.chapter-meta {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 15px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+.age-tag {
+  color: #fcd34d;
+  background: rgba(217, 119, 6, 0.2);
+  padding: 6px 14px;
+  border-radius: 4px;
+  border: 1px solid #d97706;
+}
+.date-tag,
+.hijri-tag {
+  color: #a1a1aa;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 6px 14px;
+  border-radius: 4px;
+}
+
+.chapter-title {
+  font-size: 3.5rem;
+  font-weight: 900;
+  margin: 0 0 20px 0;
+  font-family: 'Merriweather', serif;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+  line-height: 1.2;
+}
+
+/* Onglets */
+.chapter-tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: 10px;
+}
+.chapter-tabs button {
+  background: none;
+  border: none;
+  color: #a1a1aa;
+  font-weight: bold;
+  letter-spacing: 2px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  padding: 10px 15px;
+  transition: 0.2s;
+  border-radius: 4px;
+}
+.chapter-tabs button:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.05);
+}
+.chapter-tabs button.active {
+  color: #d97706;
+  background: rgba(217, 119, 6, 0.15);
+  border-bottom: 2px solid #d97706;
+}
+
+/* Zone Scrollable du contenu */
+.tab-content-area {
+  overflow-y: auto;
+  padding-right: 20px;
+  padding-bottom: 30px;
+  -webkit-mask-image: linear-gradient(to bottom, black 95%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 95%, transparent 100%);
+}
+
+.tab-content-area::-webkit-scrollbar {
+  width: 8px;
+}
+.tab-content-area::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+}
+.tab-content-area::-webkit-scrollbar-thumb {
+  background: rgba(217, 119, 6, 0.4);
+  border-radius: 10px;
+}
+.tab-content-area::-webkit-scrollbar-thumb:hover {
+  background: rgba(217, 119, 6, 0.7);
+}
+
+/* -------- AMÉLIORATION DU TEXTE (LE LECTEUR HISTORIQUE) -------- */
+.text-content {
+  font-size: 1.2rem; /* Plus grand pour lire plus facilement */
+  line-height: 1.8; /* Plus d'espace entre les lignes */
+  letter-spacing: 0.3px; /* Léger écart entre les lettres */
+  color: #f1f1f3; /* Légèrement plus blanc */
+  text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.9); /* Texte plus détâché du fond */
+}
+/* on cible directement les sauts de ligne si v-html génère des br ou des p */
+:deep(.text-content br) {
+  display: block;
+  content: "";
+  margin-top: 1em;
+}
+
+/* -------- AMÉLIORATION DES LEÇONS -------- */
+.lecons-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Écarte chaque carte de leçon */
+}
+.lecons-list li {
+  display: flex;
+  align-items: flex-start; /* Aligne l'étoile en haut */
+  gap: 15px;
+  color: #e4e4e7;
+  font-size: 1.15rem;
+  line-height: 1.6;
+  background: rgba(0, 0, 0, 0.5); /* Plus sombre pour ressortir */
+  padding: 20px; /* Plus large */
+  border-radius: 8px;
+  border-left: 4px solid #d97706; /* Bordure plus épaisse */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+.lecon-icon {
+  color: #d97706;
+  font-size: 1.2rem;
+  margin-top: 5px; /* Descent l'étoile pour l'aligner au texte */
+  flex-shrink: 0;
+}
+
+
+/* -------- AMÉLIORATION DES PERSONNAGES -------- */
+.persos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Plus de place pour respirer */
+  gap: 20px;
+}
+
+.verset-box {
+  background: rgba(217, 119, 6, 0.1);
+  border: 1px solid #d97706;
+  padding: 30px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+.verset-icon {
+  font-size: 2.5rem;
+  color: #d97706;
+  margin-bottom: 20px;
+}
+.verset-box p {
+  font-family: 'Merriweather', serif;
+  font-size: 1.4rem;
+  font-style: italic;
+  color: #fcd34d;
+  line-height: 1.6;
+}
+
+/* =================== RESTAURATION CSS CODEX =================== */
 .codex-overlay {
   position: absolute;
   top: 0;
@@ -1038,6 +672,10 @@ const getBackgroundStyle = (bgValue) => {
   padding-bottom: 15px;
   margin-bottom: 30px;
 }
+.codex-content {
+  overflow-y: auto;
+  padding-right: 15px;
+}
 .codex-section {
   margin-bottom: 30px;
 }
@@ -1050,429 +688,62 @@ const getBackgroundStyle = (bgValue) => {
   color: #d4d4d8;
   line-height: 1.6;
   font-size: 0.95rem;
-}
-.slide-left-enter-active,
-.slide-left-leave-active {
-  transition: transform 0.4s ease;
-}
-.slide-left-enter-from,
-.slide-left-leave-to {
-  transform: translateX(100%);
+  margin-top: 0;
 }
 
-/* Info Panel */
-.info-panel {
-  flex: 1;
-  padding: 20px 60px;
-  max-width: 900px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-.chapter-meta {
-  display: flex;
-  gap: 15px;
-  margin-bottom: 15px;
-  font-size: 0.85rem;
-  font-weight: bold;
-  letter-spacing: 1px;
-}
-.age-tag {
-  color: #fcd34d;
-  background: rgba(217, 119, 6, 0.2);
-  padding: 5px 12px;
-  border-radius: 4px;
-  border: 1px solid #d97706;
-}
-.date-tag,
-.hijri-tag {
-  color: #a1a1aa;
-  background: rgba(255, 255, 255, 0.1);
-  padding: 5px 12px;
-  border-radius: 4px;
-}
-
-.chapter-title {
-  font-size: 4rem;
-  font-weight: 900;
-  margin: 0 0 20px 0;
-  font-family: 'Merriweather', serif;
-  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
-}
-
-/* Onglets */
-.chapter-tabs {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 25px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  padding-bottom: 10px;
-}
-.chapter-tabs button {
-  background: none;
-  border: none;
-  color: #a1a1aa;
-  font-weight: bold;
-  letter-spacing: 2px;
-  font-size: 0.9rem;
-  cursor: pointer;
-  padding: 10px 15px;
-  transition: 0.2s;
-  border-radius: 4px;
-}
-.chapter-tabs button:hover {
-  color: #fff;
-  background: rgba(255, 255, 255, 0.05);
-}
-.chapter-tabs button.active {
-  color: #d97706;
-  background: rgba(217, 119, 6, 0.15);
-  border-bottom: 2px solid #d97706;
-}
-
-/* Contenu des onglets */
-.tab-content-area {
-  min-height: 200px;
-}
-.tab-pane p {
-  font-size: 1.2rem;
-  line-height: 1.7;
-  color: #e4e4e7;
-  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
-}
-.tab-pane ul {
-   list-style: none;
-   padding: 0;
-   margin: 0;
-}
-.tab-pane li {
-   margin-bottom: 15px;
-   color: #d4d4d8;
-   font-size: 1.1rem;
-   line-height: 1.6;
-   background: rgba(0, 0, 0, 0.4);
-   padding: 15px;
-   border-radius: 6px;
-   border-left: 3px solid #d97706;
-}
-
-/* Cartes de personnages */
-.persos-grid {
-   display: grid;
-   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-   gap: 20px;
-}
-.perso-card {
-   display: flex;
-   align-items: flex-start;
-   gap: 15px;
-   background: linear-gradient(135deg, rgba(217, 119, 6, 0.15) 0%, rgba(50, 50, 50, 0.3) 100%);
-   padding: 20px;
-   border-radius: 12px;
-   border: 2px solid rgba(217, 119, 6, 0.3);
-   transition: all 0.3s ease;
-   backdrop-filter: blur(10px);
-}
-.perso-card:hover {
-   background: linear-gradient(135deg, rgba(217, 119, 6, 0.25) 0%, rgba(100, 100, 100, 0.4) 100%);
-   border-color: #d97706;
-   box-shadow: 0 8px 32px rgba(217, 119, 6, 0.2);
-   transform: translateY(-5px);
-}
-.perso-avatar {
-   min-width: 70px;
-   width: 70px;
-   height: 70px;
-   border-radius: 12px;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   font-size: 1.8rem;
-   font-weight: bold;
-   color: #fff;
-   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-}
-.perso-info h3 {
-   margin: 0 0 5px 0;
-   font-size: 1.1rem;
-   color: #fcd34d;
-}
-.perso-info p {
-   margin: 0;
-   color: #d4d4d8;
-   font-size: 0.9rem;
-   line-height: 1.5;
-}
-.verset-box {
-  background: rgba(217, 119, 6, 0.1);
-  border: 1px solid #d97706;
-  padding: 25px;
-  border-radius: 8px;
-  text-align: center;
-}
-.verset-box p {
-  font-family: 'Merriweather', serif;
-  font-size: 1.3rem;
-  font-style: italic;
-  color: #fcd34d;
-}
-
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.3s ease;
-}
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
-}
-.slide-up-enter-active,
-.slide-up-leave-active {
-  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-}
-.slide-up-enter-from {
-  opacity: 0;
-  transform: translateY(20px);
-}
-.slide-up-leave-to {
-  opacity: 0;
-  transform: translateY(-20px);
-}
-
-/* Timeline (Bas) - Identique à avant */
-.chapter-selector-area {
-  padding: 30px 60px 50px 60px;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, transparent 100%);
-}
-.nav-controls {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 30px;
-}
-.nav-hint {
-  color: #71717a;
-  font-size: 0.9rem;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-}
-.nav-btn {
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  color: #fff;
-  padding: 10px 25px;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  cursor: pointer;
-  transition: 0.2s;
-  border-radius: 4px;
-}
-.nav-btn:hover:not(:disabled) {
-  background: #d97706;
-  border-color: #fcd34d;
-}
-.nav-btn:disabled {
-  opacity: 0.3;
-  cursor: not-allowed;
-}
-.track-container {
-  position: relative;
-  height: 60px;
-  display: flex;
-  align-items: center;
-}
-.track-line-bg {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  width: 100%;
-  height: 4px;
-  background-color: rgba(255, 255, 255, 0.15);
-  transform: translateY(-50%);
-  z-index: 0;
-}
-.track-line-fill {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  height: 4px;
-  background-color: #d97706;
-  transform: translateY(-50%);
-  z-index: 1;
-  transition: width 0.6s;
-  box-shadow: 0 0 10px #d97706;
-}
-.nodes-container {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-}
-.node-wrapper {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  cursor: pointer;
-  width: 20px;
-}
-.node-point {
-  width: 16px;
-  height: 16px;
-  background-color: #18181b;
-  border: 2px solid #52525b;
-  transform: rotate(45deg);
-  transition: 0.3s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.node-core {
-  width: 6px;
-  height: 6px;
-  background-color: #a1a1aa;
-  opacity: 0;
-  transition: 0.3s;
-}
-.node-point.completed {
-  border-color: #d97706;
-  background-color: #78350f;
-}
-.node-point.active {
-  background-color: #fef3c7;
-  border-color: #fff;
-  transform: rotate(45deg) scale(1.6);
-  box-shadow: 0 0 20px rgba(217, 119, 6, 0.8);
-}
-.node-point.active .node-core {
-  opacity: 1;
-  background-color: #d97706;
-}
-.node-label {
-  position: absolute;
-  top: -35px;
-  font-size: 0.75rem;
-  font-weight: bold;
-  color: #a1a1aa;
-  text-transform: uppercase;
-  opacity: 0;
-  transform: translateY(10px);
-  transition: 0.3s;
-  pointer-events: none;
-}
-.node-label.active-label {
-  opacity: 1;
-  color: #fff;
-  transform: translateY(0);
-}
-.node-wrapper:hover .node-point {
-  transform: rotate(45deg) scale(1.4);
-  border-color: #fff;
-}
-.node-wrapper:hover .node-label {
-  opacity: 1;
-  transform: translateY(0);
-}
 
 /* =================== RESPONSIVE DESIGN =================== */
 
-/* TABLET (640px - 1024px) */
 @media (max-width: 1024px) {
-  .top-hud {
-    padding: 20px 40px;
-  }
+  .top-hud { padding: 15px 30px; }
+  .info-panel { padding: 10px 40px 0 40px; } /* Moins écrasé sur tablette */
+  .chapter-title { font-size: 2.8rem; margin-bottom: 10px; }
 
-  .mode-title h2 {
-    font-size: 1rem;
-    letter-spacing: 2px;
-  }
-
-  .hud-right {
-    gap: 15px;
-  }
-
-  .progress-counter {
-    font-size: 1rem;
-  }
-
-  .codex-btn {
-    padding: 8px 15px;
-    font-size: 0.9rem;
-  }
-
-  .codex-overlay {
-    width: 100%;
-    max-width: 400px;
-  }
-
-  .info-panel {
-    padding: 15px 40px;
-    max-width: 100%;
-  }
-
-  .chapter-title {
-    font-size: 2.5rem;
-  }
-
-  .chapter-tabs button {
-    font-size: 0.8rem;
-    padding: 8px 10px;
-  }
-
-  .tab-pane p {
-    font-size: 1rem;
-  }
-
-  .persos-grid {
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  }
-
-  .perso-avatar {
-    width: 60px;
-    height: 60px;
-    font-size: 1.5rem;
-  }
+  .codex-btn { padding: 8px 15px; font-size: 0.9rem; }
+  .codex-overlay { width: 100%; max-width: 400px; }
 }
 
-/* MOBILE (< 640px) */
 @media (max-width: 640px) {
   .top-hud {
-    padding: 15px 20px;
+    padding: 15px;
     flex-wrap: wrap;
-    gap: 15px;
-  }
-
-  .mode-title {
     gap: 10px;
-    width: 100%;
   }
-
-  .mode-icon {
-    width: 35px;
-    height: 35px;
-    font-size: 1rem;
-  }
-
-  .mode-title h2 {
-    font-size: 0.9rem;
-    letter-spacing: 1px;
-  }
+  .mode-title { width: 100%; gap: 10px; }
+  .mode-title h2 { font-size: 0.9rem; }
+  .mode-icon { width: 30px; height: 30px; }
 
   .hud-right {
     width: 100%;
-    gap: 10px;
     justify-content: space-between;
   }
+  .progress-counter { font-size: 0.9rem; }
+  .codex-btn { padding: 6px 12px; font-size: 0.75rem; }
 
-  .progress-counter {
-    font-size: 0.85rem;
+  .info-panel { padding: 10px 20px 0 20px; }
+
+  .chapter-meta { flex-wrap: wrap; gap: 6px; font-size: 0.75rem; margin-bottom: 10px; }
+
+  .chapter-title {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
   }
 
-  .codex-btn {
-    padding: 6px 12px;
-    font-size: 0.75rem;
+  .chapter-tabs { flex-wrap: wrap; gap: 4px; margin-bottom: 10px; }
+  .chapter-tabs button { font-size: 0.7rem; padding: 6px 10px; }
+
+  /* Ajustements texte Mobile */
+  .text-content {
+    font-size: 1.05rem; /* Un peu plus grand sur mobile qu'avant */
+    line-height: 1.6;
   }
+
+  .lecons-list li {
+    font-size: 0.95rem;
+    padding: 15px;
+  }
+
+  .persos-grid { grid-template-columns: 1fr; }
 
   .codex-overlay {
     width: 100%;
@@ -1487,126 +758,8 @@ const getBackgroundStyle = (bgValue) => {
     max-height: 70vh;
     overflow-y: auto;
   }
-
   .codex-overlay h2 {
     font-size: 1.2rem;
-  }
-
-  .info-panel {
-    padding: 15px 20px;
-    max-width: 100%;
-  }
-
-  .chapter-meta {
-    flex-wrap: wrap;
-    gap: 8px;
-    font-size: 0.7rem;
-  }
-
-  .chapter-title {
-    font-size: 1.8rem;
-    margin: 0 0 15px 0;
-  }
-
-  .chapter-tabs {
-    flex-wrap: wrap;
-    gap: 5px;
-  }
-
-  .chapter-tabs button {
-    font-size: 0.65rem;
-    padding: 6px 8px;
-  }
-
-  .tab-content-area {
-    max-height: 40vh;
-    overflow-y: auto;
-  }
-
-  .tab-pane p {
-    font-size: 0.9rem;
-    line-height: 1.5;
-  }
-
-  .tab-pane li {
-    font-size: 0.85rem;
-    padding: 10px;
-  }
-
-  .persos-grid {
-    grid-template-columns: 1fr;
-    gap: 15px;
-  }
-
-  .perso-avatar {
-    width: 50px;
-    height: 50px;
-    min-width: 50px;
-    font-size: 1.3rem;
-  }
-
-  .perso-info h3 {
-    font-size: 0.9rem;
-  }
-
-  .perso-info p {
-    font-size: 0.8rem;
-  }
-
-  .chapter-selector-area {
-    padding: 15px 20px 30px 20px;
-  }
-
-  .nav-controls {
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  .nav-btn {
-    width: 100%;
-    padding: 10px 15px;
-    font-size: 0.75rem;
-  }
-
-  .nav-hint {
-    font-size: 0.7rem;
-    text-align: center;
-    width: 100%;
-  }
-
-  .track-container {
-    height: 50px;
-  }
-
-  .node-label {
-    top: -30px;
-    font-size: 0.6rem;
-  }
-
-  .node-point {
-    width: 12px;
-    height: 12px;
-    border-width: 1px;
-  }
-}
-
-/* TRÈS PETIT MOBILE (< 400px) */
-@media (max-width: 400px) {
-  .mode-title h2 {
-    font-size: 0.75rem;
-  }
-
-  .chapter-title {
-    font-size: 1.5rem;
-  }
-
-  .chapter-tabs button {
-    font-size: 0.6rem;
-    padding: 5px 6px;
-  }
-
-  .tab-pane p {
-    font-size: 0.85rem;
   }
 }
 </style>

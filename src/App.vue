@@ -1,11 +1,11 @@
 <template>
   <main>
-    <FriseMecquoise />
+    <RouterView />
   </main>
 </template>
 
 <script setup>
-import FriseMecquoise from './components/FriseMecquoise.vue'
+import { RouterView } from 'vue-router'
 </script>
 
 <style>

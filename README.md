@@ -1,44 +1,102 @@
-# frise-mecquoise
+# Frise Mecquoise
 
-This template should help get you started developing with Vue 3 in Vite.
+Application Vue 3 + Vite pour afficher une frise chronologique de la période mecquoise de la Sîra.
 
-## Recommended IDE Setup
+Le projet est désormais structuré pour la production avec :
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+- un **frontend** Vue hébergé sur Vercel,
+- un **backend Node.js** dans `backend/`,
+- des **liens personnalisés par professeur**,
+- un chargement des chapitres via API.
 
-## Recommended Browser Setup
+## Structure
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
+```text
+src/       Frontend Vue
+backend/   API Node.js
+```
 
-## Customize configuration
+## Prérequis
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+- Node.js 20+
+- npm
 
-## Project Setup
+## Installation
 
-```sh
+```powershell
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+Si tu veux exécuter aussi le backend localement :
 
-```sh
+```powershell
+Set-Location backend
+npm install
+```
+
+## Configuration
+
+Copie les exemples d’environnement :
+
+```powershell
+Copy-Item .env.example .env.local
+Copy-Item backend\.env.example backend\.env
+```
+
+Adapte ensuite :
+
+- `VITE_API_BASE_URL` vers l’URL du backend
+- `VITE_DEFAULT_TEACHER_SLUG` vers le profil de démonstration
+
+## Développement
+
+### Frontend seul
+
+```powershell
 npm run dev
 ```
 
-### Compile and Minify for Production
+### Backend seul
 
-```sh
+```powershell
+npm --prefix backend run dev
+```
+
+### Frontend + backend en parallèle
+
+```powershell
+npm run dev:full
+```
+
+## Production
+
+### Build frontend
+
+```powershell
 npm run build
 ```
 
-### Lint with [ESLint](https://eslint.org/)
+### Lancer le backend en production
 
-```sh
-npm run lint
+```powershell
+npm --prefix backend run start
 ```
+
+## Routes backend
+
+- `GET /api/health`
+- `GET /api/teachers`
+- `GET /api/teachers/:slug`
+- `GET /api/teachers/:slug/timeline`
+- `GET /api/chapters`
+- `GET /api/chapters/:id`
+
+## Exemple de liens enseignants
+
+- `/t/prof-demo`
+- `/t/prof-amine`
+- `/t/prof-sara`
+- `/t/prof-hassan`
+
+Chaque lien charge uniquement les chapitres autorisés pour ce professeur.
+
