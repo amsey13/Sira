@@ -243,7 +243,7 @@ export  const siraEvents = [
     ],
     versets: null,
     sources: [
-      "<strong>Hadith :</strong> <a href='https://sunnah.com/ahmad:1655' target='_blank' class='source-link'>Musnad Ahmad 1655</a> (Éd. Ar-Risâla) & <em>As-Silsila aṣ-Ṣaḥīḥah</em> d'Al-Albani (n°1900) — <em>« J'ai assisté dans la maison d'Ibn Jud'ân à un pacte... si on m'y appelait en Islam, j'y répondrais »</em>.",
+      "<strong>Hadith :</strong> Musnad Ahmad (n°1655, Éd. Ar-Risâla / Musnad 'Abd ar-Rahman ibn 'Awf) & <em>As-Silsila aṣ-Ṣaḥīḥah</em> d'Al-Albani (n°1900) — <em>« J'ai assisté dans la maison d'Ibn Jud'ân à un pacte... si on m'y appelait en Islam, j'y répondrais »</em>.",
       "<strong>Histoire :</strong> <em>Le Nectar Cacheté</em> — « Le pacte de Foudoul » (p. 88).",
     ],
     bgImage:
