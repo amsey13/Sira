@@ -608,50 +608,50 @@ export  const siraEvents = [
     date: '620 - 621 apr. J.-C.',
     dateH: "2 av. l'Hégire",
     titreCourt: 'Les 6 Pionniers',
-    titre: 'Les 6 Hommes de Khazraj',
+    titre: 'La Première Rencontre : Les 6 Hommes de Khazraj',
     recit:
-      "Pendant la saison du pèlerinage à Mina (près d'Al-'Aqaba), le Prophète ﷺ aborde un groupe de six hommes de Yathrib (Médine). Après avoir appris qu'ils sont issus de la tribu des Khazraj et alliés des Juifs de Yathrib, il leur expose l'Islam et leur récite le Coran.<br><br>Épuisés par les déchirements de la guerre de Bu'âth et se rappelant que leurs voisins juifs annonçaient sans cesse la venue imminente d'un Prophète, ils se disent : <em>« Par Dieu, c’est assurément le Prophète dont les Juifs vous menacent ! Qu’ils ne vous devancent donc pas auprès de lui ! »</em><br><br>Ils embrassent l'Islam sur-le-champ et retournent à Yathrib comme les premiers ambassadeurs du message divin.",
+      "Pendant la saison du pèlerinage à Mina (près d'Al-'Aqaba), le Prophète ﷺ aborde un groupe de six hommes de Yathrib (Médine). Après avoir appris qu'ils sont issus de la tribu des Khazraj et voisins des Juifs de Yathrib, il leur expose l'Islam et leur récite des versets du Coran.<br><br>Épuisés par les déchirements de la guerre civile de Bu'âth et se rappelant que les Juifs annonçaient continuellement la venue imminente d'un Prophète, ils se disent entre eux : <em>« Par Dieu ! C’est assurément le Prophète dont les Juifs vous menacent. Qu’ils ne vous devancent pas auprès de lui ! »</em><br><br>Tous les six embrassent l'Islam sur-le-champ et s'engagent à propager le message divin auprès de leur peuple à leur retour à Yathrib :<br><br><div class='strategic-box'><div class='strategic-header'><span class='strategic-badge'>Les 6 Pionniers de Yathrib (Tous Khazraj)</span></div><ul class='strategic-list'><li><span class='strategic-bullet'>🟢</span><div><strong>1. As'ad ibn Zurârah</strong> (Khazraj — Banû An-Najjâr)</div></li><li><span class='strategic-bullet'>🟢</span><div><strong>2. 'Awf ibn al-Hârith</strong> / Ibn 'Afrâ' (Khazraj — Banû An-Najjâr)</div></li><li><span class='strategic-bullet'>🟢</span><div><strong>3. Râfi' ibn Mâlik</strong> (Khazraj — Banû Zurayq)</div></li><li><span class='strategic-bullet'>🟢</span><div><strong>4. Qutbah ibn 'Âmir</strong> (Khazraj — Banû Salama)</div></li><li><span class='strategic-bullet'>🟢</span><div><strong>5. 'Uqbah ibn 'Âmir</strong> (Khazraj — Banû Harâm)</div></li><li><span class='strategic-bullet'>🟢</span><div><strong>6. Jâbir ibn 'Abdillâh ibn Ri'âb</strong> (Khazraj — Banû 'Ubayd)</div></li></ul></div>",
     personnages: [
       {
         nom: "As'ad ibn Zurârah",
-        role: "Khazraj (Banû An-Najjâr) — Pionnier et artisan majeur de l'implantation de l'Islam à Yathrib.",
+        role: "Khazraj (Banû An-Najjâr) — Guide du groupe et premier artisan de l'Islam à Médine.",
         initiales: 'AZ',
         couleur: '#10b981'
       },
       {
         nom: "'Awf ibn al-Hârith (Ibn 'Afrâ')",
-        role: "Khazraj (Banû An-Najjâr) — L'un des premiers croyants médinois, futur combattant de Badr.",
+        role: "Khazraj (Banû An-Najjâr) — L'un des premiers croyants médinois, futur héros de Badr.",
         initiales: 'AH',
         couleur: '#059669'
       },
       {
         nom: "Râfi' ibn Mâlik",
-        role: "Khazraj (Banû Zurayq) — Chef de clan influent converti lors de cette première rencontre.",
+        role: "Khazraj (Banû Zurayq) — Chef influent converti lors de cette rencontre historique.",
         initiales: 'RM',
         couleur: '#047857'
       },
       {
         nom: "Qutbah ibn 'Âmir",
-        role: "Khazraj (Banû Salama) — Pionnier médinois engagé dans la transmission de la foi.",
+        role: "Khazraj (Banû Salama) — Pionnier engagé dans la prédication à Yathrib.",
         initiales: 'QA',
         couleur: '#0d9488'
       },
       {
         nom: "'Uqbah ibn 'Âmir",
-        role: "Khazraj (Banû Harâm / Ka'b) — Fervent compagnon de la première heure à Médine.",
+        role: "Khazraj (Banû Harâm) — Compagnon dévoué de la première heure.",
         initiales: 'UA',
         couleur: '#0891b2'
       },
       {
         nom: "Jâbir ibn 'Abdillâh ibn Ri'âb",
-        role: "Khazraj (Banû 'Ubayd) — Sixième pionnier scellant l'adhésion initiale de Yathrib.",
+        role: "Khazraj (Banû 'Ubayd) — Sixième pionnier scellant l'adhésion de Yathrib.",
         initiales: 'JR',
         couleur: '#0284c7'
       },
     ],
     lecons: [
-      "L'espoir jaillit souvent d'endroits inattendus : les cœurs brisés par les conflits fratricides de Bu'âth étaient mûrs pour la paix de l'Islam.",
-      "La foi des 6 pionniers a suffi pour faire entrer l'Islam dans chaque foyer de Médine avant même l'Hégire.",
+      "L'espoir jaillit souvent d'endroits inattendus : les cœurs brisés par les conflits de Bu'âth étaient mûrs pour la paix de l'Islam.",
+      "La sincérité de 6 croyants a suffi à faire pénétrer l'Islam dans chaque maison de Yathrib.",
     ],
     versets: null,
     sources: [
@@ -666,28 +666,101 @@ export  const siraEvents = [
     date: '621 apr. J.-C.',
     dateH: "1 av. l'Hégire",
     titreCourt: '1er Serment',
-    titre: "Le Premier Serment d'Aqaba",
+    titre: "Le Premier Serment d'Aqaba (Les 12 Délégués)",
     recit:
-      "Un an plus tard, 12 hommes de Yathrib (Aws et Khazraj réunis) reviennent. Dans la vallée d'Aqaba à La Mecque, ils prêtent allégeance au Prophète ﷺ sur des bases strictement morales : ne rien associer à Dieu, ne pas voler, ne pas tuer leurs enfants.<br><br>Ce pacte est appelé 'Le Pacte des femmes'. Le Prophète ﷺ leur envoie Mus'ab ibn 'Umayr comme ambassadeur.",
+      "À la saison du pèlerinage de l'an 621, une délégation officielle de <strong>12 hommes de Yathrib</strong> (10 issus des Khazraj et 2 des Aws) vient sceller une alliance sacrée avec le Prophète ﷺ à Al-'Aqaba.<br><br>Ce serment ('Bay'at an-Nisâ') repose sur des piliers éthiques stricts : n'adorer qu'Allah Seul, ne point voler ni forniquer, ne point tuer leurs enfants, ne propager aucune diffamation et obéir au Prophète ﷺ dans tout acte de bien.<br><br><div class='strategic-box'><div class='strategic-header'><span class='strategic-badge'>Les 12 Délégués du 1er Serment d'Aqaba</span></div><ul class='strategic-list'><li><span class='strategic-bullet'>🟢</span><div><strong>10 Délégués des Khazraj :</strong> As'ad ibn Zurârah (Banû An-Najjâr), 'Awf ibn al-Hârith (Banû An-Najjâr), Râfi' ibn Mâlik (Banû Zurayq), Qutbah ibn 'Âmir (Banû Salama), 'Uqbah ibn 'Âmir (Banû Harâm), Dhakwân ibn 'Abd Qays (Banû Zurayq), 'Ubâdah ibn as-Sâmit (Banû 'Awf), Yazîd ibn Tha'labah (Allié Banû Balî), Al-'Abbâs ibn 'Ubâdah (Banû Sâlim), Al-Hârith ibn al-Hârith / Mu'âdh (Banû al-Hârith).</div></li><li><span class='strategic-bullet'>🔵</span><div><strong>2 Délégués des Aws :</strong> Abul-Haytham ibn at-Tayyihân (Banû 'Abd al-Ashhal) et 'Uwaym ibn Sâ'idah (Banû 'Amr ibn 'Awf).</div></li><li><span class='strategic-bullet'>📜</span><div><strong>2 Émissaires Mecquois envoyés :</strong> Mus'ab ibn 'Umayr (diplomate & prédicateur) et 'Abd Allâh ibn Umm Maktûm (enseignant du Coran).</div></li></ul></div>",
     personnages: [
       {
         nom: "Mus'ab ibn 'Umayr",
-        role: "Jeune mecquois brillant envoyé à Médine. Il convertira l'élite de la ville par sa douceur et le Coran.",
+        role: "Muhâjir (Banû 'Abd ad-Dâr) — Premier ambassadeur de l'Islam à Médine, guide de la délégation.",
         initiales: 'MU',
-        couleur: '#8b5a3c'
+        couleur: '#d97706'
       },
       {
-        nom: "ʿAbd Allâh ibn Umm Maktûm",
-        role: "Compagnon aveugle envoyé peu après aux côtés de Mus'ab pour enseigner le Coran aux habitants de Médine.",
-        initiales: 'AM',
-        couleur: '#5a6b7d'
+        nom: "ʻAbd Allâh ibn Umm Maktûm",
+        role: "Muhâjir (Banû 'Âmir) — Compagnon aveugle envoyé comme enseignant du Coran à Yathrib.",
+        initiales: 'UM',
+        couleur: '#64748b'
       },
-],
+      {
+        nom: "As'ad ibn Zurârah",
+        role: "Khazraj (Banû An-Najjâr) — Chef de file de la délégation et hôte de Mus'ab à Médine.",
+        initiales: 'AZ',
+        couleur: '#10b981'
+      },
+      {
+        nom: "'Awf ibn al-Hârith",
+        role: "Khazraj (Banû An-Najjâr) — Délégué ayant renouvelé l'engagement des 6 pionniers.",
+        initiales: 'AH',
+        couleur: '#059669'
+      },
+      {
+        nom: "Râfi' ibn Mâlik",
+        role: "Khazraj (Banû Zurayq) — Délégué influent et premier à réciter la sourate Yûsuf à Médine.",
+        initiales: 'RM',
+        couleur: '#047857'
+      },
+      {
+        nom: "Qutbah ibn 'Âmir",
+        role: "Khazraj (Banû Salama) — Délégué de la première et de la seconde 'Aqaba.",
+        initiales: 'QA',
+        couleur: '#0d9488'
+      },
+      {
+        nom: "'Uqbah ibn 'Âmir",
+        role: "Khazraj (Banû Harâm) — Délégué fidèle des deux serments d'Aqaba.",
+        initiales: 'UA',
+        couleur: '#0891b2'
+      },
+      {
+        nom: "Dhakwân ibn 'Abd Qays",
+        role: "Khazraj (Banû Zurayq) — Qualifié de 'Muhâjirî-Ansârî' car il rejoignit le Prophète ﷺ à la Mecque.",
+        initiales: 'DQ',
+        couleur: '#0284c7'
+      },
+      {
+        nom: "'Ubâdah ibn as-Sâmit",
+        role: "Khazraj (Banû 'Awf) — Rapporteur direct des termes du serment d'Aqaba.",
+        initiales: 'US',
+        couleur: '#16a34a'
+      },
+      {
+        nom: "Yazîd ibn Tha'labah",
+        role: "Khazraj (Allié Banû Balî) — Délégué dévoué au pacte d'Aqaba.",
+        initiales: 'YT',
+        couleur: '#14b8a6'
+      },
+      {
+        nom: "Al-'Abbâs ibn 'Ubâdah",
+        role: "Khazraj (Banû Sâlim) — Noble médinois, futur martyr à Uhud.",
+        initiales: 'AU',
+        couleur: '#06b6d4'
+      },
+      {
+        nom: "Al-Hârith ibn al-Hârith",
+        role: "Khazraj (Banû al-Hârith) — Dixième délégué représentant les clans des Khazraj.",
+        initiales: 'HH',
+        couleur: '#0ea5e9'
+      },
+      {
+        nom: "Abul-Haytham ibn at-Tayyihân",
+        role: "Aws (Banû 'Abd al-Ashhal) — Premier grand chef de la tribu des Aws à embrasser l'Islam.",
+        initiales: 'AT',
+        couleur: '#3b82f6'
+      },
+      {
+        nom: "'Uwaym ibn Sâ'idah",
+        role: "Aws (Banû 'Amr ibn 'Awf) — Second dignitaire des Aws unissant les deux tribus rivales.",
+        initiales: 'OS',
+        couleur: '#6366f1'
+      },
+    ],
     lecons: [
-      "La foi et l'éducation (Tarbiyya) par l'enseignement du Coran sont les fondations préalables à la construction de tout état.",
+      "L'union sacrée et historique des deux tribus ennemies héréditaires (Aws et Khazraj) sous la bannière de l'Islam.",
+      "La primauté absolue de l'éducation spirituelle et morale (Tarbiyya) avant la mise en place du pouvoir politique.",
     ],
     versets:
-      'Sourate Al-Mumtahanah (60:12) : Verset reprenant les mêmes clauses éthiques que ce serment.',
+      'Sourate Al-Mumtahanah (60:12) : Verset reprenant les clauses éthiques identiques à ce serment.',
     sources: [
       "<strong>Hadith :</strong> <a href='https://sunnah.com/bukhari:18' target='_blank' class='source-link'>Ṣaḥīḥ al-Bukhārī 18</a> et <a href='https://sunnah.com/muslim:1709a' target='_blank' class='source-link'>Ṣaḥīḥ Muslim 1709a</a> — Témoignage direct de 'Ubâda ibn as-Sâmit sur le serment d'allégeance.",
       "<strong>Coran :</strong> <a href='https://quran.com/60/12' target='_blank' class='source-link'>Sourate Al-Mumtahanah (60:12)</a>.",
