@@ -214,8 +214,8 @@ export  const siraEvents = [
     ],
     versets: null,
     sources: [
-      "<strong>Histoire :</strong> Sîra d'Ibn Hicham (Vol. 1, p. 184-187) ; Le Nectar Cacheté.",
-      "<strong>Hadith :</strong> Musnad Ahmad (n°1567) - Le Prophète ﷺ mentionnant : « J'y ramassais les flèches pour mes oncles ».",
+      "<strong>Histoire :</strong> Sîra d'Ibn Hicham (Vol. 1, p. 186) rapportant la parole : <em>« J'y ramassais les flèches pour mes oncles » (كنت أنبل على أعمامي)</em> ; At-Tabaqât d'Ibn Sa'd (Vol. 1, p. 126).",
+      "<strong>Précision critique :</strong> Ce récit est transmis sous forme d'Athar historique (Mu'allaq sans chaîne continue) chez Ibn Ishaq, et non comme un hadith canonique dans le Musnad.",
     ],
     bgImage:
       'linear-gradient(135deg, #5a3b2d 0%, #8b5a2b 50%, #cd853f 100%)',
