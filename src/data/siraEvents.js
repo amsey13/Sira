@@ -30,7 +30,7 @@ export  const siraEvents = [
       "Sourate Al-Fîl (L'Éléphant - 105) : « N'as-tu pas vu comment ton Seigneur a agi envers les gens de l'Éléphant ? »",
     sources: [
       "<strong>Coran :</strong> <a href='https://quran.com/105' target='_blank' class='source-link'>Sourate Al-Fîl (105:1-5)</a>.",
-      "<strong>Histoire :</strong> <em>Sîra d'Ibn Hichâm</em> (Chapitre : « Récit des gens de l'Éléphant » / أمر أصحاب الفيل) ; <em>Le Nectar Cacheté</em> (Chapitre : La situation religieuse et politique).",
+      "<strong>Histoire :</strong> <em>Le Nectar Cacheté (Ar-Raheeq Al-Makhtoum)</em> — Chapitre : « La situation religieuse des Arabes / L'incident de l'Éléphant ».",
     ],
     bgImage:
       'linear-gradient(135deg, #8b4513 0%, #d2691e 50%, #cd853f 100%)',
@@ -61,7 +61,7 @@ export  const siraEvents = [
       "Sourate Ad-Duha (Le Jour Montant - 93:6) : « Ne t'a-t-Il pas trouvé orphelin ? Alors Il t'a accueilli ! »",
     sources: [
       "<strong>Hadith :</strong> <a href='https://sunnah.com/muslim:1162e' target='_blank' class='source-link'>Ṣaḥīḥ Muslim 1162e</a> — Interrogé sur le jeûne du lundi, le Prophète ﷺ répondit : <em>« C'est le jour où je suis né, et le jour où la révélation m'a été envoyée »</em>.",
-      "<strong>Histoire :</strong> <em>Sîra d'Ibn Hichâm</em> (Chapitre : « Naissance du Messager d'Allah ﷺ et son allaitement ») ; <em>Le Nectar Cacheté</em>.",
+      "<strong>Histoire :</strong> <em>Le Nectar Cacheté (Ar-Raheeq Al-Makhtoum)</em> — Chapitre : « La Naissance et quarante ans avant la Prophétie / La Naissance ».",
     ],
     bgImage:
       'linear-gradient(135deg, #1a1a1a 0%, #2d1810 50%, #3d2817 100%)',
@@ -96,7 +96,7 @@ export  const siraEvents = [
       "Sourate Ash-Sharh (L'Ouverture - 94:1) : « N'avons-Nous pas ouvert pour toi ta poitrine ? »",
     sources: [
       "<strong>Hadith :</strong> <a href='https://sunnah.com/muslim:162c' target='_blank' class='source-link'>Ṣaḥīḥ Muslim 162c</a> — Récit d'Anas ibn Mâlik décrivant la venue de l'Ange Jibrîl pour ouvrir la poitrine du jeune Prophète ﷺ lorsqu'il jouait avec les enfants.",
-      "<strong>Histoire :</strong> <em>Sîra d'Ibn Hichâm</em> (Chapitre : « L'enfance chez Banû Sa'd et l'ouverture de la poitrine »).",
+      "<strong>Histoire :</strong> <em>Le Nectar Cacheté (Ar-Raheeq Al-Makhtoum)</em> — Chapitre : « La vie chez les Banû Sa'd / L'événement de l'ouverture de la poitrine ».",
     ],
     bgImage:
       'linear-gradient(135deg, #6b4226 0%, #a0522d 50%, #cd9b7d 100%)',
@@ -130,7 +130,7 @@ export  const siraEvents = [
     versets: null,
     sources: [
       "<strong>Hadith :</strong> <a href='https://sunnah.com/muslim:976a' target='_blank' class='source-link'>Ṣaḥīḥ Muslim 976a</a> — Récit de la visite par le Prophète ﷺ de la tombe de sa mère à Al-Abwâ'.",
-      "<strong>Histoire :</strong> <em>Sîra d'Ibn Hichâm</em> (Chapitre : « Mort d'Âmina et tutelle de 'Abd al-Muttalib ») ; <em>At-Tabaqât al-Kubrâ</em> d'Ibn Sa'd.",
+      "<strong>Histoire :</strong> <em>Le Nectar Cacheté (Ar-Raheeq Al-Makhtoum)</em> — Chapitre : « Le retour chez sa tendre mère / Vers son noble grand-père ».",
     ],
     bgImage:
       'linear-gradient(135deg, #1c1c1c 0%, #2a1810 50%, #3d2817 100%)',
@@ -157,8 +157,7 @@ export  const siraEvents = [
     ],
     versets: null,
     sources: [
-      "<strong>Histoire :</strong> <em>Sîra d'Ibn Hichâm</em> (Chapitre : « Décès de 'Abd al-Muttalib et tutelle d'Abû Ṭâlib » / وفاة عبد المطلب وكفالة أبي طالب).",
-      "<strong>Histoire :</strong> <em>Le Nectar Cacheté</em> (Chapitre : Dans le giron d'Abû Ṭâlib).",
+      "<strong>Histoire :</strong> <em>Le Nectar Cacheté (Ar-Raheeq Al-Makhtoum)</em> — Chapitre : « Chez son oncle bienveillant Abû Ṭâlib ».",
     ],
     bgImage:
       'linear-gradient(135deg, #4a3728 0%, #7d5a3a 50%, #a0826d 100%)',
@@ -188,7 +187,8 @@ export  const siraEvents = [
       "Sourate Al-A'raf (7:157) : « ...le Prophète illettré qu'ils trouvent écrit chez eux dans la Thora et l'Évangile. »",
     sources: [
       "<strong>Hadith :</strong> <a href='https://sunnah.com/tirmidhi:3620' target='_blank' class='source-link'>Jâmi' at-Tirmidhî 3620</a>.",
-      "❗️ <strong>Évaluation critique :</strong> Rapporté par Ibn Ishaq et Tirmidhi. Jugé <strong>faible (Da'îf) ou contesté (Munkar)</strong> par de grands maîtres (Adh-Dhahabi dans <em>Mîzân al-I'tidâl</em>, Ibn Hajar) pour anomalies historiques dans le texte.",
+      "<strong>Histoire :</strong> <em>Le Nectar Cacheté (Ar-Raheeq Al-Makhtoum)</em> — Chapitre : « Le voyage en Syrie et la rencontre avec le moine Bahîrâ ».",
+      "❗️ <strong>Évaluation critique :</strong> Rapporté par Ibn Ishaq et Tirmidhi. Jugé <strong>faible (Da'îf) ou contesté (Munkar)</strong> par de grands maîtres (Adh-Dhahabi dans <em>Mîzân al-I'tidâl</em>, Ibn Hajar) pour incohérences historiques internes.",
     ],
     bgImage:
       'linear-gradient(135deg, #2d3e50 0%, #34495e 50%, #5d6d7b 100%)',
@@ -215,7 +215,7 @@ export  const siraEvents = [
     ],
     versets: null,
     sources: [
-      "<strong>Histoire :</strong> <em>Sîra d'Ibn Hichâm</em> (Chapitre : « La guerre de sacrilège / Harb al-Fijâr ») ; <em>At-Tabaqât</em> d'Ibn Sa'd.",
+      "<strong>Histoire :</strong> <em>Le Nectar Cacheté (Ar-Raheeq Al-Makhtoum)</em> — Chapitre : « La guerre de sacrilège (Harb al-Fijâr) ».",
       "<strong>Précision critique :</strong> Récit historique traditionnel (Athar chez Ibn Ishaq, sans chaîne de transmission canonique continue).",
     ],
     bgImage:
@@ -244,7 +244,7 @@ export  const siraEvents = [
     versets: null,
     sources: [
       "<strong>Hadith :</strong> <a href='https://sunnah.com/ahmad:1655' target='_blank' class='source-link'>Musnad Ahmad 1655</a> (Éd. Ar-Risâla) & <em>As-Silsila aṣ-Ṣaḥīḥah</em> d'Al-Albani (n°1900) — <em>« J'ai assisté dans la maison d'Ibn Jud'ân à un pacte... si on m'y appelait en Islam, j'y répondrais »</em>.",
-      "<strong>Histoire :</strong> <em>Sîra d'Ibn Hichâm</em> (Chapitre : « Le pacte des vertueux / Hilf al-Fudûl »).",
+      "<strong>Histoire :</strong> <em>Le Nectar Cacheté (Ar-Raheeq Al-Makhtoum)</em> — Chapitre : « L'Alliance des Vertueux (Hilf al-Fudûl) ».",
     ],
     bgImage:
       'linear-gradient(135deg, #6b4226 0%, #a0522d 50%, #d4a76a 100%)',
@@ -278,7 +278,7 @@ export  const siraEvents = [
     versets: null,
     sources: [
       "<strong>Hadith :</strong> <a href='https://sunnah.com/bukhari:3818' target='_blank' class='source-link'>Ṣaḥīḥ al-Bukhārī 3818</a> et <a href='https://sunnah.com/muslim:2435' target='_blank' class='source-link'>Ṣaḥīḥ Muslim 2435</a> — Textes sur le statut d'excellence de Khadija et la fidélité éternelle du Prophète ﷺ.",
-      "<strong>Histoire :</strong> <em>Sîra d'Ibn Hichâm</em> (Chapitre : « Le mariage avec Khadijah bint Khuwaylid ») ; <em>Le Nectar Cacheté</em>.",
+      "<strong>Histoire :</strong> <em>Le Nectar Cacheté (Ar-Raheeq Al-Makhtoum)</em> — Chapitre : « Le voyage commercial en Syrie et le mariage avec Khadîjah ».",
     ],
     bgImage:
       'linear-gradient(135deg, #8b6914 0%, #cd9b1d 50%, #ffd700 100%)',
@@ -306,7 +306,7 @@ export  const siraEvents = [
     versets: null,
     sources: [
       "<strong>Hadith :</strong> <em>Musnad Ahmad</em> (n°15504) et <em>Majma' az-Zawâ'id</em> (3/285) — Récit de la dispute des clans et l'arbitrage pacifique de la Pierre Noire.",
-      "<strong>Histoire :</strong> <em>Sîra d'Ibn Hichâm</em> (Chapitre : « Reconstruction de la Ka'ba et arbitrage de la Pierre Noire »).",
+      "<strong>Histoire :</strong> <em>Le Nectar Cacheté (Ar-Raheeq Al-Makhtoum)</em> — Chapitre : « La reconstruction de la Ka'ba et l'arbitrage ».",
     ],
     bgImage:
       'linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)',
@@ -335,6 +335,7 @@ export  const siraEvents = [
     sources: [
       "<strong>Hadith :</strong> <a href='https://sunnah.com/bukhari:3' target='_blank' class='source-link'>Ṣaḥīḥ al-Bukhārī 3</a> et <a href='https://sunnah.com/muslim:160a' target='_blank' class='source-link'>Ṣaḥīḥ Muslim 160a</a> — Le célèbre récit de 'Â'icha sur la retraite à Hira et l'apparition de Jibrîl.",
       "<strong>Coran :</strong> <a href='https://quran.com/96/1-5' target='_blank' class='source-link'>Sourate Al-'Alaq (96:1-5)</a>.",
+      "<strong>Histoire :</strong> <em>Le Nectar Cacheté (Ar-Raheeq Al-Makhtoum)</em> — Chapitre : « Dans la grotte de Hirâ' / Gabriel descend avec la Révélation ».",
     ],
     bgImage:
       'linear-gradient(135deg, #2a2d5f 0%, #4a3f83 50%, #6a5acd 100%)',
@@ -370,7 +371,7 @@ export  const siraEvents = [
     sources: [
       "<strong>Hadith :</strong> <a href='https://sunnah.com/bukhari:4922' target='_blank' class='source-link'>Ṣaḥīḥ al-Bukhārī 4922</a> et <a href='https://sunnah.com/muslim:161a' target='_blank' class='source-link'>Ṣaḥīḥ Muslim 161a</a> — Reprise de la Révélation après interruption.",
       "<strong>Coran :</strong> <a href='https://quran.com/74/1-7' target='_blank' class='source-link'>Sourate Al-Muddaththir (74:1-7)</a>.",
-      "<strong>Histoire :</strong> <em>Sîra d'Ibn Hichâm</em> (Chapitre : « Les premiers convertis et la maison d'Al-Arqam »).",
+      "<strong>Histoire :</strong> <em>Le Nectar Cacheté (Ar-Raheeq Al-Makhtoum)</em> — Chapitre : « Les trois années de prédication secrète / La maison d'Al-Arqam ».",
     ],
     bgImage:
       'linear-gradient(135deg, #1a1a1a 0%, #2f2f2f 50%, #3d3d3d 100%)',
@@ -406,6 +407,7 @@ export  const siraEvents = [
       "<strong>Hadith :</strong> <a href='https://sunnah.com/bukhari:4770' target='_blank' class='source-link'>Ṣaḥīḥ al-Bukhārī 4770</a> et <a href='https://sunnah.com/muslim:208a' target='_blank' class='source-link'>Ṣaḥīḥ Muslim 208a</a> — Proclamation publique au Mont Safa.",
       "<strong>Hadith :</strong> <em>Al-Mustadrak d'Al-Hâkim</em> (n°5646, authentifié selon Muslim) — <em>« Patience ô famille de Yâsir, votre rendez-vous est le Paradis »</em>.",
       "<strong>Coran :</strong> <a href='https://quran.com/26/214' target='_blank' class='source-link'>Sourate Ash-Shu'arâ (26:214)</a> et <a href='https://quran.com/111' target='_blank' class='source-link'>Sourate Al-Masad (111)</a>.",
+      "<strong>Histoire :</strong> <em>Le Nectar Cacheté (Ar-Raheeq Al-Makhtoum)</em> — Chapitre : « La proclamation publique sur le mont As-Safâ / Les persécutions et tortures ».",
     ],
     bgImage:
       'linear-gradient(135deg, #4a1a1a 0%, #8b3a3a 50%, #cd5c5c 100%)',
@@ -440,7 +442,7 @@ export  const siraEvents = [
     versets: 'Sourate Maryam (19), récitée majestueusement devant le clergé chrétien.',
     sources: [
       "<strong>Hadith :</strong> <em>Musnad Ahmad</em> (n°1740, chaîne authentique) — Le témoignage d'Oumm Salama sur le plaidoyer de Ja'far ibn Abî Tâlib devant le Négus.",
-      "<strong>Histoire :</strong> <em>Sîra d'Ibn Hichâm</em> (Chapitre : « L'émigration en terre d'Abyssinie » / الهجرة إلى أرض الحبشة) ; <em>Le Nectar Cacheté</em>.",
+      "<strong>Histoire :</strong> <em>Le Nectar Cacheté (Ar-Raheeq Al-Makhtoum)</em> — Chapitre : « La première et la deuxième émigration en Abyssinie / La délégation de Quraysh auprès du Négus ».",
     ],
     bgImage:
       'linear-gradient(135deg, #3d5a54 0%, #5a8b7d 50%, #7d9b8a 100%)',
@@ -467,8 +469,7 @@ export  const siraEvents = [
     ],
     versets: null,
     sources: [
-      "<strong>Histoire :</strong> <em>Sîra d'Ibn Hichâm</em> (Chapitre : « Le pacte d'embargo contre Banû Hâshim et son annulation » / حديث الصحيفة ونقضها).",
-      "<strong>Histoire :</strong> <em>Le Nectar Cacheté</em> (Chapitre : Le blocus total).",
+      "<strong>Histoire :</strong> <em>Le Nectar Cacheté (Ar-Raheeq Al-Makhtoum)</em> — Chapitre : « Le boycott généralisé dans le ravin d'Abû Ṭâlib / L'annulation du pacte ».",
     ],
     bgImage:
       'linear-gradient(135deg, #3a2a1a 0%, #5a3a2a 50%, #7a5a4a 100%)',
@@ -496,7 +497,7 @@ export  const siraEvents = [
     versets: null,
     sources: [
       "<strong>Hadith :</strong> <a href='https://sunnah.com/bukhari:3777' target='_blank' class='source-link'>Ṣaḥīḥ al-Bukhārī 3777</a> — Témoignage de 'Â'icha : <em>« Le jour de Bu'ath fut un jour qu'Allah a préparé pour Son Messager ﷺ... »</em>.",
-      "<strong>Histoire :</strong> <em>Târîkh at-Tabarî</em> (Chapitre : Événements de Yathrib avant l'Islam) ; <em>Al-Bidâya wan-Nihâya</em> d'Ibn Kathir.",
+      "<strong>Histoire :</strong> <em>Le Nectar Cacheté (Ar-Raheeq Al-Makhtoum)</em> — Chapitre : « La situation à Yathrib / La guerre de Bu'ath ».",
     ],
     bgImage:
       'linear-gradient(135deg, #5a2a1a 0%, #8b4513 50%, #a0522d 100%)',
@@ -524,7 +525,7 @@ export  const siraEvents = [
     versets: null,
     sources: [
       "<strong>Hadith :</strong> <a href='https://sunnah.com/bukhari:1360' target='_blank' class='source-link'>Ṣaḥīḥ al-Bukhārī 1360</a> et <a href='https://sunnah.com/muslim:24a' target='_blank' class='source-link'>Ṣaḥīḥ Muslim 24a</a> — Récit des derniers instants d'Abû Ṭâlib et révélation du verset 28:56.",
-      "<strong>Histoire :</strong> <em>Sîra d'Ibn Hichâm</em> (Chapitre : « Mort d'Abû Ṭâlib et de Khadîjah »).",
+      "<strong>Histoire :</strong> <em>Le Nectar Cacheté (Ar-Raheeq Al-Makhtoum)</em> — Chapitre : « L'année du chagrin : le décès d'Abû Ṭâlib et de Khadîjah ».",
     ],
     bgImage:
       'linear-gradient(135deg, #1a0a0a 0%, #3a1a1a 50%, #5a2a2a 100%)',
@@ -560,6 +561,7 @@ export  const siraEvents = [
     sources: [
       "<strong>Hadith :</strong> <a href='https://sunnah.com/bukhari:3231' target='_blank' class='source-link'>Ṣaḥīḥ al-Bukhārī 3231</a> et <a href='https://sunnah.com/muslim:1795' target='_blank' class='source-link'>Ṣaḥīḥ Muslim 1795</a> — Récit de l'épreuve de Ta'if et l'Ange des montagnes.",
       "<strong>Coran :</strong> <a href='https://quran.com/46/29-32' target='_blank' class='source-link'>Sourate Al-Ahqâf (46:29-32)</a> sur la foi des Djinns à Nakhla.",
+      "<strong>Histoire :</strong> <em>Le Nectar Cacheté (Ar-Raheeq Al-Makhtoum)</em> — Chapitre : « L'appel à l'Islam à At-Tâ'if / Le retour et la foi des Djinns ».",
     ],
     bgImage:
       'linear-gradient(135deg, #6b4226 0%, #a0522d 50%, #d4a574 100%)',
@@ -589,6 +591,7 @@ export  const siraEvents = [
     sources: [
       "<strong>Hadith :</strong> <a href='https://sunnah.com/bukhari:3887' target='_blank' class='source-link'>Ṣaḥīḥ al-Bukhārī 3887</a> et <a href='https://sunnah.com/muslim:162a' target='_blank' class='source-link'>Ṣaḥīḥ Muslim 162a</a> — Récits sur le Voyage Nocturne, l'Ascension et les 5 prières.",
       "<strong>Coran :</strong> <a href='https://quran.com/17/1' target='_blank' class='source-link'>Sourate Al-Isrâ' (17:1)</a> et <a href='https://quran.com/53/1-18' target='_blank' class='source-link'>Sourate An-Najm (53:1-18)</a>.",
+      "<strong>Histoire :</strong> <em>Le Nectar Cacheté (Ar-Raheeq Al-Makhtoum)</em> — Chapitre : « Le Voyage Nocturne et l'Ascension (Al-Isrâ' wal-Mi'râj) ».",
     ],
     bgImage:
       'linear-gradient(135deg, #0a0e27 0%, #1a2859 50%, #2d5a8c 100%)',
@@ -615,7 +618,7 @@ export  const siraEvents = [
     ],
     versets: null,
     sources: [
-      "<strong>Histoire :</strong> <em>Sîra d'Ibn Hichâm</em> (Chapitre : « Présentation de l'Islam aux tribus et rencontre des six hommes des Ansârs ») ; <em>Le Nectar Cacheté</em>.",
+      "<strong>Histoire :</strong> <em>Le Nectar Cacheté (Ar-Raheeq Al-Makhtoum)</em> — Chapitre : « La présentation de l'Islam aux pèlerins / Les six pionniers de Yathrib ».",
     ],
     bgImage:
       'linear-gradient(135deg, #3d5a4a 0%, #5a8b7d 50%, #7dab9d 100%)',
@@ -651,6 +654,7 @@ export  const siraEvents = [
     sources: [
       "<strong>Hadith :</strong> <a href='https://sunnah.com/bukhari:18' target='_blank' class='source-link'>Ṣaḥīḥ al-Bukhārī 18</a> et <a href='https://sunnah.com/muslim:1709a' target='_blank' class='source-link'>Ṣaḥīḥ Muslim 1709a</a> — Témoignage direct de 'Ubâda ibn as-Sâmit sur le serment d'allégeance.",
       "<strong>Coran :</strong> <a href='https://quran.com/60/12' target='_blank' class='source-link'>Sourate Al-Mumtahanah (60:12)</a>.",
+      "<strong>Histoire :</strong> <em>Le Nectar Cacheté (Ar-Raheeq Al-Makhtoum)</em> — Chapitre : « Le Premier Serment d'allégeance d'Al-'Aqaba / L'ambassadeur de l'Islam à Médine ».",
     ],
     bgImage:
       'linear-gradient(135deg, #6b4226 0%, #a0522d 50%, #d4a574 100%)',
@@ -678,7 +682,7 @@ export  const siraEvents = [
     versets: null,
     sources: [
       "<strong>Hadith :</strong> <em>Musnad Ahmad</em> (n°15798, chaîne authentique), <em>Sunan al-Kubrâ d'Al-Bayhaqî</em> (Vol. 9, p. 9) — Récit direct de Ka'b ibn Mâlik sur la nuit d'Aqaba.",
-      "<strong>Histoire :</strong> <em>Sîra d'Ibn Hichâm</em> (Chapitre : « Le second serment d'allégeance d'Al-'Aqaba » / بيعة العقبة الثانية).",
+      "<strong>Histoire :</strong> <em>Le Nectar Cacheté (Ar-Raheeq Al-Makhtoum)</em> — Chapitre : « Le Second Serment d'allégeance d'Al-'Aqaba (Pacte de Guerre) ».",
     ],
     bgImage:
       'linear-gradient(135deg, #3a2a1a 0%, #5a3a2a 50%, #7a5a4a 100%)',
@@ -726,6 +730,7 @@ export  const siraEvents = [
     sources: [
       "<strong>Hadith :</strong> <a href='https://sunnah.com/bukhari:3905' target='_blank' class='source-link'>Ṣaḥīḥ al-Bukhārī 3905</a> — Le grand hadith de 'Â'icha détaillant les préparatifs, la grotte de Thawr et la traversée vers Médine.",
       "<strong>Coran :</strong> <a href='https://quran.com/9/40' target='_blank' class='source-link'>Sourate At-Tawbah (9:40)</a>.",
+      "<strong>Histoire :</strong> <em>Le Nectar Cacheté (Ar-Raheeq Al-Makhtoum)</em> — Chapitre : « Le grand complot de Dâr an-Nadwah / L'Hégire du Prophète ﷺ et la grotte de Thawr ».",
     ],
     bgImage:
       'linear-gradient(135deg, #0d1b2a 0%, #1b2d3d 50%, #2d4559 100%)',
