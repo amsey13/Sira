@@ -188,7 +188,7 @@ export  const siraEvents = [
     sources: [
       "<strong>Hadith :</strong> <a href='https://sunnah.com/tirmidhi:3620' target='_blank' class='source-link'>Jâmi' at-Tirmidhî 3620</a>.",
       "<strong>Histoire :</strong> <em>Le Nectar Cacheté</em> — « Rencontre avec le moine Bahîrâ » (p. 87).",
-      "❗️ <strong>Évaluation critique :</strong> Rapporté par Ibn Ishaq et Tirmidhi. Jugé <strong>faible (Da'îf) ou contesté (Munkar)</strong> par de grands maîtres (Adh-Dhahabi dans <em>Mîzân al-I'tidâl</em>, Ibn Hajar) pour anomalies historiques dans le texte.",
+      "❗️ <strong>Évaluation critique :</strong> Rapporté par Tirmidhi. Jugé <strong>faible (Da'îf) ou contesté (Munkar)</strong> par de grands maîtres du Hadith (Adh-Dhahabi dans <em>Mîzân al-I'tidâl</em>, Ibn Hajar) pour anomalies historiques dans le texte.",
     ],
     bgImage:
       'linear-gradient(135deg, #2d3e50 0%, #34495e 50%, #5d6d7b 100%)',
@@ -216,7 +216,7 @@ export  const siraEvents = [
     versets: null,
     sources: [
       "<strong>Histoire :</strong> <em>Le Nectar Cacheté</em> — « La guerre d'Al-Foujjâr » (p. 88).",
-      "<strong>Précision critique :</strong> Récit historique traditionnel (Athar chez Ibn Ishaq, sans chaîne de transmission canonique continue).",
+      "<strong>Précision critique :</strong> Récit historique traditionnel (non issu des recueils canoniques de Hadith).",
     ],
     bgImage:
       'linear-gradient(135deg, #5a3b2d 0%, #8b5a2b 50%, #cd853f 100%)',
@@ -243,7 +243,7 @@ export  const siraEvents = [
     ],
     versets: null,
     sources: [
-      "<strong>Hadith :</strong> <a href='https://sunnah.com/adab:567' target='_blank' class='source-link'>Al-Adab Al-Mufrad 567 (Al-Bukhârî)</a> & <a href='https://dorar.net/hadith/search?q=شهدت+حلف+المطيبين+مع+عمومتي' target='_blank' class='source-link'>Musnad Ahmad 1655 (Dorar.net)</a> — <em>« J'ai assisté avec mes oncles au pacte... je ne romprais cet engagement pour rien au monde »</em>.",
+      "<strong>Hadith :</strong> <a href='https://sunnah.com/adab:567' target='_blank' class='source-link'>Al-Adab Al-Mufrad 567 (Al-Bukhārī)</a> — Le Prophète ﷺ déclare : <em>« J'ai assisté avec mes oncles au pacte... je ne romprais cet engagement pour rien au monde »</em>.",
       "<strong>Histoire :</strong> <em>Le Nectar Cacheté</em> — « Le pacte de Foudoul » (p. 88).",
     ],
     bgImage:
@@ -305,7 +305,6 @@ export  const siraEvents = [
     ],
     versets: null,
     sources: [
-      "<strong>Hadith :</strong> <a href='https://dorar.net/hadith/search?q=فوضعه+في+ثوب+ثم+قال+لتأخذ+كل+قبيلة+بناحية' target='_blank' class='source-link'>Musnad Ahmad 15504 (Dorar.net)</a> — Récit de la dispute des clans et l'arbitrage pacifique de la Pierre Noire.",
       "<strong>Histoire :</strong> <em>Le Nectar Cacheté</em> — « La construction de la Kaaba et la question d'arbitrage » (p. 91).",
     ],
     bgImage:
@@ -405,7 +404,6 @@ export  const siraEvents = [
     versets: "Sourate Al-Masad (111) : « Que périssent les deux mains d'Abu Lahab... »",
     sources: [
       "<strong>Hadith :</strong> <a href='https://sunnah.com/bukhari:4770' target='_blank' class='source-link'>Ṣaḥīḥ al-Bukhārī 4770</a> et <a href='https://sunnah.com/muslim:208a' target='_blank' class='source-link'>Ṣaḥīḥ Muslim 208a</a> — Proclamation publique au Mont Safa.",
-      "<strong>Hadith :</strong> <a href='https://dorar.net/hadith/search?q=صبرا+آل+ياسر+فإن+موعدكم+الجنة' target='_blank' class='source-link'>Al-Mustadrak 5646 & Musnad Ahmad (Dorar.net)</a> — <em>« Patience ô famille de Yâsir, votre rendez-vous est le Paradis »</em>.",
       "<strong>Coran :</strong> <a href='https://quran.com/26/214' target='_blank' class='source-link'>Sourate Ash-Shu'arâ (26:214)</a> et <a href='https://quran.com/111' target='_blank' class='source-link'>Sourate Al-Masad (111)</a>.",
       "<strong>Histoire :</strong> <em>Le Nectar Cacheté</em> — « Sur le mont As-Safa » (p. 112) et « Les persécutions » (p. 118).",
     ],
@@ -441,7 +439,6 @@ export  const siraEvents = [
     ],
     versets: 'Sourate Maryam (19), récitée majestueusement devant le clergé chrétien.',
     sources: [
-      "<strong>Hadith :</strong> <a href='https://dorar.net/hadith/search?q=أيها+الملك+كنا+قوما+أهل+جاهلية+نعبد+الأصنام' target='_blank' class='source-link'>Musnad Ahmad 1740 (Dorar.net)</a> — Le long témoignage d'Oumm Salama sur le plaidoyer de Ja'far ibn Abî Tâlib devant le Négus.",
       "<strong>Histoire :</strong> <em>Le Nectar Cacheté</em> — « La première émigration vers l'Abyssinie » (p. 131) et « La deuxième émigration en Abyssinie » (p. 134).",
     ],
     bgImage:
@@ -681,7 +678,6 @@ export  const siraEvents = [
     ],
     versets: null,
     sources: [
-      "<strong>Hadith :</strong> <a href='https://dorar.net/hadith/search?q=بيعة+العقبة+الثانية+كعب+بن+مالك' target='_blank' class='source-link'>Musnad Ahmad 15798 & Bayhaqî (Dorar.net)</a> — Récit direct de Ka'b ibn Mâlik sur la nuit d'Aqaba.",
       "<strong>Histoire :</strong> <em>Le Nectar Cacheté</em> — « Le deuxième acte de reconnaissance d'Al-Akaba » (p. 210) et « La conclusion de la Bay'a » (p. 214).",
     ],
     bgImage:
