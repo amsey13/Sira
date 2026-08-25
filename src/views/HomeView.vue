@@ -18,6 +18,14 @@
           </div>
         </button>
 
+        <button class="action-btn guest-btn" @click="$router.push('/t/invite')">
+          <i class="pi pi-eye"></i>
+          <div>
+            <h3>Mode Invité</h3>
+            <p>Découvrir librement tous les chapitres</p>
+          </div>
+        </button>
+
         <button class="action-btn teacher-btn" @click="$router.push('/teacher/login')">
           <i class="pi pi-users"></i>
           <div>
@@ -122,23 +130,23 @@ const goToStudent = () => {
   position: relative;
   z-index: 2;
   width: 100%;
-  max-width: 600px;
+  max-width: 500px;
   padding: 40px;
 }
 
 .logo-box {
   text-align: center;
-  margin-bottom: 50px;
+  margin-bottom: 40px;
 }
 .main-icon {
-  font-size: 4rem;
+  font-size: 3.5rem;
   color: #d97706;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   text-shadow: 0 0 20px rgba(217, 119, 6, 0.5);
 }
 .logo-box h1 {
   font-family: 'Merriweather', serif;
-  font-size: 2.8rem;
+  font-size: 2.2rem;
   color: #fff;
   margin: 0 0 10px 0;
 }
@@ -147,22 +155,22 @@ const goToStudent = () => {
 }
 .subtitle {
   color: #a1a1aa;
-  font-size: 1.1rem;
+  font-size: 1rem;
 }
 
 .actions-grid {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 15px;
 }
 
 .action-btn {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 15px;
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 25px;
+  padding: 20px;
   border-radius: 12px;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -170,9 +178,9 @@ const goToStudent = () => {
   backdrop-filter: blur(10px);
 }
 .action-btn i {
-  font-size: 2rem;
-  width: 60px;
-  height: 60px;
+  font-size: 1.5rem;
+  width: 45px;
+  height: 45px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -180,44 +188,46 @@ const goToStudent = () => {
   background: rgba(255, 255, 255, 0.1);
 }
 .action-btn h3 {
-  margin: 0 0 5px 0;
-  font-size: 1.3rem;
+  margin: 0 0 4px 0;
+  font-size: 1.1rem;
   color: #fff;
 }
 .action-btn p {
   margin: 0;
   color: #a1a1aa;
-  font-size: 0.95rem;
+  font-size: 0.85rem;
 }
 
+/* Couleurs au survol par bouton */
 .student-btn:hover {
   background: rgba(217, 119, 6, 0.15);
   border-color: #d97706;
-  transform: translateY(-5px);
+  transform: translateY(-3px);
 }
-.student-btn:hover i {
-  background: #d97706;
-  color: #fff;
+.student-btn:hover i { background: #d97706; color: #fff; }
+
+.guest-btn:hover {
+  background: rgba(16, 185, 129, 0.15);
+  border-color: #10b981;
+  transform: translateY(-3px);
 }
+.guest-btn:hover i { background: #10b981; color: #fff; }
 
 .teacher-btn:hover {
   background: rgba(59, 130, 246, 0.15);
   border-color: #3b82f6;
-  transform: translateY(-5px);
+  transform: translateY(-3px);
 }
-.teacher-btn:hover i {
-  background: #3b82f6;
-  color: #fff;
-}
+.teacher-btn:hover i { background: #3b82f6; color: #fff; }
 
 .admin-link {
   text-align: center;
-  margin-top: 40px;
+  margin-top: 30px;
 }
 .admin-link a {
   color: #52525b;
   text-decoration: none;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   transition: color 0.2s;
   display: inline-flex;
   align-items: center;
@@ -228,9 +238,7 @@ const goToStudent = () => {
 }
 
 @media (max-width: 640px) {
-  .logo-box h1 { font-size: 2rem; }
+  .logo-box h1 { font-size: 1.8rem; }
   .action-btn { padding: 15px; }
-  .action-btn i { font-size: 1.5rem; width: 45px; height: 45px; }
-  .action-btn h3 { font-size: 1.1rem; }
 }
 </style>

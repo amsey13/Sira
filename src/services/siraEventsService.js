@@ -18,6 +18,23 @@ function resolveTeacherSlugFromLocation() {
 }
 
 async function getTeacherTimeline(slug = resolveTeacherSlugFromLocation()) {
+  // Mode invité : Donne accès à tout automatiquement (Pas de requête Supabase nécessaire)
+  if (slug === 'invite') {
+    return {
+      teacher: {
+        slug: 'invite',
+        name: 'Mode Invité',
+        school: 'Accès Libre',
+        grade: 'Découverte',
+        accentColor: '#d97706',
+        description: 'Accès public de démonstration.',
+        allowedChapterIds: siraEvents.map(e => e.id),
+        totalChapters: siraEvents.length
+      },
+      events: siraEvents
+    }
+  }
+
   const { data: teacher, error } = await supabase
     .from('teachers')
     .select('*')
@@ -25,7 +42,7 @@ async function getTeacherTimeline(slug = resolveTeacherSlugFromLocation()) {
     .maybeSingle()
 
   if (error || !teacher) {
-    throw new Error(`Aucun professeur trouv\u00e9 pour l'identifiant "${slug}".`)
+    throw new Error(`Aucun professeur trouvé pour l'identifiant "${slug}".`)
   }
 
   // Filtrer les événements statiques en fonction des ID autorisés par ce prof
