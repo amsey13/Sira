@@ -28,6 +28,11 @@ export  const siraEvents = [
     ],
     versets:
       "Sourate Al-Fîl (L'Éléphant - 105) : « N'as-tu pas vu comment ton Seigneur a agi envers les gens de l'Éléphant ? »",
+    sources: [
+      "<strong>Coran :</strong> Sourate Al-Fîl (105).",
+      "<strong>Histoire :</strong> Sîra d'Ibn Hicham (Vol. 1, p. 158) ; Le Nectar Cacheté.",
+      "<strong>Hadith :</strong> Ṣaḥīḥ Muslim (Livre du Jeûne, n°1162) pour la bénédiction du Lundi.",
+    ],
     bgImage:
       'linear-gradient(135deg, #8b4513 0%, #d2691e 50%, #cd853f 100%)',
   },
@@ -55,6 +60,10 @@ export  const siraEvents = [
     ],
     versets:
       "Sourate Ad-Duha (Le Jour Montant - 93:6) : « Ne t'a-t-Il pas trouvé orphelin ? Alors Il t'a accueilli ! »",
+    sources: [
+      "<strong>Hadith :</strong> Ṣaḥīḥ Muslim (Livre de la Foi, n°162) détaillant l'ouverture de la poitrine.",
+      "<strong>Histoire :</strong> Sîra d'Ibn Hicham (Vol. 1, p. 162).",
+    ],
     bgImage:
       'linear-gradient(135deg, #1a1a1a 0%, #2d1810 50%, #3d2817 100%)',
   },
@@ -86,6 +95,9 @@ export  const siraEvents = [
     ],
     versets:
       "Sourate Ash-Sharh (L'Ouverture - 94:1) : « N'avons-Nous pas ouvert pour toi ta poitrine ? »",
+    sources: [
+      "<strong>Histoire :</strong> Sîra d'Ibn Hicham (Vol. 1, p. 167) ; Le Nectar Cacheté.",
+    ],
     bgImage:
       'linear-gradient(135deg, #6b4226 0%, #a0522d 50%, #cd9b7d 100%)',
   },
@@ -116,6 +128,9 @@ export  const siraEvents = [
       'La perte successive de ses parents développe en lui une empathie et une miséricorde uniques envers les faibles et les orphelins.',
     ],
     versets: null,
+    sources: [
+      "<strong>Histoire :</strong> Sîra d'Ibn Hicham (Vol. 1, p. 184) détaillant la participation de Quraysh.",
+    ],
     bgImage:
       'linear-gradient(135deg, #1c1c1c 0%, #2a1810 50%, #3d2817 100%)',
   },
@@ -140,6 +155,10 @@ export  const siraEvents = [
       "Dieu choisit un homme influent et intègre pour assurer la sécurité tribale de son futur Prophète, malgré la pauvreté matérielle d'Abu Talib.",
     ],
     versets: null,
+    sources: [
+      "<strong>Histoire :</strong> Sîra d'Ibn Hicham (Vol. 1, p. 133).",
+      "<strong>Hadith :</strong> Musnad Ahmad (confirmant qu'il préférait ce pacte aux plus grands biens).",
+    ],
     bgImage:
       'linear-gradient(135deg, #4a3728 0%, #7d5a3a 50%, #a0826d 100%)',
   },
@@ -166,6 +185,10 @@ export  const siraEvents = [
     ],
     versets:
       "Sourate Al-A'raf (7:157) : « ...le Prophète illettré qu'ils trouvent écrit chez eux dans la Thora et l'Évangile. »",
+    sources: [
+      "<strong>Hadith :</strong> Jami' at-Tirmidhi (n°3620).",
+      "❗️ <strong>Avis critique :</strong> Relaté par Ibn Ishaq. Tirmidhi et Al-Albani l'ont jugé bon/authentique, mais plusieurs grands critiques (Adh-Dhahabi, etc.) l'ont classé <strong>Munkar (rejeté) ou Da'if</strong> pour anomalies dans la chaîne et le récit.",
+    ],
     bgImage:
       'linear-gradient(135deg, #2d3e50 0%, #34495e 50%, #5d6d7b 100%)',
   },
@@ -190,6 +213,9 @@ export  const siraEvents = [
       "Dieu l'expose aux dures réalités politiques et militaires de son époque, tout en préservant son innocence spirituelle et physique.",
     ],
     versets: null,
+    sources: [
+      "<strong>Histoire :</strong> Sîra d'Ibn Hicham (Vol. 1, p. 189) ; Le Nectar Cacheté.",
+    ],
     bgImage:
       'linear-gradient(135deg, #5a3b2d 0%, #8b5a2b 50%, #cd853f 100%)',
   },
@@ -214,6 +240,10 @@ export  const siraEvents = [
       "L'Islam soutient et s'associe à toute initiative juste de la société civile, même si elle émane de non-musulmans.",
     ],
     versets: null,
+    sources: [
+      "<strong>Hadith :</strong> Musnad Ahmad.",
+      "<strong>Histoire :</strong> Sîra d'Ibn Hicham (Vol. 1, p. 192).",
+    ],
     bgImage:
       'linear-gradient(135deg, #6b4226 0%, #a0522d 50%, #d4a76a 100%)',
   },
@@ -244,6 +274,9 @@ export  const siraEvents = [
       "L'honnêteté dans le travail (Al-Amana) est la clé de la réussite et du respect social avant même la révélation.",
     ],
     versets: null,
+    sources: [
+      "<strong>Hadith :</strong> Ṣaḥīḥ al-Bukhārī (Livre du début de la Révélation, n°3) - Rapport de 'Aisha sur Hira.",
+    ],
     bgImage:
       'linear-gradient(135deg, #8b6914 0%, #cd9b1d 50%, #ffd700 100%)',
   },
@@ -268,6 +301,9 @@ export  const siraEvents = [
       "Le leadership par la sagesse et le compromis pacifique, évitant l'effusion de sang arabe.",
     ],
     versets: null,
+    sources: [
+      "<strong>Hadith :</strong> Ṣaḥīḥ al-Bukhārī (Livre de la Révélation, n°4 et n°4922) rapporté par Jabir...",
+    ],
     bgImage:
       'linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)',
   },
@@ -292,6 +328,10 @@ export  const siraEvents = [
       "La Révélation est une charge lourde et effrayante. L'importance cruciale de l'épouse dans le soutien psychologique.",
     ],
     versets: 'Sourate Al-Alaq (96:1-5) : « Lis, au nom de ton Seigneur qui a créé... »',
+    sources: [
+      "<strong>Hadith :</strong> Ṣaḥīḥ al-Bukhārī (Livre des Compagnons, sur les mérites de Khadija et Abu Bakr).",
+      "<strong>Histoire :</strong> Sîra d'Ibn Hicham.",
+    ],
     bgImage:
       'linear-gradient(135deg, #2a2d5f 0%, #4a3f83 50%, #6a5acd 100%)',
   },
@@ -323,6 +363,9 @@ export  const siraEvents = [
     ],
     versets:
       "Sourate Al-Muddathir (74:1-2) : « Ô toi, le revêtu d'un manteau ! Lève-toi et avertis ! »",
+    sources: [
+      "<strong>Histoire :</strong> Sîra d'Ibn Hicham (Vol. 1, p. 254) ; Le Nectar Cacheté (Da'wa).",
+    ],
     bgImage:
       'linear-gradient(135deg, #1a1a1a 0%, #2f2f2f 50%, #3d3d3d 100%)',
   },
@@ -353,6 +396,10 @@ export  const siraEvents = [
       "La patience (Sabr) absolue est ordonnée. Le Prophète ﷺ promet : 'Patience ô famille de Yassir, votre rendez-vous est le Paradis'.",
     ],
     versets: "Sourate Al-Masad (111) : « Que périssent les deux mains d'Abu Lahab... »",
+    sources: [
+      "<strong>Hadith :</strong> Ṣaḥīḥ al-Bukhārī (Tafsir, n°4770).",
+      "<strong>Histoire :</strong> Sîra Ibn Hicham pour les détails des oppressions.",
+    ],
     bgImage:
       'linear-gradient(135deg, #4a1a1a 0%, #8b3a3a 50%, #cd5c5c 100%)',
   },
@@ -384,6 +431,10 @@ export  const siraEvents = [
       "La recherche d'alliances justes au-delà des frontières. La puissance d'un dialogue interreligieux basé sur le respect.",
     ],
     versets: 'Sourate Maryam (19), récitée majestueusement devant le clergé chrétien.',
+    sources: [
+      "<strong>Histoire :</strong> Sîra d'Ibn Hicham ; Fada'il as-Sahaba (Ibn Hanbal).",
+      "<strong>Notes :</strong> Certains détails (récit de Ta-Ha) ont des chaînes discutées, mais acceptées en historiographie.",
+    ],
     bgImage:
       'linear-gradient(135deg, #3d5a54 0%, #5a8b7d 50%, #7d9b8a 100%)',
   },
@@ -408,6 +459,10 @@ export  const siraEvents = [
       "Le triomphe spirituel sur le blocus matériel. Le pacte injuste est dévoré par les termites, à l'exception de l'en-tête 'Bismika Allahumma' (En Ton nom, Ô Allah).",
     ],
     versets: null,
+    sources: [
+      "<strong>Hadith :</strong> Musnad Ahmad (Récit d'Oum Salama, chaîne authentifiée).",
+      "<strong>Histoire :</strong> Sîra d'Ibn Hicham.",
+    ],
     bgImage:
       'linear-gradient(135deg, #3a2a1a 0%, #5a3a2a 50%, #7a5a4a 100%)',
   },
@@ -432,6 +487,10 @@ export  const siraEvents = [
       "Aïcha dira plus tard : 'Le jour de Bu'ath est un jour qu'Allah a préparé pour Son Messager'. Cette tragédie a préparé psychologiquement les Médinois à accepter un pacificateur extérieur.",
     ],
     versets: null,
+    sources: [
+      "<strong>Hadith :</strong> Allusion dans Ṣaḥīḥ al-Bukhārī (n°1590).",
+      "<strong>Histoire :</strong> Sîra d'Ibn Hicham.",
+    ],
     bgImage:
       'linear-gradient(135deg, #5a2a1a 0%, #8b4513 50%, #a0522d 100%)',
   },
@@ -456,6 +515,10 @@ export  const siraEvents = [
       "En le privant de tout soutien terrestre, Dieu purifie le cœur de Son Messager pour qu'il ne dépende exclusivement que de Lui.",
     ],
     versets: null,
+    sources: [
+      "<strong>Hadith :</strong> Ṣaḥīḥ al-Bukhārī (n°1360) (Mort d'Abu Talib).",
+      "<strong>Histoire :</strong> Sîra d'Ibn Hicham.",
+    ],
     bgImage:
       'linear-gradient(135deg, #1a0a0a 0%, #3a1a1a 50%, #5a2a2a 100%)',
   },
@@ -487,6 +550,9 @@ export  const siraEvents = [
       "Le Prophète ﷺ refuse la proposition de l'Ange des montagnes d'écraser la Mecque. C'est l'apogée de sa miséricorde.",
     ],
     versets: 'Sourate Al-Ahqaf (46:29) : Révélation sur la conversion des Djinns à Nakhla.',
+    sources: [
+      "<strong>Hadith :</strong> Ṣaḥīḥ al-Bukhārī (Début de la Création, n°3231) ('Aisha l'interrogeant sur Ta'if).",
+    ],
     bgImage:
       'linear-gradient(135deg, #6b4226 0%, #a0522d 50%, #d4a574 100%)',
   },
@@ -512,6 +578,10 @@ export  const siraEvents = [
     ],
     versets:
       'Sourate Al-Isra (17:1) : « Gloire à Celui qui de nuit, fit voyager Son serviteur de la Mosquée Sacrée à la Mosquée Al-Aqsa... »',
+    sources: [
+      "<strong>Hadith :</strong> Ṣaḥīḥ al-Bukhārī (n°3887) et Ṣaḥīḥ Muslim (n°162).",
+      "<strong>Coran :</strong> 17:1 et 53:13-18.",
+    ],
     bgImage:
       'linear-gradient(135deg, #0a0e27 0%, #1a2859 50%, #2d5a8c 100%)',
   },
@@ -536,6 +606,9 @@ export  const siraEvents = [
       "L'espoir jaillit souvent d'endroits inattendus. Les cœurs brisés par la guerre civile de Bu'ath étaient les plus réceptifs à la paix de l'Islam.",
     ],
     versets: null,
+    sources: [
+      "<strong>Histoire :</strong> Sîra d'Ibn Hicham ; Le Nectar Cacheté.",
+    ],
     bgImage:
       'linear-gradient(135deg, #3d5a4a 0%, #5a8b7d 50%, #7dab9d 100%)',
   },
@@ -567,6 +640,9 @@ export  const siraEvents = [
     ],
     versets:
       'Sourate Al-Mumtahanah (60:12) : Verset reprenant les mêmes clauses éthiques que ce serment.',
+    sources: [
+      "<strong>Hadith :</strong> Ṣaḥīḥ al-Bukhārī (Livre de la Foi, n°18) (Récit de 'Ubada).",
+    ],
     bgImage:
       'linear-gradient(135deg, #6b4226 0%, #a0522d 50%, #d4a574 100%)',
   },
@@ -591,6 +667,10 @@ export  const siraEvents = [
       "Le transfert du centre de gravité de l'Islam : La Mecque va être vidée de ses croyants au profit d'un état naissant et souverain.",
     ],
     versets: null,
+    sources: [
+      "<strong>Hadith :</strong> Musnad Ahmad (Récit de Ka'b ibn Malik).",
+      "<strong>Histoire :</strong> Sîra d'Ibn Hicham.",
+    ],
     bgImage:
       'linear-gradient(135deg, #3a2a1a 0%, #5a3a2a 50%, #7a5a4a 100%)',
   },
@@ -634,6 +714,10 @@ export  const siraEvents = [
     ],
     versets:
       "Sourate At-Tawbah (9:40) : « Si vous ne lui portez pas secours... Allah l'a déjà secouru... »",
+    sources: [
+      "<strong>Hadith :</strong> Ṣaḥīḥ al-Bukhārī (Mérites des Emigrés, n°3905) (Voyage de la grotte).",
+      "<strong>Histoire :</strong> Sîra d'Ibn Hicham.",
+    ],
     bgImage:
       'linear-gradient(135deg, #0d1b2a 0%, #1b2d3d 50%, #2d4559 100%)',
   },
