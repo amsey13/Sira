@@ -899,5 +899,17 @@ const getBackgroundStyle = (bgValue) => {
   margin-top: 5px;
   flex-shrink: 0;
 }
+
+:deep(.doua-quote) {
+  margin: 1rem 0;
+  padding: 0.85rem 1.15rem;
+  border-left: 3px solid #d4a574;
+  background: rgba(212, 165, 116, 0.08);
+  border-radius: 0 8px 8px 0;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: #f3f4f6;
+}
+
 </style>
 
