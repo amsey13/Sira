@@ -95,7 +95,7 @@ export  const siraEvents = [
     versets:
       "Sourate Ash-Sharh (L'Ouverture - 94:1) : « N'avons-Nous pas ouvert pour toi ta poitrine ? »",
     sources: [
-      "<strong>Hadith :</strong> <a href='https://sunnah.com/muslim:162a' target='_blank' class='source-link'>Ṣaḥīḥ Muslim 162a</a> — Récit d'Anas ibn Mâlik décrivant la venue de l'Ange Jibrîl pour ouvrir la poitrine du jeune Prophète ﷺ.",
+      "<strong>Hadith :</strong> <a href='https://sunnah.com/muslim:162c' target='_blank' class='source-link'>Ṣaḥīḥ Muslim 162c</a> — Récit d'Anas ibn Mâlik décrivant la venue de l'Ange Jibrîl pour ouvrir la poitrine du jeune Prophète ﷺ lorsqu'il jouait avec les enfants.",
       "<strong>Histoire :</strong> <em>Sîra d'Ibn Hichâm</em> (Chapitre : « L'enfance chez Banû Sa'd et l'ouverture de la poitrine »).",
     ],
     bgImage:
