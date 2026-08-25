@@ -305,6 +305,7 @@ export  const siraEvents = [
     ],
     versets: null,
     sources: [
+      "<strong>Hadith :</strong> <a href='https://sunnah.com/bukhari:3829' target='_blank' class='source-link'>Ṣaḥīḥ al-Bukhārī 3829</a> et <a href='https://sunnah.com/muslim:340a' target='_blank' class='source-link'>Ṣaḥīḥ Muslim 340a</a> — Récit de Jâbir ibn 'Abdillâh sur la participation du Prophète ﷺ au transport des pierres lors de la reconstruction de la Ka'ba.",
       "<strong>Histoire :</strong> <em>Le Nectar Cacheté</em> — « La construction de la Kaaba et la question d'arbitrage » (p. 91).",
     ],
     bgImage:
