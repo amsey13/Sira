@@ -155,6 +155,14 @@
           </div>
         </div>
       </transition>
+
+      <!-- TUTORIEL JEU -->
+      <GameTutorial
+        v-if="showTutorial"
+        :isVisible="showTutorial"
+        @close="finishTutorial"
+      />
+
     </div>
   </div>
   <div v-else-if="loadState === 'loading'" class="ui-layer">
@@ -179,12 +187,13 @@
 
 <script setup>
 import { ref, computed, onMounted } from 'vue'
-import Skeleton from 'primevue/skeleton'
 import TimelineNav from './TimelineNav.vue'
 import CharacterCard from './CharacterCard.vue'
+import GameTutorial from './GameTutorial.vue'
 import { getTeacherTimeline, resolveTeacherSlugFromLocation } from '../services/siraEventsService.js'
 
 const showCodex = ref(false)
+const showTutorial = ref(false)
 const activeTab = ref('recit') // 'recit', 'persos', 'lecons', 'versets'
 
 const evenements = ref([])
@@ -206,6 +215,10 @@ const fetchEvents = async () => {
 
     activeIndex.value = 0
     loadState.value = evenements.value.length > 0 ? 'ready' : 'empty'
+
+    if (loadState.value === 'ready') {
+      checkTutorialStatus()
+    }
   } catch (error) {
     console.error('Error fetching events:', error)
     errorMessage.value = error instanceof Error ? error.message : 'Impossible de charger la timeline.'
@@ -220,6 +233,23 @@ const progressPercentage = computed(() =>
     ? '0%'
     : (activeIndex.value / (evenements.value.length - 1)) * 100 + '%',
 )
+
+/* ---- TUTORIEL LOGIC ---- */
+const checkTutorialStatus = () => {
+  const hasSeenAdmin = sessionStorage.getItem('sira_superadmin_auth')
+  const hasSeenTeacher = sessionStorage.getItem('backoffice_token')
+  const hasSeenTutorial = localStorage.getItem('sira_tutorial_seen')
+
+  // On affiche le tuto seulement s'il n'a pas été vu et qu'on n'est pas un prof/admin (optionnel)
+  if (!hasSeenTutorial) {
+    showTutorial.value = true
+  }
+}
+const finishTutorial = () => {
+  showTutorial.value = false
+  localStorage.setItem('sira_tutorial_seen', 'true')
+  if (gameContainer.value) gameContainer.value.focus()
+}
 
 const setChapter = (index) => {
   activeIndex.value = index
@@ -239,7 +269,7 @@ const prevChapter = () => {
 }
 
 const handleKeydown = (e) => {
-  if (!isTimelineReady.value) return
+  if (!isTimelineReady.value || showTutorial.value) return
 
   // Navigation
   if (e.key === 'ArrowRight') nextChapter()
@@ -566,13 +596,12 @@ const getBackgroundStyle = (bgValue) => {
 
 /* -------- AMÉLIORATION DU TEXTE (LE LECTEUR HISTORIQUE) -------- */
 .text-content {
-  font-size: 1.2rem; /* Plus grand pour lire plus facilement */
-  line-height: 1.8; /* Plus d'espace entre les lignes */
-  letter-spacing: 0.3px; /* Léger écart entre les lettres */
-  color: #f1f1f3; /* Légèrement plus blanc */
-  text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.9); /* Texte plus détâché du fond */
+  font-size: 1.2rem;
+  line-height: 1.8;
+  letter-spacing: 0.3px;
+  color: #f1f1f3;
+  text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.9);
 }
-/* on cible directement les sauts de ligne si v-html génère des br ou des p */
 :deep(.text-content br) {
   display: block;
   content: "";
@@ -586,33 +615,32 @@ const getBackgroundStyle = (bgValue) => {
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 15px; /* Écarte chaque carte de leçon */
+  gap: 15px;
 }
 .lecons-list li {
   display: flex;
-  align-items: flex-start; /* Aligne l'étoile en haut */
+  align-items: flex-start;
   gap: 15px;
   color: #e4e4e7;
   font-size: 1.15rem;
   line-height: 1.6;
-  background: rgba(0, 0, 0, 0.5); /* Plus sombre pour ressortir */
-  padding: 20px; /* Plus large */
+  background: rgba(0, 0, 0, 0.5);
+  padding: 20px;
   border-radius: 8px;
-  border-left: 4px solid #d97706; /* Bordure plus épaisse */
+  border-left: 4px solid #d97706;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 .lecon-icon {
   color: #d97706;
   font-size: 1.2rem;
-  margin-top: 5px; /* Descent l'étoile pour l'aligner au texte */
+  margin-top: 5px;
   flex-shrink: 0;
 }
-
 
 /* -------- AMÉLIORATION DES PERSONNAGES -------- */
 .persos-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Plus de place pour respirer */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 20px;
 }
 
@@ -691,12 +719,11 @@ const getBackgroundStyle = (bgValue) => {
   margin-top: 0;
 }
 
-
 /* =================== RESPONSIVE DESIGN =================== */
 
 @media (max-width: 1024px) {
   .top-hud { padding: 15px 30px; }
-  .info-panel { padding: 10px 40px 0 40px; } /* Moins écrasé sur tablette */
+  .info-panel { padding: 10px 40px 0 40px; }
   .chapter-title { font-size: 2.8rem; margin-bottom: 10px; }
 
   .codex-btn { padding: 8px 15px; font-size: 0.9rem; }
@@ -732,9 +759,8 @@ const getBackgroundStyle = (bgValue) => {
   .chapter-tabs { flex-wrap: wrap; gap: 4px; margin-bottom: 10px; }
   .chapter-tabs button { font-size: 0.7rem; padding: 6px 10px; }
 
-  /* Ajustements texte Mobile */
   .text-content {
-    font-size: 1.05rem; /* Un peu plus grand sur mobile qu'avant */
+    font-size: 1.05rem;
     line-height: 1.6;
   }
 
