@@ -605,22 +605,53 @@ export  const siraEvents = [
   {
     id: 20,
     age: '51 ans',
-    date: '621 apr. J.-C.',
+    date: '620 - 621 apr. J.-C.',
     dateH: "2 av. l'Hégire",
-    titreCourt: 'Yathrib',
-    titre: 'Les 6 hommes de Khazraj',
+    titreCourt: 'Les 6 Pionniers',
+    titre: 'Les 6 Hommes de Khazraj',
     recit:
-      "Pendant le pèlerinage à La Mecque, le Prophète ﷺ rencontre six jeunes nobles de la tribu de Khazraj venant de Yathrib. Épuisés par les conséquences de la guerre de Bu'ath, et connaissant les prophéties d'un envoyé imminent par les Juifs de leur ville, ils l'écoutent avec attention.<br><br>Ils se convertissent immédiatement en se disant : <em>'Peut-être que Dieu nous unira à nouveau grâce à lui !'</em>. Ils retournent à Yathrib comme les premiers semeurs de l'Islam.",
+      "Pendant la saison du pèlerinage à Mina (près d'Al-'Aqaba), le Prophète ﷺ aborde un groupe de six hommes de Yathrib (Médine). Après avoir appris qu'ils sont issus de la tribu des Khazraj et alliés des Juifs de Yathrib, il leur expose l'Islam et leur récite le Coran.<br><br>Épuisés par les déchirements de la guerre de Bu'âth et se rappelant que leurs voisins juifs annonçaient sans cesse la venue imminente d'un Prophète, ils se disent : <em>« Par Dieu, c’est assurément le Prophète dont les Juifs vous menacent ! Qu’ils ne vous devancent donc pas auprès de lui ! »</em><br><br>Ils embrassent l'Islam sur-le-champ et retournent à Yathrib comme les premiers ambassadeurs du message divin.",
     personnages: [
       {
-        nom: "As'ad ibn Zurara",
-        role: "L'un des six jeunes hommes qui deviendra le grand leader de la conversion de Médine.",
+        nom: "As'ad ibn Zurârah",
+        role: "Khazraj (Banû An-Najjâr) — Pionnier et artisan majeur de l'implantation de l'Islam à Yathrib.",
         initiales: 'AZ',
-        couleur: '#5a6b7d'
+        couleur: '#10b981'
+      },
+      {
+        nom: "'Awf ibn al-Hârith (Ibn 'Afrâ')",
+        role: "Khazraj (Banû An-Najjâr) — L'un des premiers croyants médinois, futur combattant de Badr.",
+        initiales: 'AH',
+        couleur: '#059669'
+      },
+      {
+        nom: "Râfi' ibn Mâlik",
+        role: "Khazraj (Banû Zurayq) — Chef de clan influent converti lors de cette première rencontre.",
+        initiales: 'RM',
+        couleur: '#047857'
+      },
+      {
+        nom: "Qutbah ibn 'Âmir",
+        role: "Khazraj (Banû Salama) — Pionnier médinois engagé dans la transmission de la foi.",
+        initiales: 'QA',
+        couleur: '#0d9488'
+      },
+      {
+        nom: "'Uqbah ibn 'Âmir",
+        role: "Khazraj (Banû Harâm / Ka'b) — Fervent compagnon de la première heure à Médine.",
+        initiales: 'UA',
+        couleur: '#0891b2'
+      },
+      {
+        nom: "Jâbir ibn 'Abdillâh ibn Ri'âb",
+        role: "Khazraj (Banû 'Ubayd) — Sixième pionnier scellant l'adhésion initiale de Yathrib.",
+        initiales: 'JR',
+        couleur: '#0284c7'
       },
     ],
     lecons: [
-      "L'espoir jaillit souvent d'endroits inattendus. Les cœurs brisés par la guerre civile de Bu'ath étaient les plus réceptifs à la paix de l'Islam.",
+      "L'espoir jaillit souvent d'endroits inattendus : les cœurs brisés par les conflits fratricides de Bu'âth étaient mûrs pour la paix de l'Islam.",
+      "La foi des 6 pionniers a suffi pour faire entrer l'Islam dans chaque foyer de Médine avant même l'Hégire.",
     ],
     versets: null,
     sources: [
