@@ -405,6 +405,7 @@ export  const siraEvents = [
     versets: "Sourate Al-Masad (111) : « Que périssent les deux mains d'Abu Lahab... »",
     sources: [
       "<strong>Hadith :</strong> <a href='https://sunnah.com/bukhari:4770' target='_blank' class='source-link'>Ṣaḥīḥ al-Bukhārī 4770</a> et <a href='https://sunnah.com/muslim:208a' target='_blank' class='source-link'>Ṣaḥīḥ Muslim 208a</a> — Proclamation publique au Mont Safa.",
+      "<strong>Hadith :</strong> <a href='https://dorar.net/hadith/search?q=صبرا+آل+ياسر+فإن+موعدكم+الجنة' target='_blank' class='source-link'>Al-Mustadrak 5646 & Musnad Ahmad (Dorar.net)</a> — Parole du Prophète ﷺ aux persécutés : <em>« Patience ô famille de Yâsir, votre rendez-vous est le Paradis »</em>.",
       "<strong>Coran :</strong> <a href='https://quran.com/26/214' target='_blank' class='source-link'>Sourate Ash-Shu'arâ (26:214)</a> et <a href='https://quran.com/111' target='_blank' class='source-link'>Sourate Al-Masad (111)</a>.",
       "<strong>Histoire :</strong> <em>Le Nectar Cacheté</em> — « Sur le mont As-Safa » (p. 112) et « Les persécutions » (p. 118).",
     ],
@@ -440,6 +441,7 @@ export  const siraEvents = [
     ],
     versets: 'Sourate Maryam (19), récitée majestueusement devant le clergé chrétien.',
     sources: [
+      "<strong>Hadith :</strong> <a href='https://dorar.net/hadith/search?q=أيها+الملك+كنا+قوما+أهل+جاهلية+نعبد+الأصنام' target='_blank' class='source-link'>Musnad Ahmad 1740 (Dorar.net)</a> — Le long témoignage d'Oumm Salama sur le plaidoyer mémorable de Ja'far ibn Abî Tâlib devant le Négus (chaîne authentique).",
       "<strong>Histoire :</strong> <em>Le Nectar Cacheté</em> — « La première émigration vers l'Abyssinie » (p. 131) et « La deuxième émigration en Abyssinie » (p. 134).",
     ],
     bgImage:
@@ -679,6 +681,7 @@ export  const siraEvents = [
     ],
     versets: null,
     sources: [
+      "<strong>Hadith :</strong> <a href='https://dorar.net/hadith/search?q=بيعة+العقبة+الثانية+كعب+بن+مالك' target='_blank' class='source-link'>Musnad Ahmad 15798 & Bayhaqî (Dorar.net)</a> — Récit direct de Ka'b ibn Mâlik sur le rassemblement nocturne et les clauses du pacte d'Aqaba (chaîne authentique).",
       "<strong>Histoire :</strong> <em>Le Nectar Cacheté</em> — « Le deuxième acte de reconnaissance d'Al-Akaba » (p. 210) et « La conclusion de la Bay'a » (p. 214).",
     ],
     bgImage:
