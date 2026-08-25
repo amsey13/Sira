@@ -859,6 +859,19 @@ const getBackgroundStyle = (bgValue) => {
 }
 
 /* -------- ONGLET SOURCES -------- */
+
+.source-link {
+  color: #38bdf8;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+.source-link:hover {
+  color: #7dd3fc;
+  text-shadow: 0 0 8px rgba(56, 189, 248, 0.6);
+}
+
 .sources-list {
   list-style: none;
   padding: 0;
