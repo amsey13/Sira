@@ -29,9 +29,8 @@ export  const siraEvents = [
     versets:
       "Sourate Al-Fîl (L'Éléphant - 105) : « N'as-tu pas vu comment ton Seigneur a agi envers les gens de l'Éléphant ? »",
     sources: [
-      "<strong>Coran :</strong> Sourate Al-Fîl (105).",
-      "<strong>Histoire :</strong> Sîra d'Ibn Hicham (Vol. 1, p. 158) ; Le Nectar Cacheté.",
-      "<strong>Hadith :</strong> Ṣaḥīḥ Muslim (Livre du Jeûne, n°1162) pour la bénédiction du Lundi.",
+      "<strong>Coran :</strong> Sourate Al-Fîl (105:1-5).",
+      "<strong>Histoire :</strong> Sîra d'Ibn Hicham (Vol. 1, p. 43-56) ; Târîkh at-Tabarî ; Le Nectar Cacheté.",
     ],
     bgImage:
       'linear-gradient(135deg, #8b4513 0%, #d2691e 50%, #cd853f 100%)',
@@ -61,8 +60,8 @@ export  const siraEvents = [
     versets:
       "Sourate Ad-Duha (Le Jour Montant - 93:6) : « Ne t'a-t-Il pas trouvé orphelin ? Alors Il t'a accueilli ! »",
     sources: [
-      "<strong>Hadith :</strong> Ṣaḥīḥ Muslim (Livre de la Foi, n°162) détaillant l'ouverture de la poitrine.",
-      "<strong>Histoire :</strong> Sîra d'Ibn Hicham (Vol. 1, p. 162).",
+      "<strong>Hadith :</strong> Ṣaḥīḥ Muslim (Livre du Jeûne, n°1162) - Interrogé sur le jeûne du lundi, le Prophète ﷺ répondit : « C'est le jour où je suis né et où j'ai reçu la révélation ».",
+      "<strong>Histoire :</strong> Sîra d'Ibn Hicham (Vol. 1, p. 158-160) ; Le Nectar Cacheté.",
     ],
     bgImage:
       'linear-gradient(135deg, #1a1a1a 0%, #2d1810 50%, #3d2817 100%)',
@@ -96,7 +95,8 @@ export  const siraEvents = [
     versets:
       "Sourate Ash-Sharh (L'Ouverture - 94:1) : « N'avons-Nous pas ouvert pour toi ta poitrine ? »",
     sources: [
-      "<strong>Histoire :</strong> Sîra d'Ibn Hicham (Vol. 1, p. 167) ; Le Nectar Cacheté.",
+      "<strong>Hadith :</strong> Ṣaḥīḥ Muslim (Livre de la Foi, n°162) - Récit d'Anas ibn Mâlik sur l'Ange Jibrîl venant ouvrir la poitrine de l'enfant auprès d'Halima As-Sa'diyya.",
+      "<strong>Histoire :</strong> Sîra d'Ibn Hicham (Vol. 1, p. 162-166).",
     ],
     bgImage:
       'linear-gradient(135deg, #6b4226 0%, #a0522d 50%, #cd9b7d 100%)',
@@ -129,7 +129,8 @@ export  const siraEvents = [
     ],
     versets: null,
     sources: [
-      "<strong>Histoire :</strong> Sîra d'Ibn Hicham (Vol. 1, p. 184) détaillant la participation de Quraysh.",
+      "<strong>Hadith :</strong> Ṣaḥīḥ Muslim (Livre des Funérailles, n°976) - Visite par le Prophète ﷺ de la tombe de sa mère à Al-Abwâ'.",
+      "<strong>Histoire :</strong> Sîra d'Ibn Hicham (Vol. 1, p. 167-168) ; Tabaqât Ibn Sa'd.",
     ],
     bgImage:
       'linear-gradient(135deg, #1c1c1c 0%, #2a1810 50%, #3d2817 100%)',
@@ -156,8 +157,7 @@ export  const siraEvents = [
     ],
     versets: null,
     sources: [
-      "<strong>Histoire :</strong> Sîra d'Ibn Hicham (Vol. 1, p. 133).",
-      "<strong>Hadith :</strong> Musnad Ahmad (confirmant qu'il préférait ce pacte aux plus grands biens).",
+      "<strong>Histoire :</strong> Sîra d'Ibn Hicham (Vol. 1, p. 178-180) ; Le Nectar Cacheté (Prise en charge par Abû Ṭâlib après la mort de 'Abd al-Muttalib).",
     ],
     bgImage:
       'linear-gradient(135deg, #4a3728 0%, #7d5a3a 50%, #a0826d 100%)',
@@ -186,8 +186,8 @@ export  const siraEvents = [
     versets:
       "Sourate Al-A'raf (7:157) : « ...le Prophète illettré qu'ils trouvent écrit chez eux dans la Thora et l'Évangile. »",
     sources: [
-      "<strong>Hadith :</strong> Jami' at-Tirmidhi (n°3620).",
-      "❗️ <strong>Avis critique :</strong> Relaté par Ibn Ishaq. Tirmidhi et Al-Albani l'ont jugé bon/authentique, mais plusieurs grands critiques (Adh-Dhahabi, etc.) l'ont classé <strong>Munkar (rejeté) ou Da'if</strong> pour anomalies dans la chaîne et le récit.",
+      "<strong>Hadith :</strong> Jâmi' at-Tirmidhî (n°3620).",
+      "❗️ <strong>Avis critique :</strong> Rapporté par Ibn Ishaq et Tirmidhi. Bien que jugé authentique par certains (dont Al-Albani), de grands critiques du Hadith (Adh-Dhahabi dans Mizan al-I'tidal, Ibn Hajar) le classent <strong>Da'îf (faible) ou Munkar</strong> en raison d'anomalies de transmission (notamment la mention de Bilal et Abu Bakr).",
     ],
     bgImage:
       'linear-gradient(135deg, #2d3e50 0%, #34495e 50%, #5d6d7b 100%)',
@@ -214,7 +214,8 @@ export  const siraEvents = [
     ],
     versets: null,
     sources: [
-      "<strong>Histoire :</strong> Sîra d'Ibn Hicham (Vol. 1, p. 189) ; Le Nectar Cacheté.",
+      "<strong>Histoire :</strong> Sîra d'Ibn Hicham (Vol. 1, p. 184-187) ; Le Nectar Cacheté.",
+      "<strong>Hadith :</strong> Musnad Ahmad (n°1567) - Le Prophète ﷺ mentionnant : « J'y ramassais les flèches pour mes oncles ».",
     ],
     bgImage:
       'linear-gradient(135deg, #5a3b2d 0%, #8b5a2b 50%, #cd853f 100%)',
@@ -241,8 +242,8 @@ export  const siraEvents = [
     ],
     versets: null,
     sources: [
-      "<strong>Hadith :</strong> Musnad Ahmad.",
-      "<strong>Histoire :</strong> Sîra d'Ibn Hicham (Vol. 1, p. 192).",
+      "<strong>Hadith :</strong> Musnad Ahmad (n°1655), Sunan Al-Bayhaqî (Vol. 6, p. 367) - Le Prophète ﷺ déclare : « J'ai assisté dans la maison d'Ibn Jud'an à un pacte... si on m'y appelait en Islam, j'y répondrais favorablement ».",
+      "<strong>Histoire :</strong> Sîra d'Ibn Hicham (Vol. 1, p. 133-135).",
     ],
     bgImage:
       'linear-gradient(135deg, #6b4226 0%, #a0522d 50%, #d4a76a 100%)',
@@ -275,7 +276,8 @@ export  const siraEvents = [
     ],
     versets: null,
     sources: [
-      "<strong>Hadith :</strong> Ṣaḥīḥ al-Bukhārī (Livre du début de la Révélation, n°3) - Rapport de 'Aisha sur Hira.",
+      "<strong>Hadith :</strong> Ṣaḥīḥ al-Bukhārī (Livre des Mérites des Compagnons, n°3815) sur l'éloge et la fidélité éternelle du Prophète ﷺ envers Khadija.",
+      "<strong>Histoire :</strong> Sîra d'Ibn Hicham (Vol. 1, p. 187-191) ; Le Nectar Cacheté.",
     ],
     bgImage:
       'linear-gradient(135deg, #8b6914 0%, #cd9b1d 50%, #ffd700 100%)',
@@ -302,7 +304,8 @@ export  const siraEvents = [
     ],
     versets: null,
     sources: [
-      "<strong>Hadith :</strong> Ṣaḥīḥ al-Bukhārī (Livre de la Révélation, n°4 et n°4922) rapporté par Jabir...",
+      "<strong>Hadith :</strong> Musnad Ahmad (n°15504) détaillant la querelle des clans de Quraysh et l'arbitrage pacifique de la Pierre Noire.",
+      "<strong>Histoire :</strong> Sîra d'Ibn Hicham (Vol. 1, p. 192-197) ; Le Nectar Cacheté.",
     ],
     bgImage:
       'linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)',
@@ -329,8 +332,8 @@ export  const siraEvents = [
     ],
     versets: 'Sourate Al-Alaq (96:1-5) : « Lis, au nom de ton Seigneur qui a créé... »',
     sources: [
-      "<strong>Hadith :</strong> Ṣaḥīḥ al-Bukhārī (Livre des Compagnons, sur les mérites de Khadija et Abu Bakr).",
-      "<strong>Histoire :</strong> Sîra d'Ibn Hicham.",
+      "<strong>Hadith :</strong> Ṣaḥīḥ al-Bukhārī (Livre du début de la Révélation, n°3) et Ṣaḥīḥ Muslim (n°160) - Le célèbre récit de 'Â'icha sur la retraite à Hira et la visite chez Waraqa ibn Nawfal.",
+      "<strong>Coran :</strong> Sourate Al-'Alaq (96:1-5).",
     ],
     bgImage:
       'linear-gradient(135deg, #2a2d5f 0%, #4a3f83 50%, #6a5acd 100%)',
@@ -364,7 +367,8 @@ export  const siraEvents = [
     versets:
       "Sourate Al-Muddathir (74:1-2) : « Ô toi, le revêtu d'un manteau ! Lève-toi et avertis ! »",
     sources: [
-      "<strong>Histoire :</strong> Sîra d'Ibn Hicham (Vol. 1, p. 254) ; Le Nectar Cacheté (Da'wa).",
+      "<strong>Coran :</strong> Sourate Al-Muddaththir (74:1-7) marquant le commandement divin d'avertir.",
+      "<strong>Histoire :</strong> Sîra d'Ibn Hicham (Vol. 1, p. 254-263) ; Le Nectar Cacheté (Phase de la prédication sélective).",
     ],
     bgImage:
       'linear-gradient(135deg, #1a1a1a 0%, #2f2f2f 50%, #3d3d3d 100%)',
@@ -397,8 +401,9 @@ export  const siraEvents = [
     ],
     versets: "Sourate Al-Masad (111) : « Que périssent les deux mains d'Abu Lahab... »",
     sources: [
-      "<strong>Hadith :</strong> Ṣaḥīḥ al-Bukhārī (Tafsir, n°4770).",
-      "<strong>Histoire :</strong> Sîra Ibn Hicham pour les détails des oppressions.",
+      "<strong>Hadith :</strong> Ṣaḥīḥ al-Bukhārī (Tafsîr, n°4770 et 4971) - L'appel au Mont Safa et l'invective d'Abû Lahab.",
+      "<strong>Hadith :</strong> Ṣaḥīḥ Ibn Hibban (n°6580), Al-Mustadrak d'Al-Hakim - L'épreuve de la famille de Yâsir (« Patience ô famille de Yâsir, votre rendez-vous est le Paradis »).",
+      "<strong>Coran :</strong> Sourate Ash-Shu'arâ (26:214) et Sourate Al-Masad (111).",
     ],
     bgImage:
       'linear-gradient(135deg, #4a1a1a 0%, #8b3a3a 50%, #cd5c5c 100%)',
@@ -432,8 +437,8 @@ export  const siraEvents = [
     ],
     versets: 'Sourate Maryam (19), récitée majestueusement devant le clergé chrétien.',
     sources: [
-      "<strong>Histoire :</strong> Sîra d'Ibn Hicham ; Fada'il as-Sahaba (Ibn Hanbal).",
-      "<strong>Notes :</strong> Certains détails (récit de Ta-Ha) ont des chaînes discutées, mais acceptées en historiographie.",
+      "<strong>Hadith :</strong> Musnad Ahmad (n°1740) - Le long témoignage authentique d'Oumm Salama sur le plaidoyer de Ja'far ibn Abî Tâlib devant le Négus.",
+      "<strong>Histoire :</strong> Sîra d'Ibn Hicham (Vol. 1, p. 321-340) ; Le Nectar Cacheté.",
     ],
     bgImage:
       'linear-gradient(135deg, #3d5a54 0%, #5a8b7d 50%, #7d9b8a 100%)',
@@ -460,8 +465,8 @@ export  const siraEvents = [
     ],
     versets: null,
     sources: [
-      "<strong>Hadith :</strong> Musnad Ahmad (Récit d'Oum Salama, chaîne authentifiée).",
-      "<strong>Histoire :</strong> Sîra d'Ibn Hicham.",
+      "<strong>Histoire :</strong> Sîra d'Ibn Hicham (Vol. 1, p. 350-377) détaillant le blocus contre Banû Hâshim et Banû al-Muttalib, et les 5 notables ayant déchiré le pacte.",
+      "<strong>Histoire :</strong> Le Nectar Cacheté (Ar-Raheeq Al-Makhtum).",
     ],
     bgImage:
       'linear-gradient(135deg, #3a2a1a 0%, #5a3a2a 50%, #7a5a4a 100%)',
@@ -488,8 +493,8 @@ export  const siraEvents = [
     ],
     versets: null,
     sources: [
-      "<strong>Hadith :</strong> Allusion dans Ṣaḥīḥ al-Bukhārī (n°1590).",
-      "<strong>Histoire :</strong> Sîra d'Ibn Hicham.",
+      "<strong>Hadith :</strong> Ṣaḥīḥ al-Bukhārī (Livre des Mérites des Ansars, n°3777) - Témoignage de 'Â'icha : « Le jour de Bu'ath fut un jour qu'Allah a préparé pour Son Messager ﷺ... ».",
+      "<strong>Histoire :</strong> Târîkh at-Tabarî ; Al-Bidâya wan-Nihâya d'Ibn Kathir.",
     ],
     bgImage:
       'linear-gradient(135deg, #5a2a1a 0%, #8b4513 50%, #a0522d 100%)',
@@ -516,8 +521,8 @@ export  const siraEvents = [
     ],
     versets: null,
     sources: [
-      "<strong>Hadith :</strong> Ṣaḥīḥ al-Bukhārī (n°1360) (Mort d'Abu Talib).",
-      "<strong>Histoire :</strong> Sîra d'Ibn Hicham.",
+      "<strong>Hadith :</strong> Ṣaḥīḥ al-Bukhārī (Livre des Funérailles, n°1360) - Récit des derniers instants d'Abû Ṭâlib refusant d'attester de l'Unicité divine.",
+      "<strong>Histoire :</strong> Sîra d'Ibn Hicham (Vol. 1, p. 416-419) ; Le Nectar Cacheté.",
     ],
     bgImage:
       'linear-gradient(135deg, #1a0a0a 0%, #3a1a1a 50%, #5a2a2a 100%)',
@@ -551,7 +556,8 @@ export  const siraEvents = [
     ],
     versets: 'Sourate Al-Ahqaf (46:29) : Révélation sur la conversion des Djinns à Nakhla.',
     sources: [
-      "<strong>Hadith :</strong> Ṣaḥīḥ al-Bukhārī (Début de la Création, n°3231) ('Aisha l'interrogeant sur Ta'if).",
+      "<strong>Hadith :</strong> Ṣaḥīḥ al-Bukhārī (Début de la Création, n°3231) et Ṣaḥīḥ Muslim (n°1795) - Dialogue entre 'Â'icha et le Prophète ﷺ sur la dureté de Ta'if et l'Ange des montagnes.",
+      "<strong>Coran :</strong> Sourate Al-Ahqâf (46:29-32) sur la foi des Djinns à Nakhla.",
     ],
     bgImage:
       'linear-gradient(135deg, #6b4226 0%, #a0522d 50%, #d4a574 100%)',
@@ -579,8 +585,8 @@ export  const siraEvents = [
     versets:
       'Sourate Al-Isra (17:1) : « Gloire à Celui qui de nuit, fit voyager Son serviteur de la Mosquée Sacrée à la Mosquée Al-Aqsa... »',
     sources: [
-      "<strong>Hadith :</strong> Ṣaḥīḥ al-Bukhārī (n°3887) et Ṣaḥīḥ Muslim (n°162).",
-      "<strong>Coran :</strong> 17:1 et 53:13-18.",
+      "<strong>Hadith :</strong> Ṣaḥīḥ al-Bukhārī (n°3207, 3887) et Ṣaḥīḥ Muslim (n°162 et 164) - Récits de Mâlik ibn Sa'sa'a et Anas ibn Mâlik sur l'Ascension et la prescription des 5 prières.",
+      "<strong>Coran :</strong> Sourate Al-Isrâ' (17:1) et Sourate An-Najm (53:1-18).",
     ],
     bgImage:
       'linear-gradient(135deg, #0a0e27 0%, #1a2859 50%, #2d5a8c 100%)',
@@ -607,7 +613,8 @@ export  const siraEvents = [
     ],
     versets: null,
     sources: [
-      "<strong>Histoire :</strong> Sîra d'Ibn Hicham ; Le Nectar Cacheté.",
+      "<strong>Histoire :</strong> Sîra d'Ibn Hicham (Vol. 1, p. 428-431) - Rencontre à 'Aqaba pendant le pèlerinage avec As'ad ibn Zurâra et les 6 pionniers de Khazraj.",
+      "<strong>Histoire :</strong> Le Nectar Cacheté.",
     ],
     bgImage:
       'linear-gradient(135deg, #3d5a4a 0%, #5a8b7d 50%, #7dab9d 100%)',
@@ -641,7 +648,8 @@ export  const siraEvents = [
     versets:
       'Sourate Al-Mumtahanah (60:12) : Verset reprenant les mêmes clauses éthiques que ce serment.',
     sources: [
-      "<strong>Hadith :</strong> Ṣaḥīḥ al-Bukhārī (Livre de la Foi, n°18) (Récit de 'Ubada).",
+      "<strong>Hadith :</strong> Ṣaḥīḥ al-Bukhārī (Livre de la Foi, n°18) et Ṣaḥīḥ Muslim (n°1709) - Récit de 'Ubâda ibn as-Sâmit sur le serment d'allégeance et ses clauses morales.",
+      "<strong>Coran :</strong> Sourate Al-Mumtahanah (60:12).",
     ],
     bgImage:
       'linear-gradient(135deg, #6b4226 0%, #a0522d 50%, #d4a574 100%)',
@@ -668,8 +676,8 @@ export  const siraEvents = [
     ],
     versets: null,
     sources: [
-      "<strong>Hadith :</strong> Musnad Ahmad (Récit de Ka'b ibn Malik).",
-      "<strong>Histoire :</strong> Sîra d'Ibn Hicham.",
+      "<strong>Hadith :</strong> Musnad Ahmad (n°15798), Sunan Al-Bayhaqî (Vol. 9, p. 9) - Le récit authentique de Ka'b ibn Mâlik (témoin direct) sur le rassemblement nocturne à 'Aqaba.",
+      "<strong>Histoire :</strong> Sîra d'Ibn Hicham (Vol. 1, p. 438-450) ; Le Nectar Cacheté.",
     ],
     bgImage:
       'linear-gradient(135deg, #3a2a1a 0%, #5a3a2a 50%, #7a5a4a 100%)',
@@ -715,8 +723,8 @@ export  const siraEvents = [
     versets:
       "Sourate At-Tawbah (9:40) : « Si vous ne lui portez pas secours... Allah l'a déjà secouru... »",
     sources: [
-      "<strong>Hadith :</strong> Ṣaḥīḥ al-Bukhārī (Mérites des Emigrés, n°3905) (Voyage de la grotte).",
-      "<strong>Histoire :</strong> Sîra d'Ibn Hicham.",
+      "<strong>Hadith :</strong> Ṣaḥīḥ al-Bukhārī (Mérites des Émigrés, n°3905) - Le long récit de 'Â'icha détaillant les préparatifs, les 3 jours dans la grotte de Thawr et le chemin vers Yathrib.",
+      "<strong>Coran :</strong> Sourate At-Tawbah (9:40).",
     ],
     bgImage:
       'linear-gradient(135deg, #0d1b2a 0%, #1b2d3d 50%, #2d4559 100%)',
