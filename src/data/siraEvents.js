@@ -441,7 +441,7 @@ export  const siraEvents = [
     ],
     versets: 'Sourate Maryam (19), récitée majestueusement devant le clergé chrétien.',
     sources: [
-      "<strong>Hadith :</strong> <a href='https://dorar.net/hadith/search?q=أيها+الملك+كنا+قوما+أهل+جاهلية+نعبد+الأصنام' target='_blank' class='source-link'>Musnad Ahmad 1740 (Dorar.net)</a> — Le long témoignage d'Oumm Salama sur le plaidoyer mémorable de Ja'far ibn Abî Tâlib devant le Négus (chaîne authentique).",
+      "<strong>Hadith :</strong> <a href='https://hadithunlocked.com/ahmad:1740' target='_blank' class='source-link'>Musnad Ahmad 1740 (HadithUnlocked)</a> — Le long témoignage d'Oumm Salama sur le plaidoyer mémorable de Ja'far ibn Abî Tâlib devant le Négus (chaîne authentique).",
       "<strong>Histoire :</strong> <em>Le Nectar Cacheté</em> — « La première émigration vers l'Abyssinie » (p. 131) et « La deuxième émigration en Abyssinie » (p. 134).",
     ],
     bgImage:
@@ -681,7 +681,7 @@ export  const siraEvents = [
     ],
     versets: null,
     sources: [
-      "<strong>Hadith :</strong> <a href='https://dorar.net/hadith/search?q=بيعة+العقبة+الثانية+كعب+بن+مالك' target='_blank' class='source-link'>Musnad Ahmad 15798 & Bayhaqî (Dorar.net)</a> — Récit direct de Ka'b ibn Mâlik sur le rassemblement nocturne et les clauses du pacte d'Aqaba (chaîne authentique).",
+      "<strong>Hadith :</strong> <a href='https://hadithunlocked.com/ahmad:14456' target='_blank' class='source-link'>Musnad Ahmad 14456 (HadithUnlocked)</a> — Récit direct de Ka'b ibn Mâlik sur le rassemblement nocturne et les clauses du pacte d'Aqaba (chaîne authentique).",
       "<strong>Histoire :</strong> <em>Le Nectar Cacheté</em> — « Le deuxième acte de reconnaissance d'Al-Akaba » (p. 210) et « La conclusion de la Bay'a » (p. 214).",
     ],
     bgImage:
