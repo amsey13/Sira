@@ -911,5 +911,63 @@ const getBackgroundStyle = (bgValue) => {
   color: #f3f4f6;
 }
 
+
+:deep(.strategic-box) {
+  margin: 1.2rem 0;
+  padding: 1.1rem 1.25rem;
+  background: linear-gradient(145deg, rgba(20, 30, 25, 0.75), rgba(15, 23, 42, 0.85));
+  border: 1px solid rgba(52, 211, 153, 0.25);
+  border-left: 4px solid #10b981;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+:deep(.strategic-header) {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-bottom: 0.85rem;
+  font-size: 0.96rem;
+  color: #34d399;
+  flex-wrap: wrap;
+}
+
+:deep(.strategic-badge) {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.2rem 0.55rem;
+  border-radius: 4px;
+  background: rgba(16, 185, 129, 0.2);
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  color: #6ee7b7;
+}
+
+:deep(.strategic-list) {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+:deep(.strategic-list li) {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: #e2e8f0;
+}
+
+:deep(.strategic-bullet) {
+  font-size: 1.1rem;
+  line-height: 1.3;
+  flex-shrink: 0;
+}
+
 </style>
 

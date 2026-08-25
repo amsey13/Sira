@@ -349,8 +349,14 @@ export  const siraEvents = [
     titreCourt: 'Appel Sélectif',
     titre: 'La Maison de Dar Al Arqam',
     recit:
-      "Pendant trois ans, l'appel à l'Islam se fait de manière <strong>sélective</strong> (Da'wa privée). En effet, l'appel n'était pas totalement secret au sens strict, car Quraysh savait que l'Islam existait, mais il n'était pas encore public et frontal pour ne pas menacer directement leurs intérêts.<br><br>L'objectif est de bâtir un noyau dur et éduqué. Les premiers musulmans (environ 60 personnes) se réunissent discrètement dans la maison d'Al Arqam, située près du mont Safa, pour prier et apprendre le Coran.",
+      "Au cours des premières années de la mission prophétique, l'appel à l'Islam se fait de manière <strong>sélective et méthodique</strong> (Da'wa privée) afin de forger le premier cercle des croyants.<br><br>Face à la vigilance et à l'hostilité naissante des Quraysh, le Prophète ﷺ devait trouver un sanctuaire discret pour enseigner le Coran, prier et guider le groupe naissant (environ 60 personnes). Il ﷺ porte son choix sur la demeure du jeune <strong>Al-Arqam ibn Abî Al-Arqam</strong>.<br><br><div class='strategic-box'><div class='strategic-header'><span class='strategic-badge'>Génie Tactique</span><strong>Le Contexte Stratégique du choix de Dâr Al-Arqam :</strong></div><ul class='strategic-list'><li><span class='strategic-bullet'>🛡️</span><div><strong>La tribu rivale :</strong> Al-Arqam appartenait aux <em>Banû Makhzûm</em>, le clan d'Abû Jahl et rival historique des Banû Hâshim. Jamais l'oligarchie mecquoise n'aurait soupçonné le Prophète ﷺ d'installer le centre névralgique de l'Islam au cœur du territoire de son pire adversaire.</div></li><li><span class='strategic-bullet'>👤</span><div><strong>Le profil du propriétaire :</strong> Al-Arqam n'avait qu'environ 16 ans. Les espions de Quraysh surveillaient de près les demeures des doyens influents et fortunés (comme Abû Bakr), mais ne prêtaient aucune attention à un adolescent.</div></li><li><span class='strategic-bullet'>📍</span><div><strong>L'emplacement géographique :</strong> Érigée au pied du mont Safâ, en plein carrefour public très fréquenté, la maison permettait aux Compagnons d'entrer et sortir discrètement en se fondant naturellement dans le flux continu des passants et des pèlerins.</div></li></ul></div>",
     personnages: [
+      {
+        nom: 'Al-Arqam ibn Abi Al-Arqam',
+        role: 'Jeune noble de 16 ans (Banu Makhzûm). Sa maison devient le berceau secret et la première école de l\'Islam.',
+        initiales: 'AR',
+        couleur: '#8b5a3c'
+      },
       {
         nom: 'Abu Bakr as-Siddiq',
         role: "Le premier homme adulte à embrasser l'Islam, il convertira la crème des futurs compagnons.",
