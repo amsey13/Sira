@@ -87,7 +87,7 @@
                     <ul class="lecons-list">
                       <li v-for="(lecon, i) in activeEvent.lecons" :key="i">
                         <i class="pi pi-star-fill lecon-icon"></i>
-                        <span>{{ lecon }}</span>
+                        <span v-html="lecon"></span>
                       </li>
                     </ul>
                   </div>
@@ -152,11 +152,46 @@
                 Ka'ba).
               </p>
             </div>
+            <div class="codex-section">
+              <h3>Hiérarchie et Protection (Wala / Jiwar)</h3>
+              <p>
+                La société arabe préislamique repose sur la protection. Au sommet, les nobles de <strong>Quraysh</strong>. 
+                Puis viennent les <strong>étrangers bénéficiant d'une protection contractuelle</strong> (les confédérés, ou <em>Hulafâ'</em>), 
+                qui permettait par exemple à des étrangers comme Yâsir (le père de 'Ammar) de s'installer.
+                <br><br>
+                Tout en bas se trouvent les <strong>esclaves</strong>. Même après avoir été affranchis, ces derniers 
+                devaient rester sous la tutelle religieuse et politique (<em>Wala'</em>) de leurs anciens maîtres pour survivre. 
+                C'est pourquoi Sumayya, la mère de 'Ammar, resta à la merci d'Abu Jahl. C'est sur ces classes sans grande tribu pour les venger 
+                que se sont abattues les pires tortures.
+              </p>
+            </div>
+          </div>
+        </div>
+      </transition>
+
+
+      <!-- ALERT BAHIRA (ID 6) - CUSTOM UI -->
+      <transition name="fade">
+        <div v-if="showBahiraWarning" class="ui-layer" style="display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.8); z-index: 50; padding: 20px;" @click="showBahiraWarning = false">
+          <div class="state-card" style="position: relative; max-width: 600px; padding: 40px; border-color: rgba(239, 68, 68, 0.4);" @click.stop>
+            <span class="state-icon" style="background: rgba(239, 68, 68, 0.15); color: #ef4444; margin-bottom: 24px; width: 72px; height: 72px; font-size: 2rem;">
+              <i class="pi pi-exclamation-triangle"></i>
+            </span>
+            <h2 style="color: #ef4444; font-size: 1.4rem; letter-spacing: 2px; margin-bottom: 20px;">AVERTISSEMENT</h2>
+            <p style="font-size: 1.15rem; text-align: justify; color: #f1f1f3; line-height: 1.8;">
+              Bien que l'histoire du moine <strong>Baḥîrâ</strong> soit très célèbre dans la Sîra, son authenticité absolue
+              ainsi que certains de ses détails sont jugés <strong>faibles ou rejetés</strong>
+              par de nombreux grands savants du Hadith.
+            </p>
+            <button class="codex-btn" style="margin-top: 20px; background: rgba(239, 68, 68, 0.2); color: #ef4444; border-color: #ef4444; width: 100%; font-size: 1rem; padding: 12px; letter-spacing: 2px;" @click="showBahiraWarning = false">
+              <i class="pi pi-check"></i> J'AI COMPRIS
+            </button>
           </div>
         </div>
       </transition>
 
       <!-- TUTORIEL JEU -->
+
       <GameTutorial
         v-if="showTutorial"
         :isVisible="showTutorial"
@@ -186,7 +221,7 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted } from 'vue'
+import { ref, computed, onMounted, watch } from 'vue'
 import TimelineNav from './TimelineNav.vue'
 import CharacterCard from './CharacterCard.vue'
 import GameTutorial from './GameTutorial.vue'
@@ -277,6 +312,23 @@ const handleKeydown = (e) => {
   // Menu Codex
   if (e.key === 'Escape') showCodex.value = false
 }
+
+
+const showBahiraWarning = ref(false)
+let bahiraTimeout = null
+
+watch(activeEvent, (newVal) => {
+  if (newVal && newVal.titreCourt === 'Bahira') {
+    showBahiraWarning.value = true
+    if (bahiraTimeout) clearTimeout(bahiraTimeout)
+    bahiraTimeout = setTimeout(() => {
+      showBahiraWarning.value = false
+    }, 4500) // 5 secondes
+  } else {
+    showBahiraWarning.value = false
+    if (bahiraTimeout) clearTimeout(bahiraTimeout)
+  }
+})
 
 const gameContainer = ref(null)
 onMounted(() => {
