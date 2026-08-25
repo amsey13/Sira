@@ -60,7 +60,7 @@ export  const siraEvents = [
     versets:
       "Sourate Ad-Duha (Le Jour Montant - 93:6) : « Ne t'a-t-Il pas trouvé orphelin ? Alors Il t'a accueilli ! »",
     sources: [
-      "<strong>Hadith :</strong> <a href='https://sunnah.com/muslim:1162a' target='_blank' class='source-link'>Ṣaḥīḥ Muslim 1162a</a> — Interrogé sur le jeûne du lundi, le Prophète ﷺ répondit : <em>« C'est le jour où je suis né, et le jour où la révélation est descendue sur moi »</em>.",
+      "<strong>Hadith :</strong> <a href='https://sunnah.com/muslim:1162e' target='_blank' class='source-link'>Ṣaḥīḥ Muslim 1162e</a> — Interrogé sur le jeûne du lundi, le Prophète ﷺ répondit : <em>« C'est le jour où je suis né, et le jour où la révélation est descendue sur moi »</em>.",
       "<strong>Histoire :</strong> Sîra d'Ibn Hicham (Tome 1, p. 158) ; Le Nectar Cacheté.",
     ],
     bgImage:
