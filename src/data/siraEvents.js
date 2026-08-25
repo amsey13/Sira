@@ -243,7 +243,7 @@ export  const siraEvents = [
     ],
     versets: null,
     sources: [
-      "<strong>Hadith :</strong> Musnad Ahmad (n°1655, Éd. Ar-Risâla / Musnad 'Abd ar-Rahman ibn 'Awf) & <em>As-Silsila aṣ-Ṣaḥīḥah</em> d'Al-Albani (n°1900) — <em>« J'ai assisté dans la maison d'Ibn Jud'ân à un pacte... si on m'y appelait en Islam, j'y répondrais »</em>.",
+      "<strong>Hadith :</strong> <a href='https://sunnah.com/adab:567' target='_blank' class='source-link'>Al-Adab Al-Mufrad 567 (Al-Bukhârî)</a> & <a href='https://dorar.net/hadith/search?q=شهدت+حلف+المطيبين+مع+عمومتي' target='_blank' class='source-link'>Musnad Ahmad 1655 (Dorar.net)</a> — <em>« J'ai assisté avec mes oncles au pacte... je ne romprais cet engagement pour rien au monde »</em>.",
       "<strong>Histoire :</strong> <em>Le Nectar Cacheté</em> — « Le pacte de Foudoul » (p. 88).",
     ],
     bgImage:
@@ -305,7 +305,7 @@ export  const siraEvents = [
     ],
     versets: null,
     sources: [
-      "<strong>Hadith :</strong> <em>Musnad Ahmad</em> (n°15504) et <em>Majma' az-Zawâ'id</em> (3/285) — Récit de la dispute des clans et l'arbitrage pacifique de la Pierre Noire.",
+      "<strong>Hadith :</strong> <a href='https://dorar.net/hadith/search?q=فوضعه+في+ثوب+ثم+قال+لتأخذ+كل+قبيلة+بناحية' target='_blank' class='source-link'>Musnad Ahmad 15504 (Dorar.net)</a> — Récit de la dispute des clans et l'arbitrage pacifique de la Pierre Noire.",
       "<strong>Histoire :</strong> <em>Le Nectar Cacheté</em> — « La construction de la Kaaba et la question d'arbitrage » (p. 91).",
     ],
     bgImage:
@@ -405,7 +405,7 @@ export  const siraEvents = [
     versets: "Sourate Al-Masad (111) : « Que périssent les deux mains d'Abu Lahab... »",
     sources: [
       "<strong>Hadith :</strong> <a href='https://sunnah.com/bukhari:4770' target='_blank' class='source-link'>Ṣaḥīḥ al-Bukhārī 4770</a> et <a href='https://sunnah.com/muslim:208a' target='_blank' class='source-link'>Ṣaḥīḥ Muslim 208a</a> — Proclamation publique au Mont Safa.",
-      "<strong>Hadith :</strong> <em>Al-Mustadrak d'Al-Hâkim</em> (n°5646, authentifié selon Muslim) — <em>« Patience ô famille de Yâsir, votre rendez-vous est le Paradis »</em>.",
+      "<strong>Hadith :</strong> <a href='https://dorar.net/hadith/search?q=صبرا+آل+ياسر+فإن+موعدكم+الجنة' target='_blank' class='source-link'>Al-Mustadrak 5646 & Musnad Ahmad (Dorar.net)</a> — <em>« Patience ô famille de Yâsir, votre rendez-vous est le Paradis »</em>.",
       "<strong>Coran :</strong> <a href='https://quran.com/26/214' target='_blank' class='source-link'>Sourate Ash-Shu'arâ (26:214)</a> et <a href='https://quran.com/111' target='_blank' class='source-link'>Sourate Al-Masad (111)</a>.",
       "<strong>Histoire :</strong> <em>Le Nectar Cacheté</em> — « Sur le mont As-Safa » (p. 112) et « Les persécutions » (p. 118).",
     ],
@@ -441,7 +441,7 @@ export  const siraEvents = [
     ],
     versets: 'Sourate Maryam (19), récitée majestueusement devant le clergé chrétien.',
     sources: [
-      "<strong>Hadith :</strong> <em>Musnad Ahmad</em> (n°1740, chaîne authentique) — Le long témoignage d'Oumm Salama sur le plaidoyer de Ja'far ibn Abî Tâlib devant le Négus.",
+      "<strong>Hadith :</strong> <a href='https://dorar.net/hadith/search?q=أيها+الملك+كنا+قوما+أهل+جاهلية+نعبد+الأصنام' target='_blank' class='source-link'>Musnad Ahmad 1740 (Dorar.net)</a> — Le long témoignage d'Oumm Salama sur le plaidoyer de Ja'far ibn Abî Tâlib devant le Négus.",
       "<strong>Histoire :</strong> <em>Le Nectar Cacheté</em> — « La première émigration vers l'Abyssinie » (p. 131) et « La deuxième émigration en Abyssinie » (p. 134).",
     ],
     bgImage:
@@ -681,7 +681,7 @@ export  const siraEvents = [
     ],
     versets: null,
     sources: [
-      "<strong>Hadith :</strong> <em>Musnad Ahmad</em> (n°15798, chaîne authentique), <em>Sunan al-Kubrâ d'Al-Bayhaqî</em> (Vol. 9, p. 9) — Récit direct de Ka'b ibn Mâlik sur la nuit d'Aqaba.",
+      "<strong>Hadith :</strong> <a href='https://dorar.net/hadith/search?q=بيعة+العقبة+الثانية+كعب+بن+مالك' target='_blank' class='source-link'>Musnad Ahmad 15798 & Bayhaqî (Dorar.net)</a> — Récit direct de Ka'b ibn Mâlik sur la nuit d'Aqaba.",
       "<strong>Histoire :</strong> <em>Le Nectar Cacheté</em> — « Le deuxième acte de reconnaissance d'Al-Akaba » (p. 210) et « La conclusion de la Bay'a » (p. 214).",
     ],
     bgImage:
