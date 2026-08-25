@@ -243,7 +243,8 @@ export  const siraEvents = [
     ],
     versets: null,
     sources: [
-      "<strong>Hadith :</strong> Musnad Ahmad (n°1655 / 1673), Sunan al-Kubrâ d'Al-Bayhaqî (Vol. 6, p. 367) — Le Prophète ﷺ déclare : <em>« J'ai assisté dans la maison d'Ibn Jud'ân à un pacte... si on m'y appelait en Islam, j'y répondrais favorablement »</em> (Authentifié par Ahmad Shakir et Al-Albani).",
+      "<strong>Hadith :</strong> <em>As-Silsila aṣ-Ṣaḥīḥah</em> d'Al-Albani (Hadith n°1900) & <em>Sunan al-Kubrâ</em> d'Al-Bayhaqî (Vol. 6, p. 367) — Le Prophète ﷺ déclare : <em>« J'ai assisté dans la maison d'Ibn Jud'ân à un pacte... si on m'y appelait en Islam, j'y répondrais favorablement »</em>.",
+      "<strong>Hadith (Musnad Ahmad) :</strong> Hadith n°1655 (Éd. Ar-Risâla / Musnad 'Abd ar-Rahmân ibn 'Awf) : <em>« J'ai assisté avec mes oncles au pacte... je ne romprais cet engagement pour rien au monde »</em>.",
       "<strong>Histoire :</strong> Sîra d'Ibn Hicham (Tome 1, p. 133).",
     ],
     bgImage:
